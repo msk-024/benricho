@@ -1,0 +1,79 @@
+import { useRef, useState } from "react";
+import type { DragEvent, ChangeEvent, ReactElement } from "react";
+
+interface FileDropProps {
+  /** input の accept 属性(例: "image/png,image/jpeg") */
+  accept: string;
+  multiple?: boolean;
+  disabled?: boolean;
+  description: string;
+  onFiles: (files: File[]) => void;
+}
+
+/**
+ * 「ドラッグ&ドロップ or クリックで選択」の共通ファイル入力コンポーネント。
+ *
+ * @postcondition ファイルが 1 件以上選択されたときのみ onFiles を呼ぶ
+ */
+export function FileDrop({
+  accept,
+  multiple = false,
+  disabled = false,
+  description,
+  onFiles,
+}: FileDropProps): ReactElement {
+  const [isDragOver, setIsDragOver] = useState(false);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const emitFiles = (fileList: FileList | null): void => {
+    if (fileList === null || fileList.length === 0) return;
+    onFiles(Array.from(fileList));
+  };
+
+  const handleDrop = (event: DragEvent<HTMLButtonElement>): void => {
+    event.preventDefault();
+    setIsDragOver(false);
+    if (disabled) return;
+    emitFiles(event.dataTransfer.files);
+  };
+
+  const handleInputChange = (event: ChangeEvent<HTMLInputElement>): void => {
+    emitFiles(event.target.files);
+    // 同じファイルを選び直しても change が発火するようにリセットする
+    event.target.value = "";
+  };
+
+  return (
+    <>
+      <button
+        type="button"
+        disabled={disabled}
+        onClick={() => inputRef.current?.click()}
+        onDragOver={(event) => {
+          event.preventDefault();
+          if (!disabled) setIsDragOver(true);
+        }}
+        onDragLeave={() => setIsDragOver(false)}
+        onDrop={handleDrop}
+        className={`w-full rounded-xl border-2 border-dashed p-8 text-center transition-colors ${
+          isDragOver
+            ? "border-sky-500 bg-sky-50"
+            : "border-slate-300 bg-white hover:border-sky-400 hover:bg-slate-50"
+        } ${disabled ? "cursor-not-allowed opacity-50" : "cursor-pointer"}`}
+      >
+        <p className="text-sm font-medium text-slate-700">
+          ファイルをドラッグ&ドロップ、またはクリックして選択
+        </p>
+        <p className="mt-1 text-xs text-slate-500">{description}</p>
+      </button>
+      <input
+        ref={inputRef}
+        type="file"
+        accept={accept}
+        multiple={multiple}
+        onChange={handleInputChange}
+        className="hidden"
+      />
+    </>
+  );
+}
