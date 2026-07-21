@@ -57,6 +57,12 @@ describe("全角半角変換", () => {
     expect(kanaToHalfWidth("あいう漢字")).toBe("あいう漢字");
     expect(kanaToFullWidth("あいう漢字")).toBe("あいう漢字");
   });
+
+  it("NFD正規化された結合文字(濁点)も合成してから半角変換する", () => {
+    // "ガ" = カ(U+30AB) + 結合濁点(U+3099)。NFCで ガ(U+30AC) に合成される
+    const nfdGa = "ガ";
+    expect(kanaToHalfWidth(nfdGa)).toBe("ｶﾞ");
+  });
 });
 
 describe("normalizeText", () => {

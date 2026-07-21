@@ -1,5 +1,7 @@
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import type { ReactElement } from "react";
+import { ErrorBoundary } from "./components/ErrorBoundary";
+import { ToolStatus } from "./components/ToolStatus";
 import {
   TOOL_CATEGORIES,
   TOOL_DEFINITIONS,
@@ -110,7 +112,19 @@ function App(): ReactElement {
             すべての処理はブラウザ内で完結し、ファイルが外部に送信されることはありません
           </p>
         </header>
-        <ActiveTool key={selectedTool.id} />
+        <ErrorBoundary key={selectedTool.id}>
+          <Suspense
+            fallback={
+              <ToolStatus
+                isProcessing
+                errorMessage={null}
+                processingLabel="ツールを読み込み中…"
+              />
+            }
+          >
+            <ActiveTool />
+          </Suspense>
+        </ErrorBoundary>
       </main>
     </div>
   );

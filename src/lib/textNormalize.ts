@@ -155,17 +155,19 @@ export function asciiToFullWidth(text: string): string {
 
 /** 半角カタカナを全角に変換する。濁点・半濁点は直前の文字と合成する */
 export function kanaToFullWidth(text: string): string {
+  // NFD正規化された結合文字(濁点 U+3099 等)を合成済み文字に統一してから処理する
+  const normalized = text.normalize("NFC");
   let result = "";
   let index = 0;
-  while (index < text.length) {
-    const char = text.charAt(index);
+  while (index < normalized.length) {
+    const char = normalized.charAt(index);
     const base = halfToFullKana.get(char);
     if (base === undefined) {
       result += char === "ﾞ" ? "゛" : char === "ﾟ" ? "゜" : char;
       index++;
       continue;
     }
-    const nextChar = text.charAt(index + 1);
+    const nextChar = normalized.charAt(index + 1);
     const voiced = nextChar === "ﾞ" ? voicedByBase.get(base) : undefined;
     const semiVoiced =
       nextChar === "ﾟ" ? semiVoicedByBase.get(base) : undefined;
@@ -177,8 +179,10 @@ export function kanaToFullWidth(text: string): string {
 
 /** 全角カタカナを半角に変換する。濁音・半濁音は 2 文字(ｶﾞ 等)に分解する */
 export function kanaToHalfWidth(text: string): string {
+  // NFD正規化された結合文字(濁点 U+3099 等)を合成済み文字に統一してから処理する
+  const normalized = text.normalize("NFC");
   let result = "";
-  for (const char of text) {
+  for (const char of normalized) {
     result +=
       halfSequenceByVoiced.get(char) ??
       halfSequenceBySemiVoiced.get(char) ??

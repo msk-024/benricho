@@ -9,6 +9,14 @@ const A4_HEIGHT_PT = 841.89;
 const PAGE_MARGIN_PT = 40;
 /** A4幅相当の描画幅(96dpi) */
 const RENDER_WIDTH_PX = 794;
+const RENDER_SCALE = 2;
+/**
+ * ブラウザのCanvas実装が確実に描画できると見込める上限。
+ * これを超えると html2canvas が例外を投げずに欠落・空白の canvas を
+ * 黙って返すことがあるため、描画前に検知して分かりやすいエラーにする
+ */
+const MAX_CANVAS_DIMENSION_PX = 16_384;
+const MAX_CANVAS_AREA_PX = MAX_CANVAS_DIMENSION_PX * MAX_CANVAS_DIMENSION_PX;
 
 /**
  * Markdown を A4 縦の PDF に変換する。
@@ -17,7 +25,7 @@ const RENDER_WIDTH_PX = 794;
  *
  * @precondition markdown は空白のみでない文字列
  * @postcondition 戻り値は application/pdf の Blob
- * @throws {RangeError} markdown が空の場合
+ * @throws {RangeError} markdown が空、または内容が長すぎて安全に描画できない場合
  */
 export async function markdownToPdfBlob(markdown: string): Promise<Blob> {
   if (markdown.trim() === "") throw new RangeError("Markdownが空です");
@@ -32,8 +40,21 @@ export async function markdownToPdfBlob(markdown: string): Promise<Blob> {
   container.innerHTML = `<style>${MARKDOWN_DOCUMENT_CSS}</style><div class="markdown-body">${sanitizedHtml}</div>`;
   document.body.appendChild(container);
   try {
+    // html2canvasは描画結果がCanvas上限を超えても例外を投げないため、
+    // 実際に描画する前にDOMの実測サイズから予測して検証する
+    const predictedWidth = RENDER_WIDTH_PX * RENDER_SCALE;
+    const predictedHeight = container.scrollHeight * RENDER_SCALE;
+    if (
+      predictedWidth > MAX_CANVAS_DIMENSION_PX ||
+      predictedHeight > MAX_CANVAS_DIMENSION_PX ||
+      predictedWidth * predictedHeight > MAX_CANVAS_AREA_PX
+    ) {
+      throw new RangeError(
+        "Markdownの内容が長すぎてPDFに変換できません(ブラウザの描画上限を超えるおそれがあります)。内容を分割してください",
+      );
+    }
     const renderedCanvas = await html2canvas(container, {
-      scale: 2,
+      scale: RENDER_SCALE,
       backgroundColor: "#ffffff",
       logging: false,
     });

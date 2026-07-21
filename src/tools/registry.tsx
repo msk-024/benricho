@@ -1,20 +1,22 @@
 import type { ComponentType } from "react";
-import { BgRemoveTool } from "./BgRemoveTool";
-import { CsvToMarkdownTool } from "./CsvToMarkdownTool";
-import { ExifRemoveTool } from "./ExifRemoveTool";
-import { FaviconTool } from "./FaviconTool";
-import { IcoConvertTool } from "./IcoConvertTool";
-import { ImageResizeTool } from "./ImageResizeTool";
-import { ImageToPdfTool } from "./ImageToPdfTool";
-import { LineStampTool } from "./LineStampTool";
-import { MarkdownConvertTool } from "./MarkdownConvertTool";
-import { PdfCompressTool } from "./PdfCompressTool";
-import { PdfMergeTool } from "./PdfMergeTool";
-import { PdfSplitTool } from "./PdfSplitTool";
-import { ScreenshotTrimTool } from "./ScreenshotTrimTool";
-import { SvgTraceTool } from "./SvgTraceTool";
-import { TextCountTool } from "./TextCountTool";
-import { WebpConvertTool } from "./WebpConvertTool";
+import {
+  BgRemoveTool,
+  CsvToMarkdownTool,
+  ExifRemoveTool,
+  FaviconTool,
+  IcoConvertTool,
+  ImageResizeTool,
+  ImageToPdfTool,
+  LineStampTool,
+  MarkdownConvertTool,
+  PdfCompressTool,
+  PdfMergeTool,
+  PdfSplitTool,
+  ScreenshotTrimTool,
+  SvgTraceTool,
+  TextCountTool,
+  WebpConvertTool,
+} from "./lazyToolComponents";
 
 export type ToolCategory = "画像" | "LINEスタンプ" | "ドキュメント";
 
