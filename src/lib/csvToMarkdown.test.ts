@@ -38,6 +38,13 @@ describe("csvToMarkdownTable", () => {
     expect(result.split("\n")[2]).toBe("| 1 | 2 |  |");
   });
 
+  it("大量行でもスタックオーバーフローせず列数を算出する", () => {
+    const rowCount = 150_000;
+    const csv = `a,b\n${Array.from({ length: rowCount }, () => "1,2").join("\n")}`;
+    const result = csvToMarkdownTable(csv, { hasHeaderRow: true });
+    expect(result.split("\n")).toHaveLength(2 + rowCount);
+  });
+
   it("データがない場合は例外を投げる", () => {
     expect(() => csvToMarkdownTable("   ", { hasHeaderRow: false })).toThrow();
     expect(() =>

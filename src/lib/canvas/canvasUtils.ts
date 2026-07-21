@@ -90,7 +90,7 @@ export function imageDataToCanvas(imageData: ImageData): HTMLCanvasElement {
  * Canvas を指定 MIME タイプの Blob に書き出す。
  *
  * @postcondition 戻り値の Blob.type は要求した mimeType に一致する
- * @throws {Error} ブラウザが該当形式のエンコードに未対応の場合
+ * @throws {Error} 形式が未対応、または画像サイズが大きすぎてエンコードできない場合
  */
 export async function canvasToBlob(
   canvas: HTMLCanvasElement,
@@ -100,7 +100,13 @@ export async function canvasToBlob(
   const blob = await new Promise<Blob | null>((resolve) => {
     canvas.toBlob(resolve, mimeType, quality);
   });
-  if (blob === null || blob.type !== mimeType) {
+  if (blob === null) {
+    // toBlob は形式非対応だけでなく、メモリ不足や巨大すぎる画像サイズでも null を返す
+    throw new Error(
+      `${mimeType} 形式での書き出しに失敗しました(このブラウザが未対応か、画像サイズが大きすぎる可能性があります)`,
+    );
+  }
+  if (blob.type !== mimeType) {
     throw new Error(
       `このブラウザは ${mimeType} 形式の書き出しに対応していません`,
     );

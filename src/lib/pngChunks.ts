@@ -1,7 +1,12 @@
 import { concatBytes } from "./bytes";
 import { isPng } from "./pngParse";
 
-/** 画質・透過・色再現に影響するため保持するチャンク。それ以外(メタデータ)は削除対象 */
+/**
+ * 画質・透過・色再現・アニメーションに影響するため保持するチャンク。
+ * acTL/fcTL/fdAT は APNG のアニメーション定義・フレームデータで、
+ * 除去すると静止画に劣化してしまうため削除対象から除外する。
+ * それ以外(メタデータ)は削除対象
+ */
 const KEEP_CHUNK_TYPES = new Set([
   "IHDR",
   "PLTE",
@@ -11,6 +16,9 @@ const KEEP_CHUNK_TYPES = new Set([
   "cHRM",
   "iCCP",
   "IDAT",
+  "acTL",
+  "fcTL",
+  "fdAT",
   "IEND",
 ]);
 

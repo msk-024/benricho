@@ -33,6 +33,17 @@ describe("stripPngMetadata", () => {
     expect(result.bytes.length).toBe(png.length - (12 + 9));
   });
 
+  it("APNGのアニメーションチャンク(acTL, fcTL, fdAT)は保持する", () => {
+    const png = makeSyntheticPng(4, 4, [
+      makePngChunk("acTL", new Uint8Array(8)),
+      makePngChunk("fcTL", new Uint8Array(26)),
+      makePngChunk("tEXt", asciiBytes("Author\0Mochi")),
+      makePngChunk("fdAT", new Uint8Array(10)),
+    ]);
+    const result = stripPngMetadata(png);
+    expect(result.removedChunkTypes).toEqual(["tEXt"]);
+  });
+
   it("メタデータがない PNG は同一バイト列のまま返す", () => {
     const png = makeSyntheticPng(3, 3);
     const result = stripPngMetadata(png);

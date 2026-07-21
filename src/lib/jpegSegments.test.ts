@@ -71,6 +71,26 @@ describe("stripJpegMetadata", () => {
     expect(result.removedSegments).toEqual(["APP1(XMP)"]);
   });
 
+  it("マーカー前に0xFFの詰めバイトが連続していても正しく解析する", () => {
+    const dqt = makeJpegSegment(0xdb, new Uint8Array(65));
+    // 0xFF詰めバイトを1つ挟んだ COM セグメント(仕様上合法)
+    const commentWithFill = concatBytes([
+      new Uint8Array([0xff]),
+      makeJpegSegment(0xfe, asciiBytes("padded")),
+    ]);
+    const jpeg = concatBytes([
+      SOI,
+      dqt,
+      commentWithFill,
+      makeJpegSegment(0xda, new Uint8Array([1, 1, 0, 63, 0])),
+      new Uint8Array([0x12, 0x34, 0x56, 0x78]),
+      EOI,
+    ]);
+    const result = stripJpegMetadata(jpeg);
+    expect(result.removedSegments).toEqual(["COM(コメント)"]);
+    expect(result.bytes).toEqual(makeSyntheticJpeg([dqt]));
+  });
+
   it("JPEG以外・壊れたセグメントでは例外を投げる", () => {
     expect(() => stripJpegMetadata(new Uint8Array([1, 2, 3]))).toThrow(
       "JPEG形式ではありません",

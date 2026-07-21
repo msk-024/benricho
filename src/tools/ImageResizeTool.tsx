@@ -11,6 +11,7 @@ import {
   loadImageFromFile,
 } from "../lib/canvas/canvasUtils";
 import { baseName } from "../lib/fileName";
+import { computeFitRect } from "../lib/fitRect";
 
 const RESIZE_PRESETS = [
   { id: "x-post", label: "SNS投稿用(X) 1200×675", width: 1200, height: 675 },
@@ -228,16 +229,22 @@ function resizeToCanvas(
     context.fillStyle = "#ffffff";
     context.fillRect(0, 0, targetWidth, targetHeight);
   }
-  const scaleRatio =
-    fitMode === "cover"
-      ? Math.max(
-          targetWidth / image.naturalWidth,
-          targetHeight / image.naturalHeight,
-        )
-      : Math.min(
-          targetWidth / image.naturalWidth,
-          targetHeight / image.naturalHeight,
-        );
+  if (fitMode === "contain") {
+    const rect = computeFitRect(
+      image.naturalWidth,
+      image.naturalHeight,
+      targetWidth,
+      targetHeight,
+      0,
+    );
+    context.drawImage(image, rect.x, rect.y, rect.width, rect.height);
+    return canvas;
+  }
+  // cover: 短辺を基準に拡大し、はみ出た分は中央基準でトリミングする(computeFitRectは非対応)
+  const scaleRatio = Math.max(
+    targetWidth / image.naturalWidth,
+    targetHeight / image.naturalHeight,
+  );
   const drawWidth = image.naturalWidth * scaleRatio;
   const drawHeight = image.naturalHeight * scaleRatio;
   context.drawImage(

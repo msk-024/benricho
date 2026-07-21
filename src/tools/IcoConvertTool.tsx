@@ -11,6 +11,7 @@ import {
 } from "../lib/canvas/canvasUtils";
 import { bytesToBlob } from "../lib/download";
 import { replaceExtension } from "../lib/fileName";
+import { computeFitRect } from "../lib/fitRect";
 import { encodeIco, type IcoEntryInput } from "../lib/icoEncoder";
 
 const SELECTABLE_SIZES = [16, 32, 48, 64, 128, 256] as const;
@@ -43,19 +44,14 @@ export function IcoConvertTool(): ReactElement {
         const entries: IcoEntryInput[] = [];
         for (const size of sizes) {
           const { canvas, context } = createCanvas(size, size);
-          const scaleRatio = Math.min(
-            size / image.naturalWidth,
-            size / image.naturalHeight,
+          const rect = computeFitRect(
+            image.naturalWidth,
+            image.naturalHeight,
+            size,
+            size,
+            0,
           );
-          const drawWidth = image.naturalWidth * scaleRatio;
-          const drawHeight = image.naturalHeight * scaleRatio;
-          context.drawImage(
-            image,
-            (size - drawWidth) / 2,
-            (size - drawHeight) / 2,
-            drawWidth,
-            drawHeight,
-          );
+          context.drawImage(image, rect.x, rect.y, rect.width, rect.height);
           entries.push({
             width: size,
             height: size,

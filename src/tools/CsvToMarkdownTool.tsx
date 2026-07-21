@@ -7,6 +7,7 @@ import { useAsyncTask } from "../hooks/useAsyncTask";
 import { csvToMarkdownTable } from "../lib/csvToMarkdown";
 import { downloadBlob } from "../lib/download";
 import { baseName } from "../lib/fileName";
+import { decodeTextWithEncodingFallback } from "../lib/textDecode";
 
 /** CSV を Markdown の表に変換する */
 export function CsvToMarkdownTool(): ReactElement {
@@ -19,7 +20,7 @@ export function CsvToMarkdownTool(): ReactElement {
   const handleFiles = (files: File[]): void => {
     const file = files[0];
     run(async () => {
-      setCsvText(await decodeCsvFile(file));
+      setCsvText(decodeTextWithEncodingFallback(await file.arrayBuffer()));
       setOutputBaseName(baseName(file.name));
       setMarkdownResult("");
     });
@@ -104,16 +105,4 @@ export function CsvToMarkdownTool(): ReactElement {
       )}
     </div>
   );
-}
-
-/** CSVファイルを読み込む。UTF-8で文字化けする場合は Shift_JIS として再解釈する */
-async function decodeCsvFile(file: File): Promise<string> {
-  const bytes = await file.arrayBuffer();
-  const utf8Text = new TextDecoder("utf-8").decode(bytes);
-  if (!utf8Text.includes("�")) return utf8Text;
-  try {
-    return new TextDecoder("shift_jis").decode(bytes);
-  } catch {
-    return utf8Text;
-  }
 }

@@ -72,6 +72,7 @@ export function BgRemoveTool(): ReactElement {
         max={128}
         step={2}
         value={tolerance}
+        disabled={isProcessing}
         onChange={(value) => {
           setTolerance(value);
           if (lastFile !== null) processFile(lastFile, value);

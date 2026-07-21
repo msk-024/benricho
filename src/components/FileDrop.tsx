@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import type { DragEvent, ChangeEvent, ReactElement } from "react";
+import { matchesAccept } from "../lib/fileName";
 
 interface FileDropProps {
   /** input の accept 属性(例: "image/png,image/jpeg") */
@@ -25,20 +26,25 @@ export function FileDrop({
   const [isDragOver, setIsDragOver] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const emitFiles = (fileList: FileList | null): void => {
-    if (fileList === null || fileList.length === 0) return;
-    onFiles(Array.from(fileList));
+  const emitFiles = (files: File[]): void => {
+    if (files.length === 0) return;
+    onFiles(files);
   };
 
   const handleDrop = (event: DragEvent<HTMLButtonElement>): void => {
     event.preventDefault();
     setIsDragOver(false);
     if (disabled) return;
-    emitFiles(event.dataTransfer.files);
+    // input[accept]/[multiple] はネイティブのファイル選択ダイアログにしか
+    // 効かないため、ドロップされたファイルはここで明示的に絞り込む
+    const matched = Array.from(event.dataTransfer.files).filter((file) =>
+      matchesAccept(file.name, file.type, accept),
+    );
+    emitFiles(multiple ? matched : matched.slice(0, 1));
   };
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>): void => {
-    emitFiles(event.target.files);
+    emitFiles(Array.from(event.target.files ?? []));
     // 同じファイルを選び直しても change が発火するようにリセットする
     event.target.value = "";
   };

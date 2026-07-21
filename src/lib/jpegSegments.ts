@@ -38,20 +38,32 @@ export function stripJpegMetadata(bytes: Uint8Array): JpegStripResult {
   while (offset + 2 <= bytes.length) {
     if (bytes[offset] !== 0xff)
       throw new Error("JPEGのセグメント構造が壊れています");
-    const marker = bytes[offset + 1];
+    // JPEG仕様上、マーカー前には 0xFF の詰めバイトが連続することがあるため読み飛ばす
+    let markerOffset = offset + 1;
+    while (markerOffset < bytes.length && bytes[markerOffset] === 0xff) {
+      markerOffset++;
+    }
+    if (markerOffset >= bytes.length)
+      throw new Error("JPEGのセグメント構造が壊れています");
+    const marker = bytes[markerOffset];
+    // shouldKeepSegment/describeSegment は「0xFF直後がマーカー」を前提に
+    // segmentStart+4 をデータ開始位置として読むため、詰めバイト分を吸収した
+    // 仮想オフセット(markerOffset-1)を渡して既存の読み取りロジックを再利用する
+    const segmentStart = markerOffset - 1;
     if (
       marker === 0xd9 ||
       marker === 0x01 ||
       (marker >= 0xd0 && marker <= 0xd7)
     ) {
-      keptParts.push(bytes.subarray(offset, offset + 2));
-      offset += 2;
+      keptParts.push(bytes.subarray(offset, markerOffset + 1));
+      offset = markerOffset + 1;
       continue;
     }
-    if (offset + 4 > bytes.length)
+    if (markerOffset + 3 > bytes.length)
       throw new Error("JPEGのセグメント構造が壊れています");
-    const segmentLength = (bytes[offset + 2] << 8) | bytes[offset + 3];
-    const segmentEnd = offset + 2 + segmentLength;
+    const segmentLength =
+      (bytes[markerOffset + 1] << 8) | bytes[markerOffset + 2];
+    const segmentEnd = markerOffset + 1 + segmentLength;
     if (segmentLength < 2 || segmentEnd > bytes.length) {
       throw new Error("JPEGのセグメント長が不正です");
     }
@@ -60,10 +72,10 @@ export function stripJpegMetadata(bytes: Uint8Array): JpegStripResult {
       keptParts.push(bytes.subarray(offset));
       break;
     }
-    if (shouldKeepSegment(marker, bytes, offset)) {
+    if (shouldKeepSegment(marker, bytes, segmentStart)) {
       keptParts.push(bytes.subarray(offset, segmentEnd));
     } else {
-      removedSegments.push(describeSegment(marker, bytes, offset));
+      removedSegments.push(describeSegment(marker, bytes, segmentStart));
     }
     offset = segmentEnd;
   }

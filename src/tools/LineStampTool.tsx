@@ -45,6 +45,13 @@ export function LineStampTool(): ReactElement {
 
   const handleFiles = (files: File[]): void => {
     run(async () => {
+      // 採番(01, 02, …)は buildStampFileName の仕様上 99 が上限のため、
+      // 大量処理後に一部だけ失敗して結果を丸ごと失うことがないよう事前に弾く
+      if (files.length > 99) {
+        throw new RangeError(
+          `一度に処理できるのは99枚までです(${files.length}件が選択されています)`,
+        );
+      }
       setSuccessNote(null);
       const warningList: string[] = [];
       if (files.length > MAX_STICKER_COUNT) {

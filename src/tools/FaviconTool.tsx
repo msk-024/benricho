@@ -11,6 +11,7 @@ import {
   loadImageFromFile,
 } from "../lib/canvas/canvasUtils";
 import { bytesToBlob } from "../lib/download";
+import { computeFitRect } from "../lib/fitRect";
 import { encodeIco, type IcoEntryInput } from "../lib/icoEncoder";
 
 const FAVICON_PNG_SET = [
@@ -24,8 +25,10 @@ const FAVICON_PNG_SET = [
 
 const ICO_EMBED_SIZES = [16, 32, 48] as const;
 
-const HTML_SNIPPET = `<link rel="icon" href="/favicon.ico" sizes="48x48">
+const HTML_SNIPPET = `<link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="icon" type="image/png" href="/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/icon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/icon-512.png" sizes="512x512">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">`;
 
 /** ファビコン一式(複数サイズPNG + favicon.ico)を一括生成する */
@@ -121,18 +124,13 @@ function renderSquareIcon(
   size: number,
 ): HTMLCanvasElement {
   const { canvas, context } = createCanvas(size, size);
-  const scaleRatio = Math.min(
-    size / image.naturalWidth,
-    size / image.naturalHeight,
+  const rect = computeFitRect(
+    image.naturalWidth,
+    image.naturalHeight,
+    size,
+    size,
+    0,
   );
-  const drawWidth = image.naturalWidth * scaleRatio;
-  const drawHeight = image.naturalHeight * scaleRatio;
-  context.drawImage(
-    image,
-    (size - drawWidth) / 2,
-    (size - drawHeight) / 2,
-    drawWidth,
-    drawHeight,
-  );
+  context.drawImage(image, rect.x, rect.y, rect.width, rect.height);
   return canvas;
 }

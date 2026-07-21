@@ -13,6 +13,7 @@ import {
   markdownToHtmlDocument,
   markdownToHtmlFragment,
 } from "../lib/markdownHtml";
+import { decodeTextWithEncodingFallback } from "../lib/textDecode";
 
 const SAMPLE_MARKDOWN = `# 見出し1
 
@@ -45,7 +46,7 @@ export function MarkdownConvertTool(): ReactElement {
   const handleFiles = (files: File[]): void => {
     const file = files[0];
     run(async () => {
-      setMarkdown(await file.text());
+      setMarkdown(decodeTextWithEncodingFallback(await file.arrayBuffer()));
       setOutputBaseName(baseName(file.name));
     });
   };

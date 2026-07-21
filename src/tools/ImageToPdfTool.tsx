@@ -11,7 +11,9 @@ import {
   loadImageFromFile,
 } from "../lib/canvas/canvasUtils";
 import { bytesToBlob } from "../lib/download";
+import { isJpeg } from "../lib/jpegSegments";
 import { imagesToPdf, type EmbeddableImage } from "../lib/pdfOps";
+import { isPng } from "../lib/pngParse";
 
 /** 複数の画像を 1 つの PDF にまとめる(1画像=1ページ、実寸) */
 export function ImageToPdfTool(): ReactElement {
@@ -90,11 +92,14 @@ export function ImageToPdfTool(): ReactElement {
   );
 }
 
-/** PNG/JPEG はそのまま、その他の画像形式は PNG に変換して PDF 埋め込み可能にする */
+/**
+ * PNG/JPEG はそのまま、その他の画像形式は PNG に変換して PDF 埋め込み可能にする。
+ * file.type は拡張子由来で偽装され得るため、実バイト列の署名で判定する
+ */
 async function toEmbeddableImage(file: File): Promise<EmbeddableImage> {
   const bytes = new Uint8Array(await file.arrayBuffer());
-  if (file.type === "image/png") return { bytes, kind: "png" };
-  if (file.type === "image/jpeg") return { bytes, kind: "jpeg" };
+  if (isPng(bytes)) return { bytes, kind: "png" };
+  if (isJpeg(bytes)) return { bytes, kind: "jpeg" };
   const image = await loadImageFromFile(file);
   return {
     bytes: await canvasToPngBytes(drawImageToCanvas(image)),

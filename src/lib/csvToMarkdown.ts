@@ -30,7 +30,9 @@ export function csvToMarkdownTable(
     throw new Error("ヘッダー行のみでデータ行がありません");
   }
 
-  const columnCount = Math.max(...rows.map((row) => row.length));
+  // Math.max(...rows.map(...)) は行数が多いとスプレッド引数の上限で
+  // スタックオーバーフローしうるため、reduce で最大値を求める
+  const columnCount = rows.reduce((max, row) => Math.max(max, row.length), 0);
   const headerCells = options.hasHeaderRow
     ? (rows.at(0) ?? [])
     : buildDefaultHeader(columnCount);

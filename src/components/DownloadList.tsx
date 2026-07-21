@@ -3,7 +3,7 @@ import type { ReactElement } from "react";
 import { toErrorMessage } from "../hooks/useAsyncTask";
 import { blobToBytes } from "../lib/canvas/canvasUtils";
 import { bytesToBlob, downloadBlob } from "../lib/download";
-import { formatBytes } from "../lib/fileName";
+import { dedupeFileNames, formatBytes } from "../lib/fileName";
 import { createZip, type ZipEntry } from "../lib/zip";
 
 export interface DownloadItem {
@@ -24,18 +24,23 @@ export function DownloadList({
   zipFileName,
 }: DownloadListProps): ReactElement | null {
   const [zipError, setZipError] = useState<string | null>(null);
+  const [isZipping, setIsZipping] = useState(false);
   if (items.length === 0) return null;
 
   const handleZipDownload = (): void => {
+    if (isZipping) return;
+    setIsZipping(true);
     void (async () => {
       try {
-        const entries: ZipEntry[] = [];
-        for (const item of items) {
-          entries.push({
-            name: item.fileName,
+        // 同名(大文字小文字違い含む)ファイルが混在するとZIP格納時に衝突するため、
+        // ダウンロード直前に一意なファイル名へ振り直す
+        const uniqueNames = dedupeFileNames(items.map((item) => item.fileName));
+        const entries: ZipEntry[] = await Promise.all(
+          items.map(async (item, index) => ({
+            name: uniqueNames[index],
             data: await blobToBytes(item.blob),
-          });
-        }
+          })),
+        );
         downloadBlob(
           bytesToBlob(createZip(entries), "application/zip"),
           zipFileName ?? "files.zip",
@@ -43,6 +48,8 @@ export function DownloadList({
         setZipError(null);
       } catch (error: unknown) {
         setZipError(toErrorMessage(error));
+      } finally {
+        setIsZipping(false);
       }
     })();
   };
@@ -57,9 +64,10 @@ export function DownloadList({
           <button
             type="button"
             onClick={handleZipDownload}
-            className="rounded-lg bg-emerald-600 px-3 py-1.5 text-sm font-medium text-white hover:bg-emerald-700"
+            disabled={isZipping}
+            className="rounded-lg bg-emerald-600 px-3 py-1.5 text-sm font-medium text-white hover:bg-emerald-700 disabled:cursor-not-allowed disabled:opacity-50"
           >
-            まとめてZIPダウンロード
+            {isZipping ? "ZIPを作成中…" : "まとめてZIPダウンロード"}
           </button>
         )}
       </div>
@@ -67,9 +75,9 @@ export function DownloadList({
         <p className="text-sm text-red-600">⚠ {zipError}</p>
       )}
       <ul className="divide-y divide-slate-100 rounded-lg border border-slate-200 bg-white">
-        {items.map((item) => (
+        {items.map((item, index) => (
           <li
-            key={item.fileName}
+            key={`${index}-${item.fileName}`}
             className="flex items-center justify-between gap-3 px-4 py-2.5"
           >
             <div className="min-w-0">
