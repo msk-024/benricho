@@ -1,32 +1,46 @@
-# React + TypeScript + Vite
+# 🧰 便利帳
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+日常のファイル変換・加工作業をブラウザ内で完結させるツール集です。
+サーバー・DB・外部APIキーは一切使用しません。すべての処理はブラウザ内(Canvas API / 各種JSライブラリ)で完結し、アップロードしたファイルが外部に送信されることはありません。
 
-Currently, two official plugins are available:
+## 使える機能
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+**画像系**
+WebP変換 / SVG変換(トレース) / 背景透過 / 画像リサイズ(SNS・OGP・サムネ用プリセット) / ファビコン生成 / ICO変換 / EXIF削除 / スクリーンショット余白トリミング
 
-## React Compiler
+**LINEスタンプ制作支援**
+本体(370×320) / メイン(240×240) / タブ(96×74)の3サイズを一括書き出し+規則的ファイル名採番
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+**ドキュメント系**
+Markdown→Word/PDF/HTML変換 / CSV→Markdown表変換 / 文字数カウント・全角半角統一 / PDF結合・分割・ページ抽出・圧縮 / 画像→PDF一括変換
 
-## Expanding the Oxlint configuration
+## 使い方
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+1. サイドバー(スマホ幅ではセレクトボックス)からツールを選ぶ
+2. ファイルをドラッグ&ドロップ、またはクリックして選択
+3. 変換結果をダウンロード(複数ファイルの場合はZIP一括ダウンロードも可)
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+## ローカルで動かす
+
+```bash
+npm install
+npm run dev      # http://localhost:5173
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## 開発コマンド
+
+```bash
+npm run typecheck  # 型チェック
+npm run lint       # oxlintによる静的解析
+npm run test       # vitestによる単体テスト
+npm run build      # 本番ビルド(dist/に出力)
+npm run preview    # ビルド結果をローカルで確認
+```
+
+## 技術スタック
+
+Vite + React 19 + TypeScript + Tailwind CSS v4。ルーティングは`location.hash`同期の自前実装(ライブラリ依存なし)。
+純粋ロジック(`src/lib/`)はVitestでユニットテスト、Canvas/DOM依存の副作用層(`src/lib/canvas/`)は分離して薄く保っています。
+各ツールは`React.lazy`で遅延読み込みされ、実際に開いたときだけそのツールの依存ライブラリを取得します。
+
+詳細な設計判断は [PLAN.md](./PLAN.md) を参照してください。
