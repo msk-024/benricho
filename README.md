@@ -42,5 +42,3 @@ npm run preview    # ビルド結果をローカルで確認
 Vite + React 19 + TypeScript + Tailwind CSS v4。ルーティングは`location.hash`同期の自前実装(ライブラリ依存なし)。
 純粋ロジック(`src/lib/`)はVitestでユニットテスト、Canvas/DOM依存の副作用層(`src/lib/canvas/`)は分離して薄く保っています。
 各ツールは`React.lazy`で遅延読み込みされ、実際に開いたときだけそのツールの依存ライブラリを取得します。
-
-詳細な設計判断は [PLAN.md](./PLAN.md) を参照してください。
