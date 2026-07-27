@@ -6,30 +6,17 @@ import { LabeledSlider } from "../components/LabeledSlider";
 import { ToolStatus } from "../components/ToolStatus";
 import { useAsyncTask } from "../hooks/useAsyncTask";
 import {
-  canvasToPngBytes,
-  createCanvas,
   drawImageToCanvas,
   getCanvasImageData,
   loadImageFromFile,
 } from "../lib/canvas/canvasUtils";
-import { bytesToBlob } from "../lib/download";
-import { computeFitRect } from "../lib/fitRect";
 import {
-  findOpaqueBounds,
-  hasAnyTransparency,
-  type PixelRect,
-} from "../lib/imageOps";
-import { assertPngSize } from "../lib/pngParse";
-import { buildStampFileName } from "../lib/stampNaming";
-
-/** LINEスタンプの規定サイズ(1pxのズレも許されない) */
-const STAMP_TARGETS = [
-  { kind: "sticker", width: 370, height: 320, label: "本体" },
-  { kind: "main", width: 240, height: 240, label: "メイン" },
-  { kind: "tab", width: 96, height: 74, label: "タブ" },
-] as const;
-
-const MAX_STICKER_COUNT = 40;
+  MAX_STAMP_INDEX,
+  MAX_STICKER_COUNT,
+  renderStampSizeSet,
+} from "../lib/canvas/stampExport";
+import { bytesToBlob } from "../lib/download";
+import { findOpaqueBounds, hasAnyTransparency } from "../lib/imageOps";
 
 /**
  * LINEスタンプ用の3サイズ(本体370×320 / メイン240×240 / タブ96×74)を
@@ -47,9 +34,9 @@ export function LineStampTool(): ReactElement {
     run(async () => {
       // 採番(01, 02, …)は buildStampFileName の仕様上 99 が上限のため、
       // 大量処理後に一部だけ失敗して結果を丸ごと失うことがないよう事前に弾く
-      if (files.length > 99) {
+      if (files.length > MAX_STAMP_INDEX) {
         throw new RangeError(
-          `一度に処理できるのは99枚までです(${files.length}件が選択されています)`,
+          `一度に処理できるのは${MAX_STAMP_INDEX}枚までです(${files.length}件が選択されています)`,
         );
       }
       setSuccessNote(null);
@@ -77,20 +64,17 @@ export function LineStampTool(): ReactElement {
           width: imageData.width,
           height: imageData.height,
         };
-        for (const target of STAMP_TARGETS) {
-          const pngBytes = await renderStampPng(
-            sourceCanvas,
-            contentBounds,
-            target.width,
-            target.height,
-            paddingPx,
-          );
-          // 出力サイズの厳密検証: IHDR の実寸が 1px でもズレていれば例外
-          assertPngSize(pngBytes, target.width, target.height);
+        const stampFiles = await renderStampSizeSet(
+          sourceCanvas,
+          contentBounds,
+          paddingPx,
+          stampNumber,
+        );
+        for (const stampFile of stampFiles) {
           results.push({
-            fileName: buildStampFileName(stampNumber, target.kind),
-            blob: bytesToBlob(pngBytes, "image/png"),
-            note: `${target.label} ${target.width}×${target.height}px ・ サイズ検証OK`,
+            fileName: stampFile.fileName,
+            blob: bytesToBlob(stampFile.pngBytes, "image/png"),
+            note: stampFile.note,
           });
         }
       }
@@ -148,34 +132,4 @@ export function LineStampTool(): ReactElement {
       <DownloadList items={items} zipFileName="line_stamp_images.zip" />
     </div>
   );
-}
-
-/** 透過領域を切り出し、余白を保って最大フィット配置した規定サイズPNGを生成する */
-async function renderStampPng(
-  sourceCanvas: HTMLCanvasElement,
-  contentBounds: PixelRect,
-  targetWidth: number,
-  targetHeight: number,
-  paddingPx: number,
-): Promise<Uint8Array> {
-  const fitRect = computeFitRect(
-    contentBounds.width,
-    contentBounds.height,
-    targetWidth,
-    targetHeight,
-    paddingPx,
-  );
-  const { canvas, context } = createCanvas(targetWidth, targetHeight);
-  context.drawImage(
-    sourceCanvas,
-    contentBounds.x,
-    contentBounds.y,
-    contentBounds.width,
-    contentBounds.height,
-    fitRect.x,
-    fitRect.y,
-    fitRect.width,
-    fitRect.height,
-  );
-  return canvasToPngBytes(canvas);
 }

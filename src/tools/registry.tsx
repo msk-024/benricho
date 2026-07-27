@@ -13,6 +13,7 @@ import {
   PdfMergeTool,
   PdfSplitTool,
   ScreenshotTrimTool,
+  StampSheetTool,
   SvgTraceTool,
   TextCountTool,
   WebpConvertTool,
@@ -98,6 +99,14 @@ export const TOOL_DEFINITIONS: readonly ToolDefinition[] = [
       "本体370×320 / メイン240×240 / タブ96×74 を一括書き出し+採番します",
     category: "LINEスタンプ",
     component: LineStampTool,
+  },
+  {
+    id: "stamp-sheet",
+    name: "スタンプシート切り分け",
+    description:
+      "1枚のシート画像から複数イラストを自動検出し、枠調整してLINEスタンプ3サイズへ書き出します",
+    category: "LINEスタンプ",
+    component: StampSheetTool,
   },
   {
     id: "markdown-convert",

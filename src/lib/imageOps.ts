@@ -18,7 +18,16 @@ export interface BackgroundRemovalResult {
   removedPixelCount: number;
 }
 
-function assertValidImage(image: RgbaImage): void {
+/** 2つの矩形を包含する最小の矩形(union bbox)を返す */
+export function unionPixelRect(a: PixelRect, b: PixelRect): PixelRect {
+  const minX = Math.min(a.x, b.x);
+  const minY = Math.min(a.y, b.y);
+  const maxX = Math.max(a.x + a.width, b.x + b.width);
+  const maxY = Math.max(a.y + a.height, b.y + b.height);
+  return { x: minX, y: minY, width: maxX - minX, height: maxY - minY };
+}
+
+export function assertValidImage(image: RgbaImage): void {
   if (
     image.width < 1 ||
     image.height < 1 ||
@@ -65,6 +74,29 @@ export function hasAnyTransparency(image: RgbaImage): boolean {
     if (image.data[i] < 255) return true;
   }
   return false;
+}
+
+/**
+ * アルファ値が `opaqueThreshold` 未満の画素の割合(0〜1)を返す。
+ * シート画像が実質的に不透明(=背景透過が未処理)かどうかの判定に使う
+ * (`hasAnyTransparency` は1画素でも透過があれば true になり粗すぎるため)。
+ *
+ * @precondition image は正当な RGBA 画像
+ * @postcondition 戻り値は 0〜1 の範囲
+ * @throws {RangeError} 画像形状が不正な場合
+ */
+export function transparentPixelRatio(
+  image: RgbaImage,
+  opaqueThreshold = 250,
+): number {
+  assertValidImage(image);
+  const { width, height, data } = image;
+  const totalPixels = width * height;
+  let transparentCount = 0;
+  for (let i = 3; i < data.length; i += 4) {
+    if (data[i] < opaqueThreshold) transparentCount++;
+  }
+  return transparentCount / totalPixels;
 }
 
 /**

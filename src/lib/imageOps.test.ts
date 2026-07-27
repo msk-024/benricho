@@ -4,6 +4,7 @@ import {
   findOpaqueBounds,
   hasAnyTransparency,
   removeBackgroundByFloodFill,
+  transparentPixelRatio,
   type RgbaImage,
 } from "./imageOps";
 
@@ -103,6 +104,28 @@ describe("removeBackgroundByFloodFill", () => {
     ).toThrow(RangeError);
     expect(() =>
       removeBackgroundByFloodFill(makeImage(2, 2, [0, 0, 0, 255]), 256),
+    ).toThrow(RangeError);
+  });
+});
+
+describe("transparentPixelRatio", () => {
+  it("完全不透明な画像は0を返す", () => {
+    expect(transparentPixelRatio(makeImage(4, 4, [1, 2, 3, 255]))).toBe(0);
+  });
+
+  it("透過画素の割合を返す", () => {
+    const image = makeImage(10, 10, [1, 2, 3, 255]);
+    for (let x = 0; x < 5; x++) setPixel(image, x, 0, [1, 2, 3, 0]);
+    expect(transparentPixelRatio(image)).toBeCloseTo(0.05);
+  });
+
+  it("形状不正の画像でRangeErrorを投げる", () => {
+    expect(() =>
+      transparentPixelRatio({
+        width: 2,
+        height: 2,
+        data: new Uint8ClampedArray(3),
+      }),
     ).toThrow(RangeError);
   });
 });

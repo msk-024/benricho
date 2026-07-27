@@ -2,6 +2,8 @@
  * Canvas / DOM に依存する副作用層。純粋ロジック(../lib 直下)とは分離して薄く保つ。
  */
 
+import type { PixelRect } from "../imageOps";
+
 export interface CanvasWithContext {
   canvas: HTMLCanvasElement;
   context: CanvasRenderingContext2D;
@@ -83,6 +85,26 @@ export function getCanvasImageData(canvas: HTMLCanvasElement): ImageData {
 export function imageDataToCanvas(imageData: ImageData): HTMLCanvasElement {
   const { canvas, context } = createCanvas(imageData.width, imageData.height);
   context.putImageData(imageData, 0, 0);
+  return canvas;
+}
+
+/** 指定矩形の範囲だけを新しい Canvas に切り出す(スタンプシートの枠切り出し用) */
+export function cropCanvas(
+  source: HTMLCanvasElement,
+  rect: PixelRect,
+): HTMLCanvasElement {
+  const { canvas, context } = createCanvas(rect.width, rect.height);
+  context.drawImage(
+    source,
+    rect.x,
+    rect.y,
+    rect.width,
+    rect.height,
+    0,
+    0,
+    rect.width,
+    rect.height,
+  );
   return canvas;
 }
 

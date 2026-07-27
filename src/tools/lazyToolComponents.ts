@@ -34,6 +34,9 @@ export const ScreenshotTrimTool = lazy(() =>
 export const LineStampTool = lazy(() =>
   import("./LineStampTool").then((m) => ({ default: m.LineStampTool })),
 );
+export const StampSheetTool = lazy(() =>
+  import("./StampSheetTool").then((m) => ({ default: m.StampSheetTool })),
+);
 export const MarkdownConvertTool = lazy(() =>
   import("./MarkdownConvertTool").then((m) => ({
     default: m.MarkdownConvertTool,
