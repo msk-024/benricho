@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import type { PointerEvent as ReactPointerEvent, ReactElement } from "react";
 import { createStampFrameId, type StampFrame } from "../lib/stampFrame";
+import { CHECKER_PATTERN_CLASS } from "./checkerBackground";
 
 type ResizeCorner = "nw" | "ne" | "sw" | "se";
 
@@ -158,7 +159,7 @@ export function StampFrameOverlay({
         height: displayHeight,
         touchAction: "none",
       }}
-      className="relative select-none overflow-hidden rounded-lg border border-slate-300 bg-[repeating-conic-gradient(#f1f5f9_0%_25%,#ffffff_0%_50%)] bg-[length:16px_16px]"
+      className={`relative select-none overflow-hidden rounded-lg border border-slate-300 ${CHECKER_PATTERN_CLASS}`}
     >
       <canvas
         ref={canvasRef}

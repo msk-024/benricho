@@ -5,6 +5,10 @@ import { FileDrop } from "../components/FileDrop";
 import { LabeledSlider } from "../components/LabeledSlider";
 import { StampFrameList } from "../components/StampFrameList";
 import { StampFrameOverlay } from "../components/StampFrameOverlay";
+import {
+  StampPreviewGrid,
+  type StampPreviewItem,
+} from "../components/StampPreviewGrid";
 import { ToolStatus } from "../components/ToolStatus";
 import { useAsyncTask } from "../hooks/useAsyncTask";
 import {
@@ -34,6 +38,9 @@ import {
   STAMP_SHEET_DETECTION_DEFAULTS,
   type DetectStampSheetRegionsOptions,
 } from "../lib/stampSheetDetect";
+import { detectContentCutoff } from "../lib/stampCutoffDetect";
+import { computeSizeRatio } from "../lib/stampSizeRatio";
+import { isMainOrTabFile } from "../lib/stampNaming";
 
 /** 透過画素の割合がこれ未満なら「実質未透過」とみなし、背景透過を促す */
 const OPAQUE_WARNING_RATIO = 0.01;
@@ -73,7 +80,12 @@ export function StampSheetTool(): ReactElement {
     new Set(),
   );
   const [paddingPx, setPaddingPx] = useState(10);
+  // 直近の書き出しで実際に使われた余白。メイン/タブの再生成は、スライダーの現在値ではなく
+  // 必ずこの値を使い、同じセット内の本体画像とのフレーミングのズレを防ぐ
+  const [exportPaddingPx, setExportPaddingPx] = useState(10);
+  const [mainIndex, setMainIndex] = useState(0);
   const [items, setItems] = useState<DownloadItem[]>([]);
+  const [previewItems, setPreviewItems] = useState<StampPreviewItem[]>([]);
   const [warnings, setWarnings] = useState<string[]>([]);
   const [successNote, setSuccessNote] = useState<string | null>(null);
   const { isProcessing, errorMessage, run } = useAsyncTask();
@@ -87,8 +99,10 @@ export function StampSheetTool(): ReactElement {
 
   const resetResults = (): void => {
     setItems([]);
+    setPreviewItems([]);
     setWarnings([]);
     setSuccessNote(null);
+    setMainIndex(0);
   };
 
   const handleFile = (file: File): void => {
@@ -133,6 +147,9 @@ export function StampSheetTool(): ReactElement {
 
   const rerunDetection = (options: DetectStampSheetRegionsOptions): void => {
     if (sheetCanvas === null || looksOpaque) return;
+    // 枠が変わるため、直前の書き出し結果(プレビュー・ダウンロード一覧)は枠とズレてしまう。
+    // 古い結果を見ながら「メインにする」を押すと別の絵を書き出してしまうため必ず破棄する
+    resetResults();
     setFrames(toStampFrames(sheetCanvas, options));
     setSelectedFrameIds(new Set());
     setHasManualEdits(false);
@@ -156,6 +173,10 @@ export function StampSheetTool(): ReactElement {
   const handleExplicitRerun = (): void => rerunDetection(detectionOptions);
 
   const commitFrames = (next: StampFrame[]): void => {
+    // 枠を手動編集した時点で、直前の書き出し結果(プレビュー・ダウンロード一覧)は
+    // 枠とズレてしまうため破棄する(古い結果のまま「メインにする」を押すと
+    // 編集後の別の枠から誤って書き出してしまうのを防ぐ)
+    resetResults();
     setFrames(next);
     setHasManualEdits(true);
   };
@@ -213,13 +234,18 @@ export function StampSheetTool(): ReactElement {
         );
       }
       resetResults();
+      // resetResults() はメイン/タブの選択を1番目(index 0)に戻す。
+      // mainIndex state の反映は非同期なので、この書き出し内では直接0を使う
+      const exportMainIndex = 0;
       const warningList: string[] = [];
       if (frames.length > MAX_STICKER_COUNT) {
         warningList.push(
           `LINEスタンプは最大${MAX_STICKER_COUNT}個です(${frames.length}件を処理しますが申請時にご注意ください)`,
         );
       }
+      const sheetImageData = getCanvasImageData(sheetCanvas);
       const results: DownloadItem[] = [];
+      const newPreviewItems: StampPreviewItem[] = [];
       for (let index = 0; index < frames.length; index++) {
         const frame = frames[index];
         const stampNumber = index + 1;
@@ -236,25 +262,82 @@ export function StampSheetTool(): ReactElement {
           width: cropped.width,
           height: cropped.height,
         };
+        const kinds =
+          index === exportMainIndex
+            ? (["sticker", "main", "tab"] as const)
+            : (["sticker"] as const);
         const stampFiles = await renderStampSizeSet(
           cropped,
           contentBounds,
           paddingPx,
           stampNumber,
+          kinds,
         );
         for (const stampFile of stampFiles) {
+          const blob = bytesToBlob(stampFile.pngBytes, "image/png");
           results.push({
             fileName: stampFile.fileName,
-            blob: bytesToBlob(stampFile.pngBytes, "image/png"),
+            blob,
             note: stampFile.note,
           });
+          if (stampFile.kind === "sticker") {
+            newPreviewItems.push({
+              id: frame.id,
+              stampNumber,
+              blob,
+              cutoff: detectContentCutoff(sheetImageData, frame, {
+                alphaThreshold,
+              }),
+              sizeRatio: computeSizeRatio(stampFile.fitRect, 370, 320),
+            });
+          }
         }
       }
       setItems(results);
+      setPreviewItems(newPreviewItems);
       setWarnings(warningList);
+      setExportPaddingPx(paddingPx);
       setSuccessNote(
         `${frames.length}枚 × 3サイズ = ${results.length}ファイルを書き出し、全出力の実寸検証に合格しました`,
       );
+    });
+  };
+
+  const handleSelectMain = (index: number): void => {
+    if (
+      sheetCanvas === null ||
+      index === mainIndex ||
+      frames[index] === undefined
+    )
+      return;
+    run(async () => {
+      const frame = frames[index];
+      const stampNumber = index + 1;
+      const cropped = cropCanvas(sheetCanvas, frame);
+      const croppedImageData = getCanvasImageData(cropped);
+      const contentBounds = findOpaqueBounds(croppedImageData) ?? {
+        x: 0,
+        y: 0,
+        width: cropped.width,
+        height: cropped.height,
+      };
+      const mainTabFiles = await renderStampSizeSet(
+        cropped,
+        contentBounds,
+        exportPaddingPx,
+        stampNumber,
+        ["main", "tab"],
+      );
+      const mainTabItems = mainTabFiles.map((stampFile) => ({
+        fileName: stampFile.fileName,
+        blob: bytesToBlob(stampFile.pngBytes, "image/png"),
+        note: stampFile.note,
+      }));
+      setItems((prev) => [
+        ...prev.filter((item) => !isMainOrTabFile(item.fileName)),
+        ...mainTabItems,
+      ]);
+      setMainIndex(index);
     });
   };
 
@@ -412,6 +495,12 @@ export function StampSheetTool(): ReactElement {
           ✓ {successNote}
         </p>
       )}
+      <StampPreviewGrid
+        items={previewItems}
+        mainIndex={mainIndex}
+        onSelectMain={handleSelectMain}
+        disabled={isProcessing}
+      />
       <DownloadList items={items} zipFileName="line_stamp_sheet_images.zip" />
     </div>
   );

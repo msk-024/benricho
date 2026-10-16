@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { buildStampFileName } from "./stampNaming";
+import { buildStampFileName, isMainOrTabFile } from "./stampNaming";
 
 describe("buildStampFileName", () => {
   it("ゼロ埋め2桁の規則的ファイル名を生成する", () => {
@@ -14,5 +14,16 @@ describe("buildStampFileName", () => {
     expect(() => buildStampFileName(0, "main")).toThrow(RangeError);
     expect(() => buildStampFileName(100, "main")).toThrow(RangeError);
     expect(() => buildStampFileName(1.5, "main")).toThrow(RangeError);
+  });
+});
+
+describe("isMainOrTabFile", () => {
+  it("main/tabファイルを判定する", () => {
+    expect(isMainOrTabFile("01_main.png")).toBe(true);
+    expect(isMainOrTabFile("01_tab.png")).toBe(true);
+  });
+
+  it("stickerファイルはfalse", () => {
+    expect(isMainOrTabFile("01_sticker.png")).toBe(false);
   });
 });

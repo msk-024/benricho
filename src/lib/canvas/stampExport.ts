@@ -1,5 +1,5 @@
 import type { PixelRect } from "../imageOps";
-import { computeFitRect } from "../fitRect";
+import { computeFitRect, type FitRect } from "../fitRect";
 import { assertPngSize } from "../pngParse";
 import { buildStampFileName, type StampImageKind } from "../stampNaming";
 import { canvasToPngBytes, createCanvas } from "./canvasUtils";
@@ -28,12 +28,17 @@ export interface StampExportFile {
   fileName: string;
   pngBytes: Uint8Array;
   note: string;
+  kind: StampImageKind;
+  /** 書き出しキャンバス内で絵を配置した矩形(サイズ感チェックに利用) */
+  fitRect: FitRect;
 }
 
 /**
  * 透過済みソース画像の1イラストから、LINEスタンプ規定の3サイズPNGを書き出す。
  * (LineStampTool・スタンプシート切り分けの双方から共有される、書き出しの単一実装)
  *
+ * @param kinds 書き出す種類を絞り込む(省略時は全種類)。メイン・タブ画像の選択変更時に
+ *   本体を再書き出しせず `["main", "tab"]` だけ再生成する用途を想定
  * @precondition sourceCanvas は透過処理済みの画像を描画したCanvas
  * @precondition contentBounds は sourceCanvas 内に収まる矩形
  * @postcondition 各出力PNGの実寸はIHDRレベルで規定サイズと厳密一致する
@@ -44,10 +49,14 @@ export async function renderStampSizeSet(
   contentBounds: PixelRect,
   paddingPx: number,
   stampNumber: number,
+  kinds: readonly StampImageKind[] = STAMP_SIZE_TARGETS.map((t) => t.kind),
 ): Promise<StampExportFile[]> {
+  const targets = STAMP_SIZE_TARGETS.filter((target) =>
+    kinds.includes(target.kind),
+  );
   const results: StampExportFile[] = [];
-  for (const target of STAMP_SIZE_TARGETS) {
-    const pngBytes = await renderSingleStampPng(
+  for (const target of targets) {
+    const { pngBytes, fitRect } = await renderSingleStampPng(
       sourceCanvas,
       contentBounds,
       target.width,
@@ -60,6 +69,8 @@ export async function renderStampSizeSet(
       fileName: buildStampFileName(stampNumber, target.kind),
       pngBytes,
       note: `${target.label} ${target.width}×${target.height}px ・ サイズ検証OK`,
+      kind: target.kind,
+      fitRect,
     });
   }
   return results;
@@ -72,7 +83,7 @@ async function renderSingleStampPng(
   targetWidth: number,
   targetHeight: number,
   paddingPx: number,
-): Promise<Uint8Array> {
+): Promise<{ pngBytes: Uint8Array; fitRect: FitRect }> {
   const fitRect = computeFitRect(
     contentBounds.width,
     contentBounds.height,
@@ -92,5 +103,6 @@ async function renderSingleStampPng(
     fitRect.width,
     fitRect.height,
   );
-  return canvasToPngBytes(canvas);
+  const pngBytes = await canvasToPngBytes(canvas);
+  return { pngBytes, fitRect };
 }

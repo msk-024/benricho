@@ -16,3 +16,8 @@ export function buildStampFileName(
   }
   return `${String(index).padStart(2, "0")}_${kind}.png`;
 }
+
+/** fileName が buildStampFileName の生成した main/tab ファイルかどうかを判定する */
+export function isMainOrTabFile(fileName: string): boolean {
+  return fileName.endsWith("_main.png") || fileName.endsWith("_tab.png");
+}

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { ReactElement } from "react";
+import { CHECKER_PATTERN_CLASS } from "../components/checkerBackground";
 import { FileDrop } from "../components/FileDrop";
 import { LabeledSlider } from "../components/LabeledSlider";
 import { ToolStatus } from "../components/ToolStatus";
@@ -115,7 +116,7 @@ export function BgRemoveTool(): ReactElement {
                 <img
                   src={resultUrl}
                   alt="変換後"
-                  className="max-h-64 w-full rounded border border-slate-100 bg-[repeating-conic-gradient(#f1f5f9_0%_25%,#ffffff_0%_50%)] bg-[length:16px_16px] object-contain"
+                  className={`max-h-64 w-full rounded border border-slate-100 object-contain ${CHECKER_PATTERN_CLASS}`}
                 />
               )}
             </figure>
