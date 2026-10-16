@@ -140,6 +140,10 @@ function StampPreviewThumbnail({
       <p className="text-center font-mono text-xs text-slate-500">
         {String(item.stampNumber).padStart(2, "0")}
       </p>
+      <p className="text-center text-xs text-slate-400">
+        横{Math.round(item.sizeRatio.widthRatio * 100)}% ・ 縦
+        {Math.round(item.sizeRatio.heightRatio * 100)}%
+      </p>
       {isCutoff && (
         <p className="text-center text-xs text-red-600">⚠ 端が切れているかも</p>
       )}
