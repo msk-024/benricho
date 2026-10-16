@@ -2,12 +2,17 @@ import { describe, expect, it } from "vitest";
 import { buildStampFileName, isMainOrTabFile } from "./stampNaming";
 
 describe("buildStampFileName", () => {
-  it("ゼロ埋め2桁の規則的ファイル名を生成する", () => {
-    expect(buildStampFileName(1, "main")).toBe("01_main.png");
-    expect(buildStampFileName(1, "tab")).toBe("01_tab.png");
-    expect(buildStampFileName(1, "sticker")).toBe("01_sticker.png");
-    expect(buildStampFileName(12, "sticker")).toBe("12_sticker.png");
-    expect(buildStampFileName(40, "sticker")).toBe("40_sticker.png");
+  it("main/tabは番号なしの固定ファイル名を生成する", () => {
+    expect(buildStampFileName(1, "main")).toBe("main.png");
+    expect(buildStampFileName(1, "tab")).toBe("tab.png");
+    expect(buildStampFileName(5, "main")).toBe("main.png");
+    expect(buildStampFileName(5, "tab")).toBe("tab.png");
+  });
+
+  it("stickerはゼロ埋め2桁の番号ファイル名を生成する", () => {
+    expect(buildStampFileName(1, "sticker")).toBe("01.png");
+    expect(buildStampFileName(12, "sticker")).toBe("12.png");
+    expect(buildStampFileName(40, "sticker")).toBe("40.png");
   });
 
   it("範囲外の index で RangeError を投げる", () => {
@@ -19,11 +24,11 @@ describe("buildStampFileName", () => {
 
 describe("isMainOrTabFile", () => {
   it("main/tabファイルを判定する", () => {
-    expect(isMainOrTabFile("01_main.png")).toBe(true);
-    expect(isMainOrTabFile("01_tab.png")).toBe(true);
+    expect(isMainOrTabFile("main.png")).toBe(true);
+    expect(isMainOrTabFile("tab.png")).toBe(true);
   });
 
   it("stickerファイルはfalse", () => {
-    expect(isMainOrTabFile("01_sticker.png")).toBe(false);
+    expect(isMainOrTabFile("01.png")).toBe(false);
   });
 });

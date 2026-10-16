@@ -162,11 +162,13 @@ export function LineStampTool(): ReactElement {
   return (
     <div className="space-y-4">
       <div className="rounded-lg bg-slate-50 px-4 py-3 text-sm text-slate-600">
-        <p>各イラストから以下の3ファイルを書き出します(連番は選択順):</p>
+        <p>
+          各イラストから以下のファイルを書き出します(連番は選択順・ZIP一括アップロード用の命名):
+        </p>
         <ul className="mt-1 list-inside list-disc">
-          <li>NN_sticker.png — 本体 370×320px(全イラスト分)</li>
-          <li>NN_main.png — メイン画像 240×240px(選んだ1枚のみ)</li>
-          <li>NN_tab.png — タブ画像 96×74px(選んだ1枚のみ)</li>
+          <li>01.png〜 — 本体 370×320px(全イラスト分)</li>
+          <li>main.png — メイン画像 240×240px(選んだ1枚のみ)</li>
+          <li>tab.png — タブ画像 96×74px(選んだ1枚のみ)</li>
         </ul>
       </div>
       <LabeledSlider
