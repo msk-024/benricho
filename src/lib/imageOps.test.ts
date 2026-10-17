@@ -106,6 +106,53 @@ describe("removeBackgroundByFloodFill", () => {
       removeBackgroundByFloodFill(makeImage(2, 2, [0, 0, 0, 255]), 256),
     ).toThrow(RangeError);
   });
+
+  it("境界1pxの中間色(アンチエイリアス相当)は完全不透明にせずなめらかに薄くする", () => {
+    const image = makeImage(5, 5, [255, 255, 255, 255]);
+    // 背景色(255,255,255)からわずかにずれた「ブレンド色」を境界に1px置く
+    setPixel(image, 2, 2, [235, 235, 235, 255]);
+    const result = removeBackgroundByFloodFill(image, 16);
+    // tolerance=16 → toleranceSq=768、FEATHER_RATIO=1.3 → featherToleranceSq=1297.92
+    // (235,235,235)との距離は distSq=20^2*3=1200 → 帯の中 → t=(1200-768)/(1297.92-768)≈0.815
+    // featherAlpha=round(16+(255-16)*0.815)=211(下限16を確保)
+    expect(getAlpha(image, 2, 2, result.data)).toBe(211);
+    expect(getAlpha(image, 2, 2, result.data)).toBeGreaterThan(0);
+    expect(getAlpha(image, 2, 2, result.data)).toBeLessThan(255);
+  });
+
+  it("帯の外側(背景とかなり違う色)は完全不透明のまま変わらない", () => {
+    const image = makeImage(5, 5, [255, 255, 255, 255]);
+    setPixel(image, 2, 2, [100, 100, 100, 255]); // 明確に被写体の色
+    const result = removeBackgroundByFloodFill(image, 16);
+    expect(getAlpha(image, 2, 2, result.data)).toBe(255);
+  });
+
+  it("帯の内側ぎりぎり(許容差をわずかに超えるだけ)でも下限16を下回らない(検出しきい値10を割らないマージン)", () => {
+    const image = makeImage(5, 5, [255, 255, 255, 255]);
+    // distSq=770(toleranceSq=768をわずかに超える): dr=17,dg=16,db=15
+    setPixel(image, 2, 2, [238, 239, 240, 255]);
+    const result = removeBackgroundByFloodFill(image, 16);
+    const alpha = getAlpha(image, 2, 2, result.data);
+    expect(alpha).toBeGreaterThanOrEqual(16);
+    expect(alpha).toBeLessThan(25);
+  });
+
+  it("許容差を大きくしても帯の下限は変わらない(大きいtoleranceでの回帰確認)", () => {
+    const image = makeImage(5, 5, [255, 255, 255, 255]);
+    // tolerance=60 → toleranceSq=10800。distSqがほぼtoleranceSqぴったりの色を置く
+    setPixel(image, 2, 2, [196, 195, 194, 255]); // dr=59,dg=60,db=61 → distSq=59²+60²+61²=10802
+    const result = removeBackgroundByFloodFill(image, 60);
+    const alpha = getAlpha(image, 2, 2, result.data);
+    expect(alpha).toBeGreaterThanOrEqual(16);
+    expect(alpha).toBeLessThan(25);
+  });
+
+  it("フェザリングも元データは変更しない(純粋関数)", () => {
+    const image = makeImage(5, 5, [255, 255, 255, 255]);
+    setPixel(image, 2, 2, [235, 235, 235, 255]);
+    removeBackgroundByFloodFill(image, 16);
+    expect(getAlpha(image, 2, 2)).toBe(255);
+  });
 });
 
 describe("transparentPixelRatio", () => {

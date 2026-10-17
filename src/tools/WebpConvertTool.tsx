@@ -84,6 +84,12 @@ export function WebpConvertTool(): ReactElement {
           </label>
         ))}
       </fieldset>
+      {outputMimeType === "image/webp" && (
+        <p className="rounded-lg bg-amber-50 px-4 py-3 text-sm text-amber-800">
+          ⚠ Safariでは WebP
+          形式での書き出しに対応していない場合があります。うまく変換できない場合はChromeなど他のブラウザをお試しください。
+        </p>
+      )}
       {selectedFormat.hasQuality && (
         <LabeledSlider
           label="品質"

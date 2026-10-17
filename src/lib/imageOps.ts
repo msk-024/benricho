@@ -103,6 +103,8 @@ export function transparentPixelRatio(
  * 四隅を起点としたフラッドフィルで背景を透過化する。
  * 起点の隅と色が近い(許容差内の)連結領域のみアルファ 0 にするため、
  * 被写体内部の類似色は保護される。
+ * 境界の1px(許容差ぎりぎり外側の画素)は完全不透明にはせず、距離に応じて
+ * なめらかにアルファを下げる(線のフチの中間色がくっきり残る問題を緩和するため)。
  *
  * @precondition image は正当な RGBA 画像、tolerance は 0〜255
  * @postcondition 元の image.data は変更されず、新しいバッファを返す(純粋関数)
@@ -140,6 +142,20 @@ export function removeBackgroundByFloodFill(
   return { data, removedPixelCount };
 }
 
+/**
+ * 境界フェザリングの帯の広さ(許容差に対する比率)。
+ * 許容差ぴったり〜許容差×FEATHER_RATIO の範囲にある境界1pxの画素は、
+ * 完全透明/完全不透明の二択ではなく距離に応じてなめらかにアルファを下げる
+ * (線のフチの中間色がくっきり残って見える問題の緩和)。
+ */
+const FEATHER_RATIO = 1.3;
+/**
+ * フェザリングで下げるアルファの下限。0まで下げないのは、この画素が
+ * スタンプシート自動検出(既定のアルファ閾値10)で前景から脱落して
+ * 検出枠が1pxずれてしまうのを避けるため(既定値に対して安全マージンを確保)。
+ */
+const FEATHER_MIN_ALPHA = 16;
+
 /** 指定起点から 4 方向連結の類似色領域を透過化し、透過した画素数を返す */
 function floodFillTransparent(
   data: Uint8ClampedArray,
@@ -153,6 +169,7 @@ function floodFillTransparent(
   const refR = data[startIndex * 4];
   const refG = data[startIndex * 4 + 1];
   const refB = data[startIndex * 4 + 2];
+  const featherToleranceSq = toleranceSq * FEATHER_RATIO * FEATHER_RATIO;
   const queue = [startIndex];
   visited[startIndex] = 1;
   let removed = 0;
@@ -163,7 +180,20 @@ function floodFillTransparent(
     const dr = data[offset] - refR;
     const dg = data[offset + 1] - refG;
     const db = data[offset + 2] - refB;
-    if (dr * dr + dg * dg + db * db > toleranceSq) continue;
+    const distSq = dr * dr + dg * dg + db * db;
+    if (distSq > toleranceSq) {
+      // 境界1px: 許容差ぴったり(distSq=toleranceSq)に近いほど透明に近づけ、
+      // 帯の外側(distSq=featherToleranceSq)では完全不透明のまま据え置く。
+      // 展開はしない(1px境界だけに留め、カスケードさせない)
+      if (featherToleranceSq > toleranceSq && distSq <= featherToleranceSq) {
+        const t = (distSq - toleranceSq) / (featherToleranceSq - toleranceSq);
+        const featherAlpha = Math.round(
+          FEATHER_MIN_ALPHA + (255 - FEATHER_MIN_ALPHA) * t,
+        );
+        if (featherAlpha < data[offset + 3]) data[offset + 3] = featherAlpha;
+      }
+      continue;
+    }
     if (data[offset + 3] !== 0) {
       data[offset + 3] = 0;
       removed++;

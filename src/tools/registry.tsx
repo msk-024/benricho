@@ -81,7 +81,7 @@ export const TOOL_DEFINITIONS: readonly ToolDefinition[] = [
   {
     id: "exif-remove",
     name: "EXIF削除",
-    description: "位置情報などのメタデータを画質劣化なしで削除します",
+    description: "位置情報などのメタデータを削除します(通常は画質劣化なし)",
     category: "画像",
     component: ExifRemoveTool,
   },
