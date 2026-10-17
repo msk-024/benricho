@@ -171,6 +171,20 @@ export function LineStampTool(): ReactElement {
           <li>tab.png — タブ画像 96×74px(選んだ1枚のみ)</li>
         </ul>
       </div>
+      <div className="rounded-lg bg-slate-50 px-4 py-3 text-sm text-slate-600">
+        <p className="font-semibold text-slate-700">
+          元イラストを描くときのお願い
+        </p>
+        <ul className="mt-1 list-inside list-disc">
+          <li>元画像は横370px×縦320px以上で描くと、きれいに書き出せます</li>
+          <li>
+            横長・縦長すぎる絵は、トーク画面で小さく見えます。370:320に近い比率がおすすめです
+          </li>
+          <li>
+            外枠との余白(約10px)は書き出し時に自動でつけるので、描くときは気にしなくて大丈夫です
+          </li>
+        </ul>
+      </div>
       <LabeledSlider
         label="キャンバス端の余白"
         min={0}

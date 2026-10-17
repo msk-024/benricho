@@ -31,19 +31,29 @@ import {
   transparentPixelRatio,
   unionPixelRect,
   type PixelRect,
+  type RgbaImage,
 } from "../lib/imageOps";
 import { createStampFrameId, type StampFrame } from "../lib/stampFrame";
 import {
+  analyzeStampSheet,
+  computeDefaultAttachDistance,
   detectStampSheetRegions,
   STAMP_SHEET_DETECTION_DEFAULTS,
   type DetectStampSheetRegionsOptions,
 } from "../lib/stampSheetDetect";
+import {
+  assignGroupsToFrames,
+  isolateFrameOwnership,
+} from "../lib/stampIsolate";
 import { detectContentCutoff } from "../lib/stampCutoffDetect";
 import { computeSizeRatio } from "../lib/stampSizeRatio";
 import { isMainOrTabFile } from "../lib/stampNaming";
 
 /** 透過画素の割合がこれ未満なら「実質未透過」とみなし、背景透過を促す */
 const OPAQUE_WARNING_RATIO = 0.01;
+/** 書き出し元の枠がこれ未満(本体サイズ370×320の半分)なら、拡大でぼやける可能性を警告する */
+const UNDERSIZED_SOURCE_WIDTH = 185;
+const UNDERSIZED_SOURCE_HEIGHT = 160;
 
 function toStampFrames(
   canvas: HTMLCanvasElement,
@@ -71,9 +81,18 @@ export function StampSheetTool(): ReactElement {
   const [minArea, setMinArea] = useState<number>(
     STAMP_SHEET_DETECTION_DEFAULTS.minArea,
   );
-  const [mergeDistance, setMergeDistance] = useState<number>(
-    STAMP_SHEET_DETECTION_DEFAULTS.mergeDistance,
-  );
+  // 固定デフォルトを持たず、画像読み込み時に computeDefaultAttachDistance で自動計算する
+  const [attachDistance, setAttachDistance] = useState<number>(3);
+  // 直近にframesを(再)検出した際に実際使われた検出オプション。写り込み除去(analyzeStampSheet)は
+  // 書き出し時点のスライダー生値ではなく必ずこれを使い、手動編集後にスライダーだけ動かしても
+  // 「今のframesの元になった基準」とズレないようにする
+  const [frameDetectionOptions, setFrameDetectionOptions] =
+    useState<DetectStampSheetRegionsOptions>({
+      alphaThreshold: STAMP_SHEET_DETECTION_DEFAULTS.alphaThreshold,
+      minArea: STAMP_SHEET_DETECTION_DEFAULTS.minArea,
+      attachDistance: 3,
+      fragmentRatio: STAMP_SHEET_DETECTION_DEFAULTS.fragmentRatio,
+    });
   const [frames, setFrames] = useState<StampFrame[]>([]);
   const [hasManualEdits, setHasManualEdits] = useState(false);
   const [selectedFrameIds, setSelectedFrameIds] = useState<Set<string>>(
@@ -94,7 +113,8 @@ export function StampSheetTool(): ReactElement {
   const detectionOptions: DetectStampSheetRegionsOptions = {
     alphaThreshold,
     minArea,
-    mergeDistance,
+    attachDistance,
+    fragmentRatio: STAMP_SHEET_DETECTION_DEFAULTS.fragmentRatio,
   };
 
   const resetResults = (): void => {
@@ -111,14 +131,23 @@ export function StampSheetTool(): ReactElement {
       const image = await loadImageFromFile(file);
       const canvas = drawImageToCanvas(image);
       const ratio = transparentPixelRatio(getCanvasImageData(canvas));
+      // 吸着距離は画像サイズに依存するため、新しいシートを読み込むたびに自動計算し直す
+      const defaultAttachDistance = computeDefaultAttachDistance(
+        canvas.width,
+        canvas.height,
+      );
+      const options: DetectStampSheetRegionsOptions = {
+        ...detectionOptions,
+        attachDistance: defaultAttachDistance,
+      };
       setSheetCanvas(canvas);
       setTransparentRatio(ratio);
+      setAttachDistance(defaultAttachDistance);
       setSelectedFrameIds(new Set());
       setHasManualEdits(false);
+      setFrameDetectionOptions(options);
       setFrames(
-        ratio >= OPAQUE_WARNING_RATIO
-          ? toStampFrames(canvas, detectionOptions)
-          : [],
+        ratio >= OPAQUE_WARNING_RATIO ? toStampFrames(canvas, options) : [],
       );
     });
   };
@@ -141,6 +170,7 @@ export function StampSheetTool(): ReactElement {
       setTransparentRatio(transparentPixelRatio(newImageData));
       setSelectedFrameIds(new Set());
       setHasManualEdits(false);
+      setFrameDetectionOptions(detectionOptions);
       setFrames(toStampFrames(newCanvas, detectionOptions));
     });
   };
@@ -150,6 +180,7 @@ export function StampSheetTool(): ReactElement {
     // 枠が変わるため、直前の書き出し結果(プレビュー・ダウンロード一覧)は枠とズレてしまう。
     // 古い結果を見ながら「メインにする」を押すと別の絵を書き出してしまうため必ず破棄する
     resetResults();
+    setFrameDetectionOptions(options);
     setFrames(toStampFrames(sheetCanvas, options));
     setSelectedFrameIds(new Set());
     setHasManualEdits(false);
@@ -165,10 +196,10 @@ export function StampSheetTool(): ReactElement {
     if (!hasManualEdits)
       rerunDetection({ ...detectionOptions, minArea: value });
   };
-  const handleMergeDistanceChange = (value: number): void => {
-    setMergeDistance(value);
+  const handleAttachDistanceChange = (value: number): void => {
+    setAttachDistance(value);
     if (!hasManualEdits)
-      rerunDetection({ ...detectionOptions, mergeDistance: value });
+      rerunDetection({ ...detectionOptions, attachDistance: value });
   };
   const handleExplicitRerun = (): void => rerunDetection(detectionOptions);
 
@@ -244,6 +275,20 @@ export function StampSheetTool(): ReactElement {
         );
       }
       const sheetImageData = getCanvasImageData(sheetCanvas);
+      // 書き出し直前のシートを1回だけ解析し、枠ごとに「お隣のイラストの写り込み」を
+      // 消すための画素所有権を求める(枠は手動編集済みの場合があるため画素の重なりで対応付ける)。
+      // frameDetectionOptionsを使うのは、スライダーの生値ではなく「今のframesの元になった
+      // 基準」で解析して、手動編集後にスライダーだけ動かしてもズレないようにするため
+      const { regions, ownerMap } = analyzeStampSheet(
+        sheetImageData,
+        frameDetectionOptions,
+      );
+      const groupOwnerFrameIndex = assignGroupsToFrames(
+        ownerMap,
+        regions,
+        sheetImageData.width,
+        frames,
+      );
       const results: DownloadItem[] = [];
       const newPreviewItems: StampPreviewItem[] = [];
       for (let index = 0; index < frames.length; index++) {
@@ -251,23 +296,49 @@ export function StampSheetTool(): ReactElement {
         const stampNumber = index + 1;
         const cropped = cropCanvas(sheetCanvas, frame);
         const croppedImageData = getCanvasImageData(cropped);
-        if (!hasAnyTransparency(croppedImageData)) {
+        const isolatedData = isolateFrameOwnership(
+          croppedImageData,
+          frame,
+          index,
+          sheetImageData.width,
+          ownerMap,
+          groupOwnerFrameIndex,
+        );
+        const isolatedImage: RgbaImage = {
+          width: cropped.width,
+          height: cropped.height,
+          data: isolatedData,
+        };
+        const isolatedCanvas = imageDataToCanvas(
+          new ImageData(isolatedData, cropped.width, cropped.height),
+        );
+        if (!hasAnyTransparency(isolatedImage)) {
           warningList.push(
             `${stampNumber}番: 透過画素がありません。背景透過が適用されているか確認してください`,
           );
         }
-        const contentBounds = findOpaqueBounds(croppedImageData) ?? {
+        const contentBounds = findOpaqueBounds(isolatedImage) ?? {
           x: 0,
           y: 0,
           width: cropped.width,
           height: cropped.height,
         };
+        // 枠自体ではなく実際の絵の大きさ(contentBounds)で判定する。枠に余白が
+        // 大きく含まれるケースでも、拡大でぼやけるかどうかを正しく警告するため
+        if (
+          contentBounds.width < UNDERSIZED_SOURCE_WIDTH &&
+          contentBounds.height < UNDERSIZED_SOURCE_HEIGHT
+        ) {
+          warningList.push(
+            `${stampNumber}番: 元の絵が小さいため拡大され、ぼやけて見える可能性があります`,
+          );
+        }
         const kinds =
           index === exportMainIndex
             ? (["sticker", "main", "tab"] as const)
             : (["sticker"] as const);
         const stampFiles = await renderStampSizeSet(
-          cropped,
+          isolatedCanvas,
           contentBounds,
           paddingPx,
           stampNumber,
@@ -286,7 +357,7 @@ export function StampSheetTool(): ReactElement {
               stampNumber,
               blob,
               cutoff: detectContentCutoff(sheetImageData, frame, {
-                alphaThreshold,
+                alphaThreshold: frameDetectionOptions.alphaThreshold,
               }),
               sizeRatio: computeSizeRatio(stampFile.fitRect, 370, 320),
             });
@@ -313,16 +384,45 @@ export function StampSheetTool(): ReactElement {
     run(async () => {
       const frame = frames[index];
       const stampNumber = index + 1;
+      const sheetImageData = getCanvasImageData(sheetCanvas);
+      // 本体書き出し(handleExport)と同じく、お隣のイラストの写り込みを除去してから
+      // main/tabを作る(ここを素通りさせると選び直した1枚だけ写り込みが残ってしまう)
+      const { regions, ownerMap } = analyzeStampSheet(
+        sheetImageData,
+        frameDetectionOptions,
+      );
+      const groupOwnerFrameIndex = assignGroupsToFrames(
+        ownerMap,
+        regions,
+        sheetImageData.width,
+        frames,
+      );
       const cropped = cropCanvas(sheetCanvas, frame);
       const croppedImageData = getCanvasImageData(cropped);
-      const contentBounds = findOpaqueBounds(croppedImageData) ?? {
+      const isolatedData = isolateFrameOwnership(
+        croppedImageData,
+        frame,
+        index,
+        sheetImageData.width,
+        ownerMap,
+        groupOwnerFrameIndex,
+      );
+      const isolatedImage: RgbaImage = {
+        width: cropped.width,
+        height: cropped.height,
+        data: isolatedData,
+      };
+      const isolatedCanvas = imageDataToCanvas(
+        new ImageData(isolatedData, cropped.width, cropped.height),
+      );
+      const contentBounds = findOpaqueBounds(isolatedImage) ?? {
         x: 0,
         y: 0,
         width: cropped.width,
         height: cropped.height,
       };
       const mainTabFiles = await renderStampSizeSet(
-        cropped,
+        isolatedCanvas,
         contentBounds,
         exportPaddingPx,
         stampNumber,
@@ -349,6 +449,24 @@ export function StampSheetTool(): ReactElement {
           LINEスタンプの3サイズ(本体370×320 / メイン240×240 /
           タブ96×74)を一括書き出しします。
         </p>
+      </div>
+      <div className="rounded-lg bg-slate-50 px-4 py-3 text-sm text-slate-600">
+        <p className="font-semibold text-slate-700">
+          きれいに分割するためのお願い
+        </p>
+        <ul className="mt-1 list-inside list-disc">
+          <li>背景は透過PNG(または無地の白)にしてください</li>
+          <li>
+            イラスト同士は少しすき間を空けてください(目安:画像の横幅の2%以上)
+          </li>
+          <li>
+            1つのスタンプにしたいパーツ(文字・吹き出しなど)は、本体とつなげるか、すぐ近くに置いてください
+          </li>
+          <li>
+            1つのイラストが横370px程度以上になるサイズで描いてください(例:横に4つ並べるなら画像の横幅1500px以上)
+          </li>
+          <li>1枚に入れられるのは40個までです</li>
+        </ul>
       </div>
       <FileDrop
         accept="image/png,image/jpeg,image/webp"
@@ -414,14 +532,14 @@ export function StampSheetTool(): ReactElement {
               onChange={handleMinAreaChange}
             />
             <LabeledSlider
-              label="結合距離(この距離以内の領域は1つのスタンプに結合)"
+              label="破片を吸着する距離(草や小さな文字を近くのイラストにくっつける)"
               min={0}
-              max={200}
-              step={5}
-              value={mergeDistance}
+              max={100}
+              step={1}
+              value={attachDistance}
               unit="px"
               disabled={isProcessing || looksOpaque}
-              onChange={handleMergeDistanceChange}
+              onChange={handleAttachDistanceChange}
             />
             {hasManualEdits && (
               <div className="flex flex-wrap items-center justify-between gap-2 rounded-lg bg-amber-50 px-3 py-2 text-sm text-amber-800">
