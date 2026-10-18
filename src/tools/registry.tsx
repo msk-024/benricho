@@ -11,6 +11,7 @@ import {
   ImageToPdfTool,
   LineStampTool,
   MarkdownConvertTool,
+  MotionGlossaryTool,
   PdfCompressTool,
   PdfMergeTool,
   PdfSplitTool,
@@ -22,7 +23,8 @@ import {
   WebpConvertTool,
 } from "./lazyToolComponents";
 
-export type ToolCategory = "画像" | "LINEスタンプ" | "ドキュメント" | "Web制作";
+export type ToolCategory =
+  "画像" | "LINEスタンプ" | "ドキュメント" | "Web制作" | "リファレンス";
 
 export interface ToolDefinition {
   id: string;
@@ -30,6 +32,8 @@ export interface ToolDefinition {
   description: string;
   category: ToolCategory;
   component: ComponentType;
+  /** trueなら他ツールより広いレイアウト幅を使う(一覧を並べて眺めるギャラリー系ツール向け) */
+  wide?: boolean;
 }
 
 export const TOOL_CATEGORIES: readonly ToolCategory[] = [
@@ -37,6 +41,7 @@ export const TOOL_CATEGORIES: readonly ToolCategory[] = [
   "LINEスタンプ",
   "ドキュメント",
   "Web制作",
+  "リファレンス",
 ];
 
 export const TOOL_DEFINITIONS: readonly ToolDefinition[] = [
@@ -182,5 +187,14 @@ export const TOOL_DEFINITIONS: readonly ToolDefinition[] = [
     description: "HEX⇔RGB⇔HSLを透明度つきで相互変換します",
     category: "Web制作",
     component: ColorConvertTool,
+  },
+  {
+    id: "motion-glossary",
+    name: "うごき辞典",
+    description:
+      "見たことある動きの名前をデモ・オノマトペから探し、AIへの頼み方をコピーできます",
+    category: "リファレンス",
+    component: MotionGlossaryTool,
+    wide: true,
   },
 ];

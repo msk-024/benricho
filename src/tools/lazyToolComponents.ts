@@ -71,3 +71,8 @@ export const AspectRatioTool = lazy(() =>
 export const ColorConvertTool = lazy(() =>
   import("./ColorConvertTool").then((m) => ({ default: m.ColorConvertTool })),
 );
+export const MotionGlossaryTool = lazy(() =>
+  import("./MotionGlossaryTool").then((m) => ({
+    default: m.MotionGlossaryTool,
+  })),
+);

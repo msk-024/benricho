@@ -100,7 +100,9 @@ function App(): ReactElement {
         </nav>
       </aside>
 
-      <main className="mx-auto w-full max-w-3xl flex-1 p-4 lg:p-8">
+      <main
+        className={`mx-auto w-full flex-1 p-4 lg:p-8 ${selectedTool.wide ? "max-w-6xl" : "max-w-3xl"}`}
+      >
         <header className="mb-6">
           <h2 className="text-xl font-bold text-slate-800">
             {selectedTool.name}
