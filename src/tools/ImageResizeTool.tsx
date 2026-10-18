@@ -17,9 +17,27 @@ const RESIZE_PRESETS = [
   { id: "x-post", label: "SNS投稿用(X) 1200×675", width: 1200, height: 675 },
   {
     id: "instagram",
-    label: "SNS投稿用(Instagram) 1080×1080",
+    label: "SNS投稿用(Instagram正方形) 1080×1080",
     width: 1080,
     height: 1080,
+  },
+  {
+    id: "instagram-4x5",
+    label: "SNS投稿用(Instagram縦長4:5) 1080×1350",
+    width: 1080,
+    height: 1350,
+  },
+  {
+    id: "instagram-3x4",
+    label: "SNS投稿用(Instagram縦長3:4) 1080×1440",
+    width: 1080,
+    height: 1440,
+  },
+  {
+    id: "reels",
+    label: "SNS投稿用(リール・ストーリーズ・ショート) 1080×1920",
+    width: 1080,
+    height: 1920,
   },
   { id: "ogp", label: "OGP画像用 1200×630", width: 1200, height: 630 },
   {
