@@ -62,3 +62,12 @@ export const PdfCompressTool = lazy(() =>
 export const ImageToPdfTool = lazy(() =>
   import("./ImageToPdfTool").then((m) => ({ default: m.ImageToPdfTool })),
 );
+export const UnitConvertTool = lazy(() =>
+  import("./UnitConvertTool").then((m) => ({ default: m.UnitConvertTool })),
+);
+export const AspectRatioTool = lazy(() =>
+  import("./AspectRatioTool").then((m) => ({ default: m.AspectRatioTool })),
+);
+export const ColorConvertTool = lazy(() =>
+  import("./ColorConvertTool").then((m) => ({ default: m.ColorConvertTool })),
+);

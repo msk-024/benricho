@@ -1,6 +1,8 @@
 import type { ComponentType } from "react";
 import {
+  AspectRatioTool,
   BgRemoveTool,
+  ColorConvertTool,
   CsvToMarkdownTool,
   ExifRemoveTool,
   FaviconTool,
@@ -16,10 +18,11 @@ import {
   StampSheetTool,
   SvgTraceTool,
   TextCountTool,
+  UnitConvertTool,
   WebpConvertTool,
 } from "./lazyToolComponents";
 
-export type ToolCategory = "画像" | "LINEスタンプ" | "ドキュメント";
+export type ToolCategory = "画像" | "LINEスタンプ" | "ドキュメント" | "Web制作";
 
 export interface ToolDefinition {
   id: string;
@@ -33,6 +36,7 @@ export const TOOL_CATEGORIES: readonly ToolCategory[] = [
   "画像",
   "LINEスタンプ",
   "ドキュメント",
+  "Web制作",
 ];
 
 export const TOOL_DEFINITIONS: readonly ToolDefinition[] = [
@@ -156,5 +160,27 @@ export const TOOL_DEFINITIONS: readonly ToolDefinition[] = [
     description: "複数の画像を1つのPDFにまとめます(1画像=1ページ)",
     category: "ドキュメント",
     component: ImageToPdfTool,
+  },
+  {
+    id: "unit-convert",
+    name: "px⇔rem/em/pt変換",
+    description:
+      "基準フォントサイズを指定して単位を相互変換し、そのまま貼れるCSSをコピーできます",
+    category: "Web制作",
+    component: UnitConvertTool,
+  },
+  {
+    id: "aspect-ratio",
+    name: "縦横比・高さ計算",
+    description: "横幅と比率から高さを計算、または幅と高さから比率を約分します",
+    category: "Web制作",
+    component: AspectRatioTool,
+  },
+  {
+    id: "color-convert",
+    name: "カラーコード変換",
+    description: "HEX⇔RGB⇔HSLを透明度つきで相互変換します",
+    category: "Web制作",
+    component: ColorConvertTool,
   },
 ];
