@@ -23,6 +23,11 @@ export type MotionDemoKey =
   | "tilt"
   | "zoom"
   | "dolly"
+  | "dollyin"
+  | "tracking"
+  | "whippan"
+  | "rackfocus"
+  | "shake"
   | "xfade"
   | "wipe"
   | "parallax"
@@ -76,6 +81,16 @@ export function getMotionDemoStageClass(demoKey: MotionDemoKey): string {
       return "mg-zoom mg-frame";
     case "dolly":
       return "mg-dolly mg-frame";
+    case "dollyin":
+      return "mg-dollyin mg-frame";
+    case "tracking":
+      return "mg-tracking mg-frame";
+    case "whippan":
+      return "mg-whippan mg-frame";
+    case "rackfocus":
+      return "mg-rackfocus mg-frame";
+    case "shake":
+      return "mg-shake mg-frame";
     case "xfade":
       return "mg-xfade";
     case "wipe":

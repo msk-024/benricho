@@ -106,6 +106,31 @@ export function MotionDemo({
           <div className="mg-person" />
         </>
       );
+    case "dollyin":
+      return (
+        <>
+          <div className="mg-dolly-far" />
+          <div className="mg-dolly-near" />
+        </>
+      );
+    case "tracking":
+      return (
+        <>
+          <Scene wide />
+          <div className="mg-person mg-tracking-subject" />
+        </>
+      );
+    case "whippan":
+      return <Scene wide />;
+    case "rackfocus":
+      return (
+        <>
+          <div className="mg-rf-back" />
+          <div className="mg-rf-front" />
+        </>
+      );
+    case "shake":
+      return <Scene wide={false} />;
     case "xfade":
       return (
         <>

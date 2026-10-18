@@ -788,7 +788,10 @@
 .mg-pan .mg-scene,
 .mg-tilt .mg-scene,
 .mg-zoom .mg-scene,
-.mg-parallax .mg-scene {
+.mg-parallax .mg-scene,
+.mg-tracking .mg-scene,
+.mg-whippan .mg-scene,
+.mg-shake .mg-scene {
   width: 100%;
   height: 100%;
 }
@@ -880,6 +883,150 @@
   height: 46px;
   border-radius: 14px 14px 4px 4px;
   background: var(--mg-tag-camera);
+}
+
+/* ドリー(dolly in/out) */
+.mg-dollyin .mg-dolly-far {
+  position: absolute;
+  left: calc(50% - 50px);
+  top: 18%;
+  width: 100px;
+  height: 60px;
+  border-radius: 6px;
+  background: var(--mg-b);
+  animation: mg-dollyFar 4s ease-in-out infinite alternate;
+}
+.mg-dollyin .mg-dolly-near {
+  position: absolute;
+  left: calc(50% - 40px);
+  bottom: 10%;
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  background: var(--mg-tag-camera);
+  animation: mg-dollyNear 4s ease-in-out infinite alternate;
+}
+@keyframes mg-dollyFar {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.15);
+  }
+}
+@keyframes mg-dollyNear {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(2.1);
+  }
+}
+
+/* トラッキング */
+.mg-tracking .mg-scene {
+  width: 220%;
+  animation: mg-pan 4s ease-in-out infinite alternate;
+}
+.mg-tracking .mg-tracking-subject {
+  bottom: 14%;
+}
+
+/* ウィップパン */
+.mg-whippan .mg-scene {
+  width: 220%;
+  animation: mg-whippan 1.6s ease-in-out infinite;
+}
+@keyframes mg-whippan {
+  0%,
+  15% {
+    transform: translateX(0);
+    filter: blur(0);
+  }
+  38% {
+    transform: translateX(-54.5%);
+    filter: blur(10px);
+  }
+  50%,
+  100% {
+    transform: translateX(-54.5%);
+    filter: blur(0);
+  }
+}
+
+/* ラックフォーカス */
+.mg-rackfocus .mg-rf-back {
+  position: absolute;
+  left: 58%;
+  top: 20%;
+  width: 70px;
+  height: 70px;
+  border-radius: 10px;
+  background: var(--mg-b);
+  animation: mg-rfBack 3.2s ease-in-out infinite;
+}
+.mg-rackfocus .mg-rf-front {
+  position: absolute;
+  left: 16%;
+  bottom: 14%;
+  width: 90px;
+  height: 90px;
+  border-radius: 12px;
+  background: var(--mg-tag-camera);
+  animation: mg-rfFront 3.2s ease-in-out infinite;
+}
+@keyframes mg-rfBack {
+  0%,
+  30% {
+    filter: blur(0);
+  }
+  60%,
+  100% {
+    filter: blur(6px);
+  }
+}
+@keyframes mg-rfFront {
+  0%,
+  30% {
+    filter: blur(6px);
+  }
+  60%,
+  100% {
+    filter: blur(0);
+  }
+}
+
+/* 手ブレ・シェイク */
+.mg-shake {
+  animation: mg-shake 2.2s ease-in-out infinite;
+}
+@keyframes mg-shake {
+  0%,
+  58% {
+    transform: translate(0, 0);
+  }
+  60% {
+    transform: translate(-4px, 2px);
+  }
+  62% {
+    transform: translate(3px, -3px);
+  }
+  64% {
+    transform: translate(-3px, -2px);
+  }
+  66% {
+    transform: translate(4px, 3px);
+  }
+  68% {
+    transform: translate(-2px, 2px);
+  }
+  70% {
+    transform: translate(2px, -2px);
+  }
+  72%,
+  100% {
+    transform: translate(0, 0);
+  }
 }
 
 /* クロスフェード・ワイプ */

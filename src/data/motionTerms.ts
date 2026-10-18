@@ -277,7 +277,7 @@ export const MOTION_TERMS: readonly MotionTerm[] = [
     category: "camera",
     onomatopoeia: ["ぐーっと"],
     description:
-      "レンズで画角をせばめて寄る。カメラは動かないので、遠近感は変わらない。",
+      "レンズで画角をせばめて寄る動き(ズームアウトはこの逆)。カメラ自体は動かないため遠近感は変わらない点が、カメラごと近づくドリーとの違い。",
     promptForVideo: "slow zoom in on the right hill",
     demo: "zoom",
   },
@@ -292,6 +292,72 @@ export const MOTION_TERMS: readonly MotionTerm[] = [
     promptForVideo:
       "dolly zoom on the character's face, background stretches away",
     demo: "dolly",
+  },
+  {
+    id: "dolly-in-out",
+    jp: "ドリー",
+    en: "dolly (dolly in / out)",
+    category: "camera",
+    onomatopoeia: ["ぐんぐん"],
+    description:
+      "カメラごと被写体に近づく(離れる)。レンズで寄るズームと違い、背景との距離感が変わって入り込む感じが出る。",
+    promptForVideo:
+      "slow dolly in toward the character, camera physically moves forward, background perspective shifts",
+    demo: "dollyin",
+  },
+  {
+    id: "tracking-shot",
+    jp: "トラッキング",
+    en: "tracking shot",
+    category: "camera",
+    onomatopoeia: ["すーっ"],
+    description:
+      "カメラが被写体と一緒に移動しながら、同じ距離感を保って撮り続けるカメラワーク。歩く人物を横から追う、車を併走して撮るなど、臨場感や没入感を出したいときに使う。",
+    promptForVideo:
+      "tracking shot, camera moves alongside the subject at the same speed, maintaining consistent distance",
+    demo: "tracking",
+  },
+  {
+    id: "whip-pan",
+    jp: "ウィップパン",
+    en: "whip pan (swish pan)",
+    category: "camera",
+    onomatopoeia: ["ビュン", "シャッ"],
+    description:
+      "パンを非常に速く行い、画面が一瞬ブレて流れるカメラワーク。場面転換や、勢いよく視線を切り替える演出に使われる。",
+    promptForCode:
+      "スライドの切り替えは、0.25秒で横に流しながら filter: blur(6px) をかけて、次のスライドでブレを消すウィップパン風にして",
+    promptForVideo:
+      "extremely fast whip pan, strong motion blur, snap transition to the next subject",
+    demo: "whippan",
+  },
+  {
+    id: "rack-focus",
+    jp: "ラックフォーカス",
+    en: "rack focus (focus pull)",
+    category: "camera",
+    onomatopoeia: ["スッ"],
+    description:
+      "手前と奥、どちらにピントを合わせるかを途中で切り替えるカメラワーク。ピントが合っていない方はぼやけて見える。視線を誘導したいときに使う。",
+    promptForCode:
+      "手前と奥に重ねた2つの要素で、0.6秒かけて手前をfilter: blur(8px)にしながら奥をblur(0)にして、ピントが奥に移ったように見せて",
+    promptForVideo:
+      "rack focus from the foreground subject to the background subject, 0.6 seconds, shallow depth of field",
+    demo: "rackfocus",
+  },
+  {
+    id: "camera-shake",
+    jp: "手ブレ・シェイク",
+    en: "camera shake",
+    category: "camera",
+    onomatopoeia: ["ガクガク", "ブルブル"],
+    description:
+      "手持ちカメラのような小刻みな揺れ。緊迫感や衝撃、ドキュメンタリー風のリアルさを出したいときに使う。",
+    promptForCode:
+      "入力エラーのときは、フォームを左右に±6pxで3回、0.4秒で揺らして(@keyframes shake)",
+    promptForVideo:
+      "handheld camera shake, subtle jitter, documentary-style realism",
+    demo: "shake",
   },
   {
     id: "cross-dissolve",
