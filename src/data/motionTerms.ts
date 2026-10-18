@@ -179,6 +179,76 @@ export const MOTION_TERMS: readonly MotionTerm[] = [
     demo: "follow",
   },
   {
+    id: "hold-spacing",
+    jp: "タメ・ツメ",
+    en: "hold & spacing (slow in / slow out)",
+    category: "anime",
+    onomatopoeia: ["ぐっ…ピタッ"],
+    description:
+      "動く前後にしっかり止める「タメ」と、動いている最中の中割りの間隔を詰めて勢いをつける「ツメ」を組み合わせた表現。「溜めて、一気に動いて、ピタッと止まる」というメリハリのある動きになる。",
+    promptForCode:
+      "アイコンは動く前に0.3秒静止(タメ)し、そこから0.15秒でcubic-bezier(0.83, 0, 0.17, 1)を使って一気に移動して(ツメ)、動いたあとまた0.3秒静止するようにして",
+    promptForVideo:
+      "character pauses, then snaps into movement with a sharp start and sharp stop, then pauses again",
+    demo: "holdspacing",
+  },
+  {
+    id: "in-between",
+    jp: "中割り",
+    en: "in-between (tweening)",
+    category: "anime",
+    onomatopoeia: ["すーっ"],
+    description:
+      "原画(キーポーズ)とキーポーズの間を埋める、途中のコマ(絵)のこと。CSSのアニメーションは2点間を自動で補間するため、中割りの枚数を増やす目的は「滑らかにする」ことではなく、途中に経由点を作って「動くルート(軌道)を変える」こと。",
+    promptForCode:
+      "0%と100%だけだと直線的に動くので、40%と70%に中割りのキーを足して、弧を描くように動かして",
+    promptForVideo:
+      "smooth, fluid animation with no choppiness, like densely inbetweened animation",
+    demo: "inbetween",
+  },
+  {
+    id: "frame-timing",
+    jp: "コマ打ち(1コマ・2コマ・3コマ)",
+    en: "frame-on-ones / twos / threes",
+    category: "anime",
+    onomatopoeia: ["パカパカ", "カクカク"],
+    description:
+      "1秒間に絵を何回更新するかの打ち方。1コマ打ちは毎フレーム絵を変えて滑らかに、2コマ・3コマ打ちは数フレームおきにしか絵を変えず、カクカクした省略感のある動きになる。日本のTVアニメは3コマ打ちが多い。",
+    promptForCode:
+      "歩きのアニメーションは3コマ打ちにして(24fps中8回だけ絵を更新。animation-timing-function: steps(8) で1秒ループ)",
+    promptForVideo:
+      "anime-style limited animation, animated on threes, low frame rate feel",
+    demo: "steps",
+  },
+  {
+    id: "lip-sync-blink",
+    jp: "口パク・目パチ",
+    en: "lip sync & eye blink",
+    category: "anime",
+    onomatopoeia: ["パチパチ", "もごもご"],
+    description:
+      "セリフに合わせて口を開閉させる(口パク)、一定間隔で目を閉じる(目パチ)、どちらもキャラクターに生きている感じを出す基本の動き。口は閉・中・開の3パターンを切り替えるだけで喋って見える。",
+    promptForCode:
+      "キャラクターの口は閉・中・開の3パターンを1音節あたり0.12秒で切り替えて喋っているように見せて。目は3秒に1回、0.1秒だけ閉じて瞬きさせて",
+    promptForVideo:
+      "anime character talking with simple 3-frame mouth cycle (closed, half-open, open), occasional natural eye blink",
+    demo: "lipsync",
+  },
+  {
+    id: "smear-frame",
+    jp: "オバケ(残像線)",
+    en: "smear frame",
+    category: "anime",
+    onomatopoeia: ["シャッ", "ビュン"],
+    description:
+      "速い動きのときに、通過した軌跡が線や半透明の分身として伸びて見える表現。コマ数が少なくても速さや勢いを感じさせられる、アニメ特有の省略表現。",
+    promptForCode:
+      "キャラクターが素早く動く瞬間だけ、box-shadowで半透明の分身を3つ後方にずらして0.15秒だけ表示し、残像(オバケ)に見せて",
+    promptForVideo:
+      "anime-style smear frames, speed lines, exaggerated fast motion",
+    demo: "smear",
+  },
+  {
     id: "pan",
     jp: "パン",
     en: "pan",

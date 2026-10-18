@@ -72,12 +72,17 @@
 .mg-pause {
   font: inherit;
   font-size: 14px;
-  border: 1px solid var(--mg-line);
-  background: transparent;
-  color: var(--mg-muted);
+  font-weight: 700;
+  border: 1px solid var(--mg-key);
+  background: var(--mg-paper);
+  color: var(--mg-key);
   padding: 6px 14px;
   border-radius: 999px;
   cursor: pointer;
+}
+.mg-pause[aria-pressed="true"] {
+  background: var(--mg-key);
+  color: var(--mg-paper);
 }
 .mg-count {
   font-family: var(--mg-font-mono);
@@ -609,6 +614,174 @@
   height: 34px;
   border: 1.5px dashed var(--mg-muted);
   border-radius: 6px;
+}
+
+/* タメ・ツメ */
+.mg-holdspacing .mg-box {
+  top: calc(50% - 17px);
+  animation: mg-holdspacing 2.6s infinite;
+}
+@keyframes mg-holdspacing {
+  0%,
+  30% {
+    left: 12%;
+    animation-timing-function: cubic-bezier(0.83, 0, 0.17, 1);
+  }
+  42% {
+    left: calc(84% - 34px);
+  }
+  72%,
+  100% {
+    left: calc(84% - 34px);
+  }
+}
+
+/* 中割り */
+.mg-inbetween .mg-lbl.mg-l1 {
+  top: 14%;
+}
+.mg-inbetween .mg-lbl.mg-l2 {
+  top: 50%;
+}
+.mg-inbetween .mg-ib1 {
+  top: 26%;
+  animation: mg-ibStraight 2.6s ease-in-out infinite alternate;
+}
+.mg-inbetween .mg-ib2 {
+  top: 62%;
+  background: var(--mg-tag-camera);
+  animation: mg-ibArc 2.6s ease-in-out infinite alternate;
+}
+@keyframes mg-ibStraight {
+  from {
+    left: 12%;
+  }
+  to {
+    left: calc(84% - 18px);
+  }
+}
+@keyframes mg-ibArc {
+  0% {
+    left: 12%;
+    top: 62%;
+  }
+  50% {
+    left: calc(48% - 9px);
+    top: 32%;
+  }
+  100% {
+    left: calc(84% - 18px);
+    top: 62%;
+  }
+}
+
+/* コマ打ち */
+.mg-steps .mg-box {
+  top: calc(50% - 17px);
+  animation: mg-steps 1.6s steps(8) infinite alternate;
+}
+@keyframes mg-steps {
+  from {
+    left: 10%;
+  }
+  to {
+    left: calc(86% - 34px);
+  }
+}
+
+/* 口パク・目パチ */
+.mg-lipsync .mg-face {
+  position: absolute;
+  left: calc(50% - 40px);
+  top: calc(50% - 40px);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--mg-paper);
+  border: 2px solid var(--mg-line);
+}
+.mg-lipsync .mg-eye {
+  position: absolute;
+  top: 28px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--mg-ink);
+  animation: mg-blink 3s steps(1) infinite;
+}
+.mg-lipsync .mg-eye-l {
+  left: 20px;
+}
+.mg-lipsync .mg-eye-r {
+  left: 51px;
+}
+@keyframes mg-blink {
+  0%,
+  92% {
+    height: 9px;
+  }
+  94%,
+  97% {
+    height: 2px;
+  }
+  100% {
+    height: 9px;
+  }
+}
+.mg-lipsync .mg-mouth {
+  position: absolute;
+  left: 26px;
+  bottom: 18px;
+  width: 28px;
+  height: 3px;
+  border-radius: 3px;
+  background: var(--mg-tag-camera);
+  animation: mg-lipsync 1.2s steps(1) infinite;
+}
+@keyframes mg-lipsync {
+  0%,
+  33% {
+    height: 3px;
+    border-radius: 3px;
+  }
+  34%,
+  66% {
+    height: 9px;
+    border-radius: 4px;
+  }
+  67%,
+  100% {
+    height: 18px;
+    border-radius: 50%;
+  }
+}
+
+/* オバケ(残像線) */
+.mg-smear .mg-smear-main,
+.mg-smear .mg-smear-trail {
+  top: calc(50% - 17px);
+  animation: mg-smearMove 1s ease-in infinite;
+}
+.mg-smear .mg-t1 {
+  animation-delay: 0.04s;
+  opacity: 0.5;
+}
+.mg-smear .mg-t2 {
+  animation-delay: 0.08s;
+  opacity: 0.3;
+}
+.mg-smear .mg-t3 {
+  animation-delay: 0.12s;
+  opacity: 0.15;
+}
+@keyframes mg-smearMove {
+  0% {
+    left: 8%;
+  }
+  28%,
+  100% {
+    left: calc(84% - 34px);
+  }
 }
 
 /* パン・ティルト・ズーム */

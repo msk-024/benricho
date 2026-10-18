@@ -14,6 +14,11 @@ export type MotionDemoKey =
   | "antic"
   | "squash"
   | "follow"
+  | "holdspacing"
+  | "inbetween"
+  | "steps"
+  | "lipsync"
+  | "smear"
   | "pan"
   | "tilt"
   | "zoom"
@@ -53,6 +58,16 @@ export function getMotionDemoStageClass(demoKey: MotionDemoKey): string {
       return "mg-squash";
     case "follow":
       return "mg-follow";
+    case "holdspacing":
+      return "mg-holdspacing";
+    case "inbetween":
+      return "mg-inbetween";
+    case "steps":
+      return "mg-steps";
+    case "lipsync":
+      return "mg-lipsync";
+    case "smear":
+      return "mg-smear";
     case "pan":
       return "mg-pan mg-frame";
     case "tilt":

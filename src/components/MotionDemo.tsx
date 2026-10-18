@@ -63,6 +63,36 @@ export function MotionDemo({
           <div className="mg-box" />
         </>
       );
+    case "holdspacing":
+      return <div className="mg-box" />;
+    case "inbetween":
+      return (
+        <>
+          <span className="mg-lbl mg-l1">キー2つだけ</span>
+          <span className="mg-lbl mg-l2">中割り追加</span>
+          <div className="mg-dot mg-ib1" />
+          <div className="mg-dot mg-ib2" />
+        </>
+      );
+    case "steps":
+      return <div className="mg-box" />;
+    case "lipsync":
+      return (
+        <div className="mg-face">
+          <div className="mg-eye mg-eye-l" />
+          <div className="mg-eye mg-eye-r" />
+          <div className="mg-mouth" />
+        </div>
+      );
+    case "smear":
+      return (
+        <>
+          <div className="mg-box mg-smear-trail mg-t3" />
+          <div className="mg-box mg-smear-trail mg-t2" />
+          <div className="mg-box mg-smear-trail mg-t1" />
+          <div className="mg-box mg-smear-main" />
+        </>
+      );
     case "pan":
       return <Scene wide />;
     case "tilt":
