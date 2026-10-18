@@ -404,6 +404,106 @@
   }
 }
 
+/* フェードイン・アウト */
+.mg-fade .mg-box {
+  top: calc(50% - 17px);
+  left: calc(50% - 17px);
+  animation: mg-fadeInOut 3s ease-in-out infinite;
+}
+@keyframes mg-fadeInOut {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  30%,
+  70% {
+    opacity: 1;
+  }
+}
+
+/* スライドイン */
+.mg-slidein .mg-box {
+  top: calc(50% - 17px);
+  animation: mg-slidein 3s ease-out infinite;
+}
+@keyframes mg-slidein {
+  0% {
+    left: -15%;
+    opacity: 0;
+  }
+  25%,
+  70% {
+    left: 40%;
+    opacity: 1;
+  }
+  100% {
+    left: -15%;
+    opacity: 0;
+  }
+}
+
+/* スケール(拡大縮小) */
+.mg-scale .mg-box {
+  top: calc(50% - 17px);
+  left: calc(50% - 17px);
+  animation: mg-scaleUpDown 2.4s ease-in-out infinite;
+}
+@keyframes mg-scaleUpDown {
+  0%,
+  100% {
+    transform: scale(0.3);
+  }
+  50% {
+    transform: scale(1);
+  }
+}
+
+/* スプリング */
+.mg-spring .mg-box {
+  top: calc(50% - 17px);
+  animation: mg-spring 2.6s infinite;
+}
+@keyframes mg-spring {
+  0%,
+  8% {
+    left: 15%;
+    animation-timing-function: ease-in;
+  }
+  42% {
+    left: 76%;
+  }
+  54% {
+    left: 66%;
+  }
+  64% {
+    left: 73%;
+  }
+  73% {
+    left: 69%;
+  }
+  80% {
+    left: 71.5%;
+  }
+  86%,
+  100% {
+    left: 70.5%;
+  }
+}
+
+/* ループ・ピンポン */
+.mg-pingpong .mg-dot {
+  top: calc(50% - 9px);
+  animation: mg-pingpong 2s ease-in-out infinite alternate;
+}
+@keyframes mg-pingpong {
+  from {
+    left: 20%;
+  }
+  to {
+    left: 72%;
+  }
+}
+
 /* 予備動作 */
 .mg-antic .mg-dot {
   width: 30px;

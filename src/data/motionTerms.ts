@@ -75,6 +75,73 @@ export const MOTION_TERMS: readonly MotionTerm[] = [
     demo: "stagger",
   },
   {
+    id: "fade-in-out",
+    jp: "フェードイン・アウト",
+    en: "fade in / out",
+    category: "basic",
+    onomatopoeia: ["ふわっ", "じわっ"],
+    description:
+      "透明から不透明へ(フェードイン)、不透明から透明へ(フェードアウト)なめらかに切り替わる、もっとも基本的な現れ方・消え方。",
+    promptForCode:
+      "通知は0.3秒でフェードインし、3秒後に0.3秒かけてフェードアウトして消えるようにして",
+    promptForVideo: "scene fades in from black, 1.5 seconds, slow",
+    demo: "fade",
+  },
+  {
+    id: "slide-in",
+    jp: "スライドイン",
+    en: "slide in",
+    category: "basic",
+    onomatopoeia: ["スッ", "シュッ"],
+    description:
+      "画面の外から要素がすべり込んでくる動き。どの方向から出てくるかで印象が変わる(下から/横からなど)。",
+    promptForCode:
+      "トーストは16px下から0.25秒でスライドインし、ease-outで止まるようにして",
+    promptForVideo: "the character slides into frame from the left, smooth",
+    demo: "slidein",
+  },
+  {
+    id: "scale",
+    jp: "スケール(拡大縮小)",
+    en: "scale",
+    category: "basic",
+    onomatopoeia: ["ぐーん"],
+    description:
+      "要素そのものを拡大・縮小する動き。カメラが動くズームと違い、要素の大きさ自体が変わる。",
+    promptForCode:
+      "カードはホバー時に0.2秒でscale(1.05)に拡大し、離れたら元に戻るようにして",
+    promptForVideo:
+      "the logo grows from small to full size, camera stays still",
+    demo: "scale",
+  },
+  {
+    id: "spring",
+    jp: "スプリング",
+    en: "spring (stiffness, damping)",
+    category: "basic",
+    onomatopoeia: ["ぽよん", "ぷるん"],
+    description:
+      "物理的なバネのような弾み方。stiffness(硬さ)が高いほど速く、damping(減衰)が低いほどよく弾む。イージング関数より自然に見えることが多い。",
+    promptForCode:
+      "Motion(Framer Motion)なら type: 'spring', stiffness: 300, damping: 20。CSSだけなら cubic-bezier(0.34, 1.56, 0.64, 1) で0.5秒、少し行き過ぎて戻るように",
+    promptForVideo: "bouncy, springy motion, overshoots slightly and settles",
+    demo: "spring",
+  },
+  {
+    id: "loop-pingpong",
+    jp: "ループ・ピンポン",
+    en: "loop, ping-pong",
+    category: "basic",
+    onomatopoeia: ["ゆらゆら"],
+    description:
+      "ループは同じ動きを繰り返す、ピンポンは往復するように逆再生もはさんで繰り返す。アイコンの揺れなど、常時目を引きたい動きに。",
+    promptForCode:
+      "アイコンは上下に4px、2秒周期で揺れ続けるようにして(animation: infinite alternate、ease-in-out)",
+    promptForVideo:
+      "seamless looping animation, gentle back-and-forth motion, 2 seconds",
+    demo: "pingpong",
+  },
+  {
     id: "anticipation",
     jp: "予備動作",
     en: "anticipation",

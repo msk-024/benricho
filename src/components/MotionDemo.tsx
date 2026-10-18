@@ -37,6 +37,16 @@ export function MotionDemo({
           <div className="mg-bar" />
         </div>
       );
+    case "fade":
+      return <div className="mg-box" />;
+    case "slidein":
+      return <div className="mg-box" />;
+    case "scale":
+      return <div className="mg-box" />;
+    case "spring":
+      return <div className="mg-box" />;
+    case "pingpong":
+      return <div className="mg-dot" />;
     case "antic":
       return <div className="mg-dot" />;
     case "squash":

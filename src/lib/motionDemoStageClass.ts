@@ -6,6 +6,11 @@ export type MotionDemoKey =
   | "ease"
   | "keyframe"
   | "stagger"
+  | "fade"
+  | "slidein"
+  | "scale"
+  | "spring"
+  | "pingpong"
   | "antic"
   | "squash"
   | "follow"
@@ -32,6 +37,16 @@ export function getMotionDemoStageClass(demoKey: MotionDemoKey): string {
       return "mg-kf";
     case "stagger":
       return "mg-stagger";
+    case "fade":
+      return "mg-fade";
+    case "slidein":
+      return "mg-slidein";
+    case "scale":
+      return "mg-scale";
+    case "spring":
+      return "mg-spring";
+    case "pingpong":
+      return "mg-pingpong";
     case "antic":
       return "mg-antic";
     case "squash":
