@@ -1,1 +1,119 @@
 @import "tailwindcss";
+
+/*
+ * 意味ベースの色トークン。各ツールのクラスは bg-white・text-slate-700 等の
+ * 直書きから、ここで定義する --color-* トークン(bg-surface・text-ink 等)に
+ * 順次置き換えていく(フェーズ2以降)。@theme で定義すると Tailwind v4 が
+ * 対応するユーティリティ(bg-、text-、border-、accent- など)を自動生成する。
+ *
+ * ダーク切り替えは data-theme 属性のみで行う([data-theme="dark"] のみ)。
+ * 「自動(システムに合わせる)」の解決は src/lib/theme.ts の resolveTheme() が
+ * JS側で行い、結果だけを data-theme 属性に反映する(ここではOS設定を見ない)。
+ * これにより、ダーク値をCSS側に二重定義せずに済む。
+ * 初回描画前の反映は index.html のインラインスクリプトを参照。
+ */
+@theme {
+  --color-canvas: #f8fafc;
+  --color-surface: #ffffff;
+  --color-surface-muted: #f8fafc;
+
+  --color-line: #e2e8f0;
+  --color-line-strong: #cbd5e1;
+  --color-line-subtle: #f1f5f9;
+
+  --color-ink-strong: #1e293b;
+  --color-ink: #334155;
+  --color-muted: #64748b;
+  --color-subtle: #94a3b8;
+  --color-ink-inverted: #ffffff;
+
+  --color-action-primary: #0284c7;
+  --color-action-primary-hover: #0369a1;
+  --color-action-primary-soft: #e0f2fe;
+  --color-action-primary-soft-ink: #075985;
+  --color-action-confirm: #059669;
+  --color-action-confirm-hover: #047857;
+  --color-action-destructive: #dc2626;
+  --color-action-destructive-hover: #b91c1c;
+
+  --color-danger-bg: #fef2f2;
+  --color-danger-border: #fecaca;
+  --color-danger-ink: #b91c1c;
+
+  --color-success-bg: #ecfdf5;
+  --color-success-ink: #065f46;
+
+  --color-warn-bg: #fffbeb;
+  --color-warn-ink: #92400e;
+  --color-warn-ink-subtle: #b45309;
+  --color-warn-solid: #d97706;
+  --color-warn-solid-hover: #b45309;
+
+  --color-info-bg: #f0f9ff;
+  --color-info-ink: #075985;
+  --color-info-border: #0ea5e9;
+
+  --color-selection-active: #10b981;
+  --color-selection-inactive: #0ea5e9;
+
+  --color-checker-a: #f1f5f9;
+  --color-checker-b: #ffffff;
+}
+
+:root {
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --color-canvas: #0f172a;
+  --color-surface: #1e293b;
+  --color-surface-muted: #0f172a;
+
+  --color-line: #334155;
+  --color-line-strong: #475569;
+  --color-line-subtle: #1e293b;
+
+  --color-ink-strong: #f1f5f9;
+  --color-ink: #e2e8f0;
+  --color-muted: #94a3b8;
+  --color-subtle: #64748b;
+
+  --color-action-primary: #0ea5e9;
+  --color-action-primary-hover: #38bdf8;
+  --color-action-primary-soft: #0c4a6e;
+  --color-action-primary-soft-ink: #7dd3fc;
+  --color-action-confirm: #10b981;
+  --color-action-confirm-hover: #34d399;
+  --color-action-destructive: #ef4444;
+  --color-action-destructive-hover: #f87171;
+
+  --color-danger-bg: #450a0a;
+  --color-danger-border: #991b1b;
+  --color-danger-ink: #fca5a5;
+
+  --color-success-bg: #022c22;
+  --color-success-ink: #6ee7b7;
+
+  --color-warn-bg: #451a03;
+  --color-warn-ink: #fcd34d;
+  --color-warn-ink-subtle: #fbbf24;
+  --color-warn-solid: #f59e0b;
+  --color-warn-solid-hover: #fbbf24;
+
+  --color-info-bg: #0c4a6e;
+  --color-info-ink: #7dd3fc;
+  --color-info-border: #38bdf8;
+
+  --color-selection-active: #34d399;
+  --color-selection-inactive: #38bdf8;
+
+  --color-checker-a: #2a2f3a;
+  --color-checker-b: #363c4a;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-action-primary);
+  outline-offset: 2px;
+}

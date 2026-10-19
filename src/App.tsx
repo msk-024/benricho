@@ -1,12 +1,20 @@
 import { Suspense, useEffect, useState } from "react";
-import type { ReactElement } from "react";
+import type { ChangeEvent, ReactElement } from "react";
 import { ErrorBoundary } from "./components/ErrorBoundary";
 import { ToolStatus } from "./components/ToolStatus";
+import { useThemePreference } from "./hooks/useThemePreference";
+import { isThemePreference } from "./lib/theme";
 import {
   TOOL_CATEGORIES,
   TOOL_DEFINITIONS,
   type ToolDefinition,
 } from "./tools/registry";
+
+const THEME_OPTIONS = [
+  { value: "system", label: "自動" },
+  { value: "light", label: "ライト" },
+  { value: "dark", label: "ダーク" },
+] as const;
 
 const DEFAULT_TOOL_ID = TOOL_DEFINITIONS[0].id;
 
@@ -26,6 +34,12 @@ function findToolById(toolId: string): ToolDefinition {
 /** ツール一覧サイドバー + 選択中ツール表示。選択状態は location.hash と同期する */
 function App(): ReactElement {
   const [selectedToolId, setSelectedToolId] = useState<string>(toolIdFromHash);
+  const [themePreference, setThemePreference] = useThemePreference();
+
+  const handleThemeChange = (event: ChangeEvent<HTMLSelectElement>): void => {
+    const { value } = event.target;
+    if (isThemePreference(value)) setThemePreference(value);
+  };
 
   useEffect(() => {
     const handleHashChange = (): void => setSelectedToolId(toolIdFromHash());
@@ -44,7 +58,23 @@ function App(): ReactElement {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 lg:flex">
       <aside className="border-b border-slate-200 bg-white p-4 lg:min-h-screen lg:w-64 lg:shrink-0 lg:border-b-0 lg:border-r">
-        <h1 className="mb-4 text-lg font-bold text-slate-800">🧰 便利帳</h1>
+        <div className="mb-4 flex items-center justify-between gap-2">
+          <h1 className="text-lg font-bold text-slate-800">🧰 便利帳</h1>
+          <label>
+            <span className="sr-only">テーマ</span>
+            <select
+              value={themePreference}
+              onChange={handleThemeChange}
+              className="rounded-lg border border-line-strong bg-surface px-2 py-1 text-xs text-ink"
+            >
+              {THEME_OPTIONS.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          </label>
+        </div>
 
         {/* モバイル: セレクトボックスで切替 */}
         <label className="block lg:hidden">

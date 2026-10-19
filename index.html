@@ -2,6 +2,29 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
+    <!--
+      描画前にテーマを適用し、白フラッシュを防ぐ。
+      キー名・解決ロジックは src/lib/theme.ts (THEME_STORAGE_KEY / resolveTheme) と手動で一致させること
+      (src/lib/theme.test.ts がキー名の一致をテストで検証している)。
+      "system"(自動)の場合はここでOSの prefers-color-scheme を見て解決する
+      (CSS側は data-theme="dark" しか見ないため、ここで解決しておく必要がある)。
+    -->
+    <script>
+      (function () {
+        try {
+          var stored = window.localStorage.getItem("benricho-theme");
+          var prefersDark =
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches;
+          var isDark = stored === "dark" || (stored !== "light" && prefersDark);
+          if (isDark) {
+            document.documentElement.dataset.theme = "dark";
+          }
+        } catch (error) {
+          // localStorageが使えない環境ではライト表示のまま続行する
+        }
+      })();
+    </script>
     <link
       rel="icon"
       type="image/png"
