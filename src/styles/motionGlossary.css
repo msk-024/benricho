@@ -2,9 +2,9 @@
  * うごき辞典(ugoki-jiten.html試作)の移植スタイル。
  * 便利帳はTailwindユーティリティ中心でCSSカスタムプロパティを使わないため、
  * このツール専用のクラスはすべて mg- プレフィックスを付け、衝突を避ける。
- * 色は .mg-root 直下のカスタムプロパティにまとめてあるので、将来アプリ全体を
- * ダーク対応する際は .mg-root[data-theme="dark"] 等を追加するだけで済む想定。
- * (今回はMochiの指示によりライトのみ実装)
+ * 色は .mg-root 直下のカスタムプロパティにまとめてあり、ダーク値は下の
+ * html[data-theme="dark"] .mg-root で上書きする(アプリ全体のテーマ設定と
+ * 連動。辞典だけ独自のprefers-color-scheme判定等は持たない)。
  */
 .mg-root {
   --mg-bg: #f3f4f7;
@@ -29,6 +29,24 @@
     "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
 
   color: var(--mg-ink);
+}
+
+html[data-theme="dark"] .mg-root {
+  --mg-bg: #0f172a;
+  --mg-paper: #1e293b;
+  --mg-ink: #e2e8f0;
+  --mg-muted: #94a3b8;
+  --mg-line: #334155;
+  --mg-stage: #111827;
+  --mg-stage-ink: #cbd5e1;
+  --mg-accent: #6d8bfa;
+  --mg-accent-soft: #1e2a4a;
+  --mg-key: #f2b544;
+  --mg-tag-basic: #7b95f5;
+  --mg-tag-anime: #e685c0;
+  --mg-tag-camera: #e8795f;
+  --mg-tag-edit: #d9a53f;
+  --mg-tag-web: #4fb894;
 }
 
 .mg-toolbar {
