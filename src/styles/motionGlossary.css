@@ -1468,6 +1468,190 @@
   background: var(--mg-line);
 }
 
+/* トランジション */
+.mg-transition .mg-lbl.mg-l1 {
+  top: 14%;
+  opacity: 0;
+  animation: mg-transitionLabel 2.6s steps(1) infinite;
+}
+.mg-transition .mg-transition-box {
+  top: calc(50% - 17px);
+  left: calc(50% - 17px);
+  animation: mg-transitionBox 2.6s ease infinite;
+}
+@keyframes mg-transitionLabel {
+  0%,
+  30% {
+    opacity: 0;
+  }
+  32%,
+  70% {
+    opacity: 1;
+  }
+  72%,
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes mg-transitionBox {
+  0%,
+  30% {
+    background: var(--mg-accent);
+    transform: scale(1);
+  }
+  55%,
+  70% {
+    background: var(--mg-tag-camera);
+    transform: scale(1.15);
+  }
+  100% {
+    background: var(--mg-accent);
+    transform: scale(1);
+  }
+}
+
+/* ホバー */
+.mg-hover .mg-hover-box {
+  top: calc(50% - 20px);
+  left: calc(50% - 20px);
+  width: 40px;
+  height: 40px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  animation: mg-hoverBox 2.8s ease infinite;
+}
+@keyframes mg-hoverBox {
+  0%,
+  25% {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  }
+  50%,
+  75% {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 16px rgba(0, 0, 0, 0.25);
+  }
+  100% {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  }
+}
+.mg-hover .mg-cursor {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 14px 0 0 10px;
+  border-color: transparent transparent transparent var(--mg-ink);
+  animation: mg-cursorMove 2.8s ease infinite;
+}
+@keyframes mg-cursorMove {
+  0%,
+  20% {
+    left: 14%;
+    top: 70%;
+  }
+  40%,
+  80% {
+    left: calc(50% + 6px);
+    top: calc(50% - 4px);
+  }
+  100% {
+    left: 14%;
+    top: 70%;
+  }
+}
+
+/* スクロール連動 */
+.mg-scrolllink .mg-scroll-track {
+  position: absolute;
+  left: 14%;
+  top: 10%;
+  bottom: 10%;
+  width: 4px;
+  border-radius: 2px;
+  background: var(--mg-line);
+}
+.mg-scrolllink .mg-scroll-thumb {
+  position: absolute;
+  left: 0;
+  width: 4px;
+  height: 20%;
+  border-radius: 2px;
+  background: var(--mg-accent);
+  animation: mg-scrollThumb 3.2s ease-in-out infinite;
+}
+@keyframes mg-scrollThumb {
+  0%,
+  10% {
+    top: 0%;
+  }
+  90%,
+  100% {
+    top: 80%;
+  }
+}
+.mg-scrolllink .mg-scroll-item {
+  position: absolute;
+  left: 30%;
+  right: 12%;
+  height: 16px;
+  border-radius: 4px;
+  background: var(--mg-accent);
+  opacity: 0;
+  transform: translateY(14px);
+  animation: mg-scrollItem 3.2s ease-out infinite;
+}
+.mg-scrolllink .mg-si1 {
+  top: 18%;
+  animation-delay: 0s;
+}
+.mg-scrolllink .mg-si2 {
+  top: 46%;
+  animation-delay: 0.9s;
+}
+.mg-scrolllink .mg-si3 {
+  top: 74%;
+  animation-delay: 1.8s;
+}
+@keyframes mg-scrollItem {
+  0%,
+  27% {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  36%,
+  90% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ページ遷移(View Transitions) */
+.mg-viewtransition .mg-vt-box {
+  position: absolute;
+  border-radius: 8px;
+  background: var(--mg-accent);
+  animation: mg-vtMorph 3s ease-in-out infinite alternate;
+}
+@keyframes mg-vtMorph {
+  from {
+    left: 10%;
+    top: 70%;
+    width: 24%;
+    height: 20%;
+  }
+  to {
+    left: 20%;
+    top: 10%;
+    width: 60%;
+    height: 70%;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .mg-stage *,
   .mg-stage *::before,

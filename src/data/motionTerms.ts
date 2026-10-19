@@ -505,4 +505,60 @@ export const MOTION_TERMS: readonly MotionTerm[] = [
     promptForCode: "保存したら画面下からトーストを出して、3秒で消して",
     demo: "toast",
   },
+  {
+    id: "transition",
+    jp: "トランジション",
+    en: "transition (CSS transition)",
+    category: "web",
+    onomatopoeia: ["すっ"],
+    description:
+      "ある状態から別の状態へ切り替わるとき、瞬時にではなく一定時間かけてなめらかに変化させること。CSSの`transition`は、ホバーやクラス切り替えなど「何かがきっかけで値が変わる瞬間」をなめらかにする仕組み(常に動き続ける`@keyframes`アニメーションとの違い)。",
+    promptForCode:
+      "ボタンの背景色は、ホバーしたときだけtransition: background-color 0.2s ease で切り替わるようにして(keyframesではなくtransitionを使う)",
+    promptForVideo:
+      "smooth, gradual transition between two states, not an abrupt change",
+    demo: "transition",
+  },
+  {
+    id: "hover",
+    jp: "ホバー",
+    en: "hover",
+    category: "web",
+    onomatopoeia: ["ふわっ", "きゅっ"],
+    description:
+      "マウスカーソルを要素に重ねたときだけ起こる変化。少し浮き上がる・影がつく・下線が伸びるなど「触れられる」ことを伝える合図になる。スマホではタップ時の代替(active疑似クラス)を用意することが多い。",
+    promptForCode:
+      "カードはホバー時に4px浮き上がり、影を濃くして0.2秒でtransition。タップ端末ではactive疑似クラスで代替して",
+    promptForVideo:
+      "cursor hovers over the button, the button lifts slightly and a shadow appears",
+    demo: "hover",
+  },
+  {
+    id: "scroll-linked",
+    jp: "スクロール連動",
+    en: "scroll-linked animation (scroll-triggered)",
+    category: "web",
+    onomatopoeia: ["にゅるっ"],
+    description:
+      "スクロールの位置や進み具合に合わせて要素が現れたり動いたりする演出。「画面に入ったら一度だけ再生」と「スクロール量にそのまま連動して動く」の2パターンがある。モダンCSSでは`animation-timeline: scroll()`でJS無しでも作れる。",
+    promptForCode:
+      "セクション見出しは画面に入った瞬間に下から20pxフェードインさせて(IntersectionObserverかCSSのanimation-timeline: viewで)。1回再生したら元に戻さないで。animation-timelineに未対応のブラウザや、prefers-reduced-motionが有効な場合は、最初から表示された状態でOK",
+    promptForVideo:
+      "content reveals and animates in progressively as the view scrolls downward, elements fading and sliding into place",
+    demo: "scrolllink",
+  },
+  {
+    id: "page-transition",
+    jp: "ページ遷移",
+    en: "page transition (View Transitions API)",
+    category: "web",
+    onomatopoeia: ["シュン", "ぬるっ"],
+    description:
+      "ページ(画面)を移動するとき、前の画面から次の画面へなめらかにつながる演出。ブラウザ標準のView Transitions APIを使うと、前後の画面を自動でクロスフェードしたり、同じ要素同士を滑らかに移動・変形させたりできる。",
+    promptForCode:
+      "商品一覧のサムネイルをクリックしたら、View Transitions API(document.startViewTransitionとview-transition-name)でそのサムネイルが詳細ページの大きな画像へそのまま滑らかに変形・移動するようにして。Next.js(App Router)の場合は、ページ遷移の管理方法が違うので、使えるやり方を先に提案して。未対応ブラウザでは普通に切り替わればOK",
+    promptForVideo:
+      "a shared element (like a thumbnail) smoothly morphs and moves into its new position as the screen transitions to the next page",
+    demo: "viewtransition",
+  },
 ];

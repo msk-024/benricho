@@ -277,6 +277,33 @@ export function MotionDemo({
           <div className="mg-msg">保存しました</div>
         </div>
       );
+    case "transition":
+      return (
+        <>
+          <span className="mg-lbl mg-l1">hover</span>
+          <div className="mg-box mg-transition-box" />
+        </>
+      );
+    case "hover":
+      return (
+        <>
+          <div className="mg-box mg-hover-box" />
+          <div className="mg-cursor" />
+        </>
+      );
+    case "scrolllink":
+      return (
+        <>
+          <div className="mg-scroll-track">
+            <div className="mg-scroll-thumb" />
+          </div>
+          <div className="mg-scroll-item mg-si1" />
+          <div className="mg-scroll-item mg-si2" />
+          <div className="mg-scroll-item mg-si3" />
+        </>
+      );
+    case "viewtransition":
+      return <div className="mg-vt-box" />;
     default:
       return null;
   }

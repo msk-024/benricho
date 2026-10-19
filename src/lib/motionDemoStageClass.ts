@@ -39,7 +39,11 @@ export type MotionDemoKey =
   | "parallax"
   | "skeleton"
   | "micro"
-  | "toast";
+  | "toast"
+  | "transition"
+  | "hover"
+  | "scrolllink"
+  | "viewtransition";
 
 /**
  * demoキーごとに .mg-stage へ追加するクラス(カメラワーク系は mg-frame で枠を重ねる)。
@@ -121,6 +125,14 @@ export function getMotionDemoStageClass(demoKey: MotionDemoKey): string {
       return "mg-micro";
     case "toast":
       return "mg-toast";
+    case "transition":
+      return "mg-transition";
+    case "hover":
+      return "mg-hover";
+    case "scrolllink":
+      return "mg-scrolllink";
+    case "viewtransition":
+      return "mg-viewtransition";
     default:
       return "";
   }
