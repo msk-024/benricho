@@ -98,7 +98,7 @@ export function ScreenshotTrimTool(): ReactElement {
         processingLabel="余白を検出中…"
       />
       {skippedNotes.length > 0 && (
-        <ul className="space-y-1 rounded-lg bg-amber-50 px-4 py-3 text-sm text-amber-800">
+        <ul className="space-y-1 rounded-lg bg-warn-bg px-4 py-3 text-sm text-warn-ink">
           {skippedNotes.map((note) => (
             <li key={note}>ℹ {note}</li>
           ))}

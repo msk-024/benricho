@@ -64,14 +64,14 @@ export function PdfCompressTool(): ReactElement {
 
   return (
     <div className="space-y-4">
-      <p className="text-sm text-slate-600">
+      <p className="text-sm text-ink-soft">
         各ページを画像として描き直すことでサイズを削減します。
         <span className="font-medium">
           テキストの選択・検索はできなくなります
         </span>
         のでご注意ください。
       </p>
-      <fieldset className="flex flex-wrap items-center gap-4 text-sm text-slate-700">
+      <fieldset className="flex flex-wrap items-center gap-4 text-sm text-ink">
         <legend className="mb-2 text-sm font-medium">圧縮レベル</legend>
         {COMPRESS_PRESETS.map((preset) => (
           <label key={preset.id} className="flex items-center gap-1.5">
@@ -80,7 +80,7 @@ export function PdfCompressTool(): ReactElement {
               name="compress-preset"
               checked={presetId === preset.id}
               onChange={() => setPresetId(preset.id)}
-              className="accent-sky-600"
+              className="accent-action-primary"
             />
             {preset.label}
           </label>
@@ -98,7 +98,7 @@ export function PdfCompressTool(): ReactElement {
         processingLabel="圧縮中…(ページ数によって時間がかかります)"
       />
       {resultNote !== null && (
-        <p className="rounded-lg bg-amber-50 px-4 py-3 text-sm text-amber-800">
+        <p className="rounded-lg bg-warn-bg px-4 py-3 text-sm text-warn-ink">
           ℹ {resultNote}
         </p>
       )}

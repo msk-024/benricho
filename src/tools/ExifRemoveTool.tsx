@@ -55,7 +55,7 @@ export function ExifRemoveTool(): ReactElement {
 
   return (
     <div className="space-y-4">
-      <p className="text-sm text-slate-600">
+      <p className="text-sm text-ink-soft">
         撮影日時・位置情報(GPS)・カメラ機種などのメタデータを削除します。
         通常は画質を落としません(JPEGで回転情報の焼き込みが必要な場合のみ、その写真だけ再エンコードします)。
       </p>

@@ -91,32 +91,32 @@ export function BgRemoveTool(): ReactElement {
         processingLabel="背景を解析中…"
       />
       {result !== null && !isProcessing && (
-        <div className="space-y-3 rounded-lg border border-slate-200 bg-white p-4">
-          <p className="text-sm text-slate-600">
+        <div className="space-y-3 rounded-lg border border-line bg-surface p-4">
+          <p className="text-sm text-ink-soft">
             画素の {result.removedPercent}% を透過しました
           </p>
           <div className="grid grid-cols-2 gap-3">
             <figure>
-              <figcaption className="mb-1 text-xs text-slate-500">
+              <figcaption className="mb-1 text-xs text-muted">
                 変換前
               </figcaption>
               {originalUrl !== null && (
                 <img
                   src={originalUrl}
                   alt="変換前"
-                  className="max-h-64 w-full rounded border border-slate-100 object-contain"
+                  className="max-h-64 w-full rounded border border-line-subtle object-contain"
                 />
               )}
             </figure>
             <figure>
-              <figcaption className="mb-1 text-xs text-slate-500">
+              <figcaption className="mb-1 text-xs text-muted">
                 変換後(市松模様=透過)
               </figcaption>
               {resultUrl !== null && (
                 <img
                   src={resultUrl}
                   alt="変換後"
-                  className={`max-h-64 w-full rounded border border-slate-100 object-contain ${CHECKER_PATTERN_CLASS}`}
+                  className={`max-h-64 w-full rounded border border-line-subtle object-contain ${CHECKER_PATTERN_CLASS}`}
                 />
               )}
             </figure>
@@ -124,7 +124,7 @@ export function BgRemoveTool(): ReactElement {
           <button
             type="button"
             onClick={() => downloadBlob(result.resultBlob, result.fileName)}
-            className="rounded-lg bg-sky-600 px-4 py-2 text-sm font-medium text-white hover:bg-sky-700"
+            className="rounded-lg bg-action-primary px-4 py-2 text-sm font-medium text-ink-inverted hover:bg-action-primary-hover"
           >
             透過PNGをダウンロード
           </button>

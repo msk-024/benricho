@@ -70,7 +70,7 @@ export function IcoConvertTool(): ReactElement {
 
   return (
     <div className="space-y-4">
-      <fieldset className="flex flex-wrap items-center gap-4 text-sm text-slate-700">
+      <fieldset className="flex flex-wrap items-center gap-4 text-sm text-ink">
         <legend className="mb-2 text-sm font-medium">内包するサイズ</legend>
         {SELECTABLE_SIZES.map((size) => (
           <label key={size} className="flex items-center gap-1.5">
@@ -78,7 +78,7 @@ export function IcoConvertTool(): ReactElement {
               type="checkbox"
               checked={selectedSizes.has(size)}
               onChange={() => toggleSize(size)}
-              className="accent-sky-600"
+              className="accent-action-primary"
             />
             {size}px
           </label>

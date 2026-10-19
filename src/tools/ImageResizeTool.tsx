@@ -125,12 +125,12 @@ export function ImageResizeTool(): ReactElement {
 
   return (
     <div className="space-y-4">
-      <label className="block text-sm text-slate-700">
+      <label className="block text-sm text-ink">
         <span className="mb-1 block font-medium">サイズプリセット</span>
         <select
           value={presetId}
           onChange={(event) => setPresetId(event.target.value as PresetId)}
-          className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2"
+          className="w-full rounded-lg border border-line-strong bg-surface px-3 py-2"
         >
           {RESIZE_PRESETS.map((preset) => (
             <option key={preset.id} value={preset.id}>
@@ -140,7 +140,7 @@ export function ImageResizeTool(): ReactElement {
         </select>
       </label>
       {presetId === "custom" && (
-        <div className="flex items-center gap-3 text-sm text-slate-700">
+        <div className="flex items-center gap-3 text-sm text-ink">
           <label className="flex items-center gap-1.5">
             幅
             <input
@@ -149,7 +149,7 @@ export function ImageResizeTool(): ReactElement {
               max={8192}
               value={customWidth}
               onChange={(event) => setCustomWidth(Number(event.target.value))}
-              className="w-24 rounded-lg border border-slate-300 px-2 py-1.5"
+              className="w-24 rounded-lg border border-line-strong px-2 py-1.5"
             />
           </label>
           ×
@@ -161,13 +161,13 @@ export function ImageResizeTool(): ReactElement {
               max={8192}
               value={customHeight}
               onChange={(event) => setCustomHeight(Number(event.target.value))}
-              className="w-24 rounded-lg border border-slate-300 px-2 py-1.5"
+              className="w-24 rounded-lg border border-line-strong px-2 py-1.5"
             />
           </label>
           px
         </div>
       )}
-      <fieldset className="flex flex-wrap items-center gap-4 text-sm text-slate-700">
+      <fieldset className="flex flex-wrap items-center gap-4 text-sm text-ink">
         <legend className="mb-2 text-sm font-medium">フィット方法</legend>
         <label className="flex items-center gap-1.5">
           <input
@@ -175,7 +175,7 @@ export function ImageResizeTool(): ReactElement {
             name="resize-fit"
             checked={fitMode === "cover"}
             onChange={() => setFitMode("cover")}
-            className="accent-sky-600"
+            className="accent-action-primary"
           />
           全面に敷き詰める(はみ出しは中央トリミング)
         </label>
@@ -185,12 +185,12 @@ export function ImageResizeTool(): ReactElement {
             name="resize-fit"
             checked={fitMode === "contain"}
             onChange={() => setFitMode("contain")}
-            className="accent-sky-600"
+            className="accent-action-primary"
           />
           全体を収める(余白を追加)
         </label>
       </fieldset>
-      <fieldset className="flex flex-wrap items-center gap-4 text-sm text-slate-700">
+      <fieldset className="flex flex-wrap items-center gap-4 text-sm text-ink">
         <legend className="mb-2 text-sm font-medium">出力形式</legend>
         {OUTPUT_FORMATS.map((format) => (
           <label key={format.mimeType} className="flex items-center gap-1.5">
@@ -199,7 +199,7 @@ export function ImageResizeTool(): ReactElement {
               name="resize-format"
               checked={outputMimeType === format.mimeType}
               onChange={() => setOutputMimeType(format.mimeType)}
-              className="accent-sky-600"
+              className="accent-action-primary"
             />
             {format.label}
           </label>

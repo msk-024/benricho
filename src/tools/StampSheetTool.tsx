@@ -443,17 +443,15 @@ export function StampSheetTool(): ReactElement {
 
   return (
     <div className="space-y-4">
-      <div className="rounded-lg bg-slate-50 px-4 py-3 text-sm text-slate-600">
+      <div className="rounded-lg bg-surface-muted px-4 py-3 text-sm text-ink-soft">
         <p>
           複数のスタンプイラストが並んだシート画像から、1枚ずつの枠を自動検出します。枠を調整して確定すると、
           LINEスタンプの3サイズ(本体370×320 / メイン240×240 /
           タブ96×74)を一括書き出しします。
         </p>
       </div>
-      <div className="rounded-lg bg-slate-50 px-4 py-3 text-sm text-slate-600">
-        <p className="font-semibold text-slate-700">
-          きれいに分割するためのお願い
-        </p>
+      <div className="rounded-lg bg-surface-muted px-4 py-3 text-sm text-ink-soft">
+        <p className="font-semibold text-ink">きれいに分割するためのお願い</p>
         <ul className="mt-1 list-inside list-disc">
           <li>背景は透過PNG(または無地の白)にしてください</li>
           <li>
@@ -483,7 +481,7 @@ export function StampSheetTool(): ReactElement {
       {sheetCanvas !== null && (
         <>
           {looksOpaque && (
-            <div className="space-y-3 rounded-lg bg-amber-50 px-4 py-3 text-sm text-amber-800">
+            <div className="space-y-3 rounded-lg bg-warn-bg px-4 py-3 text-sm text-warn-ink">
               <p>
                 ⚠
                 シートがほぼ不透明です。LINEスタンプには背景透過が必須のため、検出の前に背景透過を適用してください。
@@ -501,17 +499,15 @@ export function StampSheetTool(): ReactElement {
                 type="button"
                 onClick={handleApplyBgRemoval}
                 disabled={isProcessing}
-                className="rounded-lg bg-sky-600 px-4 py-2 text-sm font-medium text-white hover:bg-sky-700 disabled:cursor-not-allowed disabled:opacity-50"
+                className="rounded-lg bg-action-primary px-4 py-2 text-sm font-medium text-ink-inverted hover:bg-action-primary-hover disabled:cursor-not-allowed disabled:opacity-50"
               >
                 背景透過を適用
               </button>
             </div>
           )}
 
-          <div className="space-y-3 rounded-lg border border-slate-200 bg-white p-4">
-            <h3 className="text-sm font-semibold text-slate-700">
-              検出パラメータ
-            </h3>
+          <div className="space-y-3 rounded-lg border border-line bg-surface p-4">
+            <h3 className="text-sm font-semibold text-ink">検出パラメータ</h3>
             <LabeledSlider
               label="アルファ閾値(これを超える画素を前景とみなす)"
               min={0}
@@ -542,7 +538,7 @@ export function StampSheetTool(): ReactElement {
               onChange={handleAttachDistanceChange}
             />
             {hasManualEdits && (
-              <div className="flex flex-wrap items-center justify-between gap-2 rounded-lg bg-amber-50 px-3 py-2 text-sm text-amber-800">
+              <div className="flex flex-wrap items-center justify-between gap-2 rounded-lg bg-warn-bg px-3 py-2 text-sm text-warn-ink">
                 <p>
                   枠を手動編集したため、スライダーの変更は自動反映されません。
                 </p>
@@ -550,7 +546,7 @@ export function StampSheetTool(): ReactElement {
                   type="button"
                   onClick={handleExplicitRerun}
                   disabled={isProcessing || looksOpaque}
-                  className="shrink-0 rounded-lg bg-amber-600 px-3 py-1.5 text-xs font-medium text-white hover:bg-amber-700 disabled:cursor-not-allowed disabled:opacity-50"
+                  className="shrink-0 rounded-lg bg-warn-solid px-3 py-1.5 text-xs font-medium text-ink-inverted hover:bg-warn-solid-hover disabled:cursor-not-allowed disabled:opacity-50"
                 >
                   パラメータを反映して再検出(手動編集は破棄されます)
                 </button>
@@ -594,7 +590,7 @@ export function StampSheetTool(): ReactElement {
             type="button"
             onClick={handleExport}
             disabled={isProcessing || frames.length === 0}
-            className="rounded-lg bg-emerald-600 px-4 py-2 text-sm font-medium text-white hover:bg-emerald-700 disabled:cursor-not-allowed disabled:opacity-50"
+            className="rounded-lg bg-action-confirm px-4 py-2 text-sm font-medium text-ink-inverted hover:bg-action-confirm-hover disabled:cursor-not-allowed disabled:opacity-50"
           >
             {frames.length}枚 × 3サイズで書き出し
           </button>
@@ -602,14 +598,14 @@ export function StampSheetTool(): ReactElement {
       )}
 
       {warnings.length > 0 && (
-        <ul className="space-y-1 rounded-lg bg-amber-50 px-4 py-3 text-sm text-amber-800">
+        <ul className="space-y-1 rounded-lg bg-warn-bg px-4 py-3 text-sm text-warn-ink">
           {warnings.map((warning) => (
             <li key={warning}>⚠ {warning}</li>
           ))}
         </ul>
       )}
       {successNote !== null && !isProcessing && (
-        <p className="rounded-lg bg-emerald-50 px-4 py-3 text-sm text-emerald-800">
+        <p className="rounded-lg bg-success-bg px-4 py-3 text-sm text-success-ink">
           ✓ {successNote}
         </p>
       )}

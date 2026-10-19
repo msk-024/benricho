@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import type { ReactElement } from "react";
+import { CHECKER_PATTERN_CLASS } from "../components/checkerBackground";
 import { CopyButton } from "../components/CopyButton";
 import { LabeledSlider } from "../components/LabeledSlider";
 import {
@@ -67,26 +68,24 @@ export function ColorConvertTool(): ReactElement {
     <div className="space-y-4">
       <div className="flex flex-wrap items-end gap-3">
         <label className="block">
-          <span className="mb-1 block text-sm font-medium text-slate-700">
+          <span className="mb-1 block text-sm font-medium text-ink">
             カラーピッカー
           </span>
           <input
             type="color"
             value={pickerHex}
             onChange={(event) => handleHexChange(event.target.value)}
-            className="h-10 w-16 cursor-pointer rounded-lg border border-slate-300 bg-white p-1"
+            className="h-10 w-16 cursor-pointer rounded-lg border border-line-strong bg-surface p-1"
           />
         </label>
         <label className="block">
-          <span className="mb-1 block text-sm font-medium text-slate-700">
-            HEX
-          </span>
+          <span className="mb-1 block text-sm font-medium text-ink">HEX</span>
           <input
             type="text"
             value={hexInput}
             onChange={(event) => handleHexChange(event.target.value)}
             placeholder="#3552c9"
-            className="w-36 rounded-lg border border-slate-300 bg-white px-3 py-2 font-mono"
+            className="w-36 rounded-lg border border-line-strong bg-surface px-3 py-2 font-mono"
           />
         </label>
       </div>
@@ -102,19 +101,19 @@ export function ColorConvertTool(): ReactElement {
       />
 
       {rows === null ? (
-        <p className="text-sm text-red-600">
+        <p className="text-sm text-danger-ink-soft">
           ⚠ HEXカラーの形式が不正です(例: #3552c9)
         </p>
       ) : (
-        <ul className="divide-y divide-slate-100 rounded-lg border border-slate-200 bg-white">
+        <ul className="divide-y divide-line-subtle rounded-lg border border-line bg-surface">
           {rows.map((row) => (
             <li
               key={row.label}
               className="flex items-center justify-between gap-3 px-4 py-2.5"
             >
               <div className="min-w-0">
-                <p className="text-xs text-slate-500">{row.label}</p>
-                <code className="text-sm text-slate-800">{row.value}</code>
+                <p className="text-xs text-muted">{row.label}</p>
+                <code className="text-sm text-ink-strong">{row.value}</code>
               </div>
               <CopyButton text={row.value} />
             </li>
@@ -124,12 +123,7 @@ export function ColorConvertTool(): ReactElement {
 
       {color !== null && (
         <div
-          className="h-20 w-full rounded-lg border border-slate-200"
-          style={{
-            backgroundImage:
-              "repeating-conic-gradient(#f1f5f9 0% 25%, #ffffff 0% 50%)",
-            backgroundSize: "16px 16px",
-          }}
+          className={`h-20 w-full rounded-lg border border-line ${CHECKER_PATTERN_CLASS}`}
         >
           <div
             className="size-full rounded-lg"

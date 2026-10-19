@@ -96,20 +96,20 @@ export function FaviconTool(): ReactElement {
         processingLabel="ファビコンを生成中…"
       />
       {sourceNote !== null && (
-        <p className="rounded-lg bg-amber-50 px-4 py-3 text-sm text-amber-800">
+        <p className="rounded-lg bg-warn-bg px-4 py-3 text-sm text-warn-ink">
           ℹ {sourceNote}
         </p>
       )}
       <DownloadList items={items} zipFileName="favicon_set.zip" />
       {items.length > 0 && (
-        <div className="space-y-2 rounded-lg border border-slate-200 bg-white p-4">
+        <div className="space-y-2 rounded-lg border border-line bg-surface p-4">
           <div className="flex items-center justify-between">
-            <h3 className="text-sm font-semibold text-slate-700">
+            <h3 className="text-sm font-semibold text-ink">
               HTMLに貼り付けるスニペット
             </h3>
             <CopyButton text={HTML_SNIPPET} />
           </div>
-          <pre className="overflow-x-auto rounded bg-slate-50 p-3 text-xs text-slate-700">
+          <pre className="overflow-x-auto rounded bg-surface-muted p-3 text-xs text-ink">
             {HTML_SNIPPET}
           </pre>
         </div>

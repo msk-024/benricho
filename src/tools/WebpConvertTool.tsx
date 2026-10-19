@@ -65,27 +65,25 @@ export function WebpConvertTool(): ReactElement {
   return (
     <div className="space-y-4">
       <fieldset className="flex flex-wrap items-center gap-4">
-        <legend className="mb-2 text-sm font-medium text-slate-700">
-          出力形式
-        </legend>
+        <legend className="mb-2 text-sm font-medium text-ink">出力形式</legend>
         {OUTPUT_FORMATS.map((format) => (
           <label
             key={format.mimeType}
-            className="flex items-center gap-1.5 text-sm text-slate-700"
+            className="flex items-center gap-1.5 text-sm text-ink"
           >
             <input
               type="radio"
               name="webp-output-format"
               checked={outputMimeType === format.mimeType}
               onChange={() => setOutputMimeType(format.mimeType)}
-              className="accent-sky-600"
+              className="accent-action-primary"
             />
             {format.label}
           </label>
         ))}
       </fieldset>
       {outputMimeType === "image/webp" && (
-        <p className="rounded-lg bg-amber-50 px-4 py-3 text-sm text-amber-800">
+        <p className="rounded-lg bg-warn-bg px-4 py-3 text-sm text-warn-ink">
           ⚠ Safariでは WebP
           形式での書き出しに対応していない場合があります。うまく変換できない場合はChromeなど他のブラウザをお試しください。
         </p>

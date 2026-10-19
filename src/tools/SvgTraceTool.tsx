@@ -83,23 +83,23 @@ export function SvgTraceTool(): ReactElement {
         processingLabel="トレース中…(画像により数十秒かかります)"
       />
       {result !== null && !isProcessing && (
-        <div className="space-y-3 rounded-lg border border-slate-200 bg-white p-4">
-          <p className="text-xs text-slate-500">{result.sourceNote}</p>
+        <div className="space-y-3 rounded-lg border border-line bg-surface p-4">
+          <p className="text-xs text-muted">{result.sourceNote}</p>
           {previewUrl !== null && (
             <img
               src={previewUrl}
               alt="SVGプレビュー"
-              className={`max-h-80 w-full rounded border border-slate-100 object-contain ${CHECKER_PATTERN_CLASS}`}
+              className={`max-h-80 w-full rounded border border-line-subtle object-contain ${CHECKER_PATTERN_CLASS}`}
             />
           )}
           <div className="flex items-center justify-between">
-            <p className="text-sm text-slate-600">
+            <p className="text-sm text-ink-soft">
               {result.fileName}({formatBytes(result.blob.size)})
             </p>
             <button
               type="button"
               onClick={() => downloadBlob(result.blob, result.fileName)}
-              className="rounded-lg bg-sky-600 px-3 py-1.5 text-sm font-medium text-white hover:bg-sky-700"
+              className="rounded-lg bg-action-primary px-3 py-1.5 text-sm font-medium text-ink-inverted hover:bg-action-primary-hover"
             >
               SVGをダウンロード
             </button>

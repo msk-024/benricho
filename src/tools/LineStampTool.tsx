@@ -161,7 +161,7 @@ export function LineStampTool(): ReactElement {
 
   return (
     <div className="space-y-4">
-      <div className="rounded-lg bg-slate-50 px-4 py-3 text-sm text-slate-600">
+      <div className="rounded-lg bg-surface-muted px-4 py-3 text-sm text-ink-soft">
         <p>
           各イラストから以下のファイルを書き出します(連番は選択順・ZIP一括アップロード用の命名):
         </p>
@@ -171,10 +171,8 @@ export function LineStampTool(): ReactElement {
           <li>tab.png — タブ画像 96×74px(選んだ1枚のみ)</li>
         </ul>
       </div>
-      <div className="rounded-lg bg-slate-50 px-4 py-3 text-sm text-slate-600">
-        <p className="font-semibold text-slate-700">
-          元イラストを描くときのお願い
-        </p>
+      <div className="rounded-lg bg-surface-muted px-4 py-3 text-sm text-ink-soft">
+        <p className="font-semibold text-ink">元イラストを描くときのお願い</p>
         <ul className="mt-1 list-inside list-disc">
           <li>元画像は横370px×縦320px以上で描くと、きれいに書き出せます</li>
           <li>
@@ -208,14 +206,14 @@ export function LineStampTool(): ReactElement {
         processingLabel="書き出し中…"
       />
       {warnings.length > 0 && (
-        <ul className="space-y-1 rounded-lg bg-amber-50 px-4 py-3 text-sm text-amber-800">
+        <ul className="space-y-1 rounded-lg bg-warn-bg px-4 py-3 text-sm text-warn-ink">
           {warnings.map((warning) => (
             <li key={warning}>⚠ {warning}</li>
           ))}
         </ul>
       )}
       {successNote !== null && !isProcessing && (
-        <p className="rounded-lg bg-emerald-50 px-4 py-3 text-sm text-emerald-800">
+        <p className="rounded-lg bg-success-bg px-4 py-3 text-sm text-success-ink">
           ✓ {successNote}
         </p>
       )}
