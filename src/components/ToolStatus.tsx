@@ -14,8 +14,8 @@ export function ToolStatus({
 }: ToolStatusProps): ReactElement | null {
   if (isProcessing) {
     return (
-      <div className="flex items-center gap-2 rounded-lg bg-sky-50 px-4 py-3 text-sm text-sky-800">
-        <span className="inline-block size-4 animate-spin rounded-full border-2 border-sky-500 border-t-transparent" />
+      <div className="flex items-center gap-2 rounded-lg bg-info-bg px-4 py-3 text-sm text-info-ink">
+        <span className="inline-block size-4 animate-spin rounded-full border-2 border-info-border border-t-transparent" />
         {processingLabel}
       </div>
     );
@@ -24,7 +24,7 @@ export function ToolStatus({
     return (
       <div
         role="alert"
-        className="rounded-lg bg-red-50 px-4 py-3 text-sm text-red-700"
+        className="rounded-lg bg-danger-bg px-4 py-3 text-sm text-danger-ink"
       >
         ⚠ {errorMessage}
       </div>

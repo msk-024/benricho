@@ -37,13 +37,13 @@ function ErrorFallback({ error }: { error: Error }): ReactElement {
   return (
     <div
       role="alert"
-      className="space-y-2 rounded-lg border border-red-200 bg-red-50 p-6"
+      className="space-y-2 rounded-lg border border-danger-border bg-danger-bg p-6"
     >
-      <p className="text-sm font-medium text-red-800">
+      <p className="text-sm font-medium text-danger-ink-strong">
         このツールで予期しないエラーが発生しました
       </p>
-      <p className="text-xs text-red-600">{error.message}</p>
-      <p className="text-xs text-red-500">
+      <p className="text-xs text-danger-ink-soft">{error.message}</p>
+      <p className="text-xs text-danger-ink-subtle">
         サイドバーから別のツールを選ぶか、ページを再読み込みしてください
       </p>
     </div>

@@ -57,7 +57,7 @@ export function DownloadList({
   return (
     <div className="space-y-2">
       <div className="flex items-center justify-between">
-        <h3 className="text-sm font-semibold text-slate-700">
+        <h3 className="text-sm font-semibold text-ink">
           変換結果({items.length}件)
         </h3>
         {zipFileName !== undefined && items.length > 1 && (
@@ -65,26 +65,26 @@ export function DownloadList({
             type="button"
             onClick={handleZipDownload}
             disabled={isZipping}
-            className="rounded-lg bg-emerald-600 px-3 py-1.5 text-sm font-medium text-white hover:bg-emerald-700 disabled:cursor-not-allowed disabled:opacity-50"
+            className="rounded-lg bg-action-confirm px-3 py-1.5 text-sm font-medium text-ink-inverted hover:bg-action-confirm-hover disabled:cursor-not-allowed disabled:opacity-50"
           >
             {isZipping ? "ZIPを作成中…" : "まとめてZIPダウンロード"}
           </button>
         )}
       </div>
       {zipError !== null && (
-        <p className="text-sm text-red-600">⚠ {zipError}</p>
+        <p className="text-sm text-danger-ink-soft">⚠ {zipError}</p>
       )}
-      <ul className="divide-y divide-slate-100 rounded-lg border border-slate-200 bg-white">
+      <ul className="divide-y divide-line-subtle rounded-lg border border-line bg-surface">
         {items.map((item, index) => (
           <li
             key={`${index}-${item.fileName}`}
             className="flex items-center justify-between gap-3 px-4 py-2.5"
           >
             <div className="min-w-0">
-              <p className="truncate text-sm font-medium text-slate-800">
+              <p className="truncate text-sm font-medium text-ink-strong">
                 {item.fileName}
               </p>
-              <p className="text-xs text-slate-500">
+              <p className="text-xs text-muted">
                 {formatBytes(item.blob.size)}
                 {item.note !== undefined && ` ・ ${item.note}`}
               </p>
@@ -92,7 +92,7 @@ export function DownloadList({
             <button
               type="button"
               onClick={() => downloadBlob(item.blob, item.fileName)}
-              className="shrink-0 rounded-lg bg-sky-600 px-3 py-1.5 text-sm font-medium text-white hover:bg-sky-700"
+              className="shrink-0 rounded-lg bg-action-primary px-3 py-1.5 text-sm font-medium text-ink-inverted hover:bg-action-primary-hover"
             >
               ダウンロード
             </button>

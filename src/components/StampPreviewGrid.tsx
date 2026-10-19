@@ -32,6 +32,11 @@ const BACKGROUND_OPTIONS: ReadonlyArray<{
   { value: "transparent", label: "透過" },
 ];
 
+/**
+ * サムネイルの背景色(白/ダーク/透過)。LINEでの見え方を確認するための
+ * ユーザー選択であり、アプリ自体のテーマとは無関係なので意図的にリテラル値のまま
+ * (トークン化しない)。StampZoomModal内の配色も同じ理由でリテラルのまま。
+ */
 function backgroundClass(background: PreviewBackground): string {
   if (background === "white") return "bg-white";
   if (background === "dark") return "bg-slate-900";
@@ -58,7 +63,7 @@ export function StampPreviewGrid({
   return (
     <div className="space-y-3">
       <div className="flex flex-wrap items-center justify-between gap-2">
-        <h3 className="text-sm font-semibold text-slate-700">
+        <h3 className="text-sm font-semibold text-ink">
           プレビュー(本体 370×320・{items.length}件)
         </h3>
         <div className="flex gap-1">
@@ -69,8 +74,8 @@ export function StampPreviewGrid({
               onClick={() => setBackground(option.value)}
               className={`rounded-lg px-3 py-1.5 text-xs font-medium ${
                 background === option.value
-                  ? "bg-sky-600 text-white"
-                  : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                  ? "bg-action-primary text-ink-inverted"
+                  : "bg-line-subtle text-ink-soft hover:bg-line"
               }`}
             >
               {option.label}
@@ -118,7 +123,7 @@ function StampPreviewThumbnail({
   const isUndersized = item.sizeRatio.isUndersized;
 
   return (
-    <div className="space-y-1.5 rounded-lg border border-slate-200 bg-white p-2">
+    <div className="space-y-1.5 rounded-lg border border-line bg-surface p-2">
       <button
         type="button"
         onClick={onZoom}
@@ -134,21 +139,23 @@ function StampPreviewThumbnail({
           />
         )}
         {isCutoff && (
-          <span className="pointer-events-none absolute inset-0 rounded border-2 border-red-500" />
+          <span className="pointer-events-none absolute inset-0 rounded border-2 border-danger-ink-subtle" />
         )}
       </button>
-      <p className="text-center font-mono text-xs text-slate-500">
+      <p className="text-center font-mono text-xs text-muted">
         {String(item.stampNumber).padStart(2, "0")}
       </p>
-      <p className="text-center text-xs text-slate-400">
+      <p className="text-center text-xs text-subtle">
         横{Math.round(item.sizeRatio.widthRatio * 100)}% ・ 縦
         {Math.round(item.sizeRatio.heightRatio * 100)}%
       </p>
       {isCutoff && (
-        <p className="text-center text-xs text-red-600">⚠ 端が切れているかも</p>
+        <p className="text-center text-xs text-danger-ink-soft">
+          ⚠ 端が切れているかも
+        </p>
       )}
       {isUndersized && (
-        <p className="text-center text-xs text-amber-700">
+        <p className="text-center text-xs text-warn-ink-subtle">
           ⚠ {item.sizeRatio.shortSide === "width" ? "縦長" : "横長"}
           のため小さく見えるかも
         </p>
@@ -159,8 +166,8 @@ function StampPreviewThumbnail({
         onClick={onSelectMain}
         className={`w-full rounded px-2 py-1 text-xs font-medium disabled:cursor-not-allowed disabled:opacity-50 ${
           isMain
-            ? "bg-emerald-600 text-white"
-            : "border border-slate-300 text-slate-600 hover:bg-slate-50"
+            ? "bg-action-confirm text-ink-inverted"
+            : "border border-line-strong text-ink-soft hover:bg-surface-muted"
         }`}
       >
         {isMain ? "✓ メイン/タブに使用" : "メインにする"}
@@ -186,11 +193,11 @@ function StampZoomModal({
       onClick={onClose}
     >
       <div
-        className="w-full max-w-sm space-y-3 rounded-lg bg-white p-3"
+        className="w-full max-w-sm space-y-3 rounded-lg bg-surface p-3"
         onClick={(event) => event.stopPropagation()}
       >
         <div className="flex items-center justify-between">
-          <p className="text-sm font-semibold text-slate-700">
+          <p className="text-sm font-semibold text-ink">
             {item.stampNumber}番の拡大表示
           </p>
           <div className="flex gap-1">
@@ -201,8 +208,8 @@ function StampZoomModal({
                 onClick={() => setBackground(value)}
                 className={`rounded px-2 py-1 text-xs font-medium ${
                   background === value
-                    ? "bg-sky-600 text-white"
-                    : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                    ? "bg-action-primary text-ink-inverted"
+                    : "bg-line-subtle text-ink-soft hover:bg-line"
                 }`}
               >
                 {value === "white" ? "白" : "ダーク"}
@@ -210,6 +217,8 @@ function StampZoomModal({
             ))}
           </div>
         </div>
+        {/* 以下はLINEチャットでの見え方を模した固定シミュレーションなので、
+            アプリのテーマに関わらずリテラル配色のまま(上のトグルで切り替える対象) */}
         <div
           className={`space-y-2 rounded-lg p-4 ${isDark ? "bg-slate-800" : "bg-slate-100"}`}
         >
@@ -236,7 +245,7 @@ function StampZoomModal({
         <button
           type="button"
           onClick={onClose}
-          className="w-full rounded-lg border border-slate-300 px-3 py-1.5 text-sm text-slate-600 hover:bg-slate-50"
+          className="w-full rounded-lg border border-line-strong px-3 py-1.5 text-sm text-ink-soft hover:bg-surface-muted"
         >
           閉じる
         </button>

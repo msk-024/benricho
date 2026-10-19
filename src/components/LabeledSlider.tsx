@@ -24,9 +24,9 @@ export function LabeledSlider({
 }: LabeledSliderProps): ReactElement {
   return (
     <label className="block">
-      <span className="mb-1 flex items-center justify-between text-sm text-slate-700">
+      <span className="mb-1 flex items-center justify-between text-sm text-ink">
         <span>{label}</span>
-        <span className="font-mono text-slate-500">
+        <span className="font-mono text-muted">
           {value}
           {unit}
         </span>
@@ -39,7 +39,7 @@ export function LabeledSlider({
         value={value}
         disabled={disabled}
         onChange={(event) => onChange(Number(event.target.value))}
-        className="w-full accent-sky-600"
+        className="w-full accent-action-primary"
       />
     </label>
   );

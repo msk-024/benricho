@@ -56,10 +56,10 @@ function App(): ReactElement {
   const ActiveTool = selectedTool.component;
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 lg:flex">
-      <aside className="border-b border-slate-200 bg-white p-4 lg:min-h-screen lg:w-64 lg:shrink-0 lg:border-b-0 lg:border-r">
+    <div className="min-h-screen bg-canvas text-ink-strong lg:flex">
+      <aside className="border-b border-line bg-surface p-4 lg:min-h-screen lg:w-64 lg:shrink-0 lg:border-b-0 lg:border-r">
         <div className="mb-4 flex items-center justify-between gap-2">
-          <h1 className="text-lg font-bold text-slate-800">🧰 便利帳</h1>
+          <h1 className="text-lg font-bold text-ink-strong">🧰 便利帳</h1>
           <label>
             <span className="sr-only">テーマ</span>
             <select
@@ -82,7 +82,7 @@ function App(): ReactElement {
           <select
             value={selectedTool.id}
             onChange={(event) => selectTool(event.target.value)}
-            className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm"
+            className="w-full rounded-lg border border-line-strong bg-surface px-3 py-2 text-sm"
           >
             {TOOL_CATEGORIES.map((category) => (
               <optgroup key={category} label={category}>
@@ -102,7 +102,7 @@ function App(): ReactElement {
         <nav className="hidden lg:block">
           {TOOL_CATEGORIES.map((category) => (
             <div key={category} className="mb-4">
-              <h2 className="mb-1 px-2 text-xs font-semibold tracking-wide text-slate-400">
+              <h2 className="mb-1 px-2 text-xs font-semibold tracking-wide text-subtle">
                 {category}
               </h2>
               <ul className="space-y-0.5">
@@ -116,8 +116,8 @@ function App(): ReactElement {
                       aria-current={tool.id === selectedTool.id}
                       className={`w-full rounded-lg px-2 py-1.5 text-left text-sm transition-colors ${
                         tool.id === selectedTool.id
-                          ? "bg-sky-100 font-medium text-sky-800"
-                          : "text-slate-600 hover:bg-slate-100"
+                          ? "bg-action-primary-soft font-medium text-action-primary-soft-ink"
+                          : "text-ink-soft hover:bg-line-subtle"
                       }`}
                     >
                       {tool.name}
@@ -134,13 +134,11 @@ function App(): ReactElement {
         className={`mx-auto w-full flex-1 p-4 lg:p-8 ${selectedTool.wide ? "max-w-6xl" : "max-w-3xl"}`}
       >
         <header className="mb-6">
-          <h2 className="text-xl font-bold text-slate-800">
+          <h2 className="text-xl font-bold text-ink-strong">
             {selectedTool.name}
           </h2>
-          <p className="mt-1 text-sm text-slate-500">
-            {selectedTool.description}
-          </p>
-          <p className="mt-1 text-xs text-slate-400">
+          <p className="mt-1 text-sm text-muted">{selectedTool.description}</p>
+          <p className="mt-1 text-xs text-subtle">
             すべての処理はブラウザ内で完結し、ファイルが外部に送信されることはありません
           </p>
         </header>

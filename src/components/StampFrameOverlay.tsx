@@ -159,7 +159,7 @@ export function StampFrameOverlay({
         height: displayHeight,
         touchAction: "none",
       }}
-      className={`relative select-none overflow-hidden rounded-lg border border-slate-300 ${CHECKER_PATTERN_CLASS}`}
+      className={`relative select-none overflow-hidden rounded-lg border border-line-strong ${CHECKER_PATTERN_CLASS}`}
     >
       <canvas
         ref={canvasRef}
@@ -178,11 +178,11 @@ export function StampFrameOverlay({
           }}
           className={`absolute cursor-move border-2 ${
             selectedFrameIds.has(frame.id)
-              ? "border-emerald-500 bg-emerald-500/10"
-              : "border-sky-500 bg-sky-500/10"
+              ? "border-selection-active bg-selection-active/10"
+              : "border-selection-inactive bg-selection-inactive/10"
           }`}
         >
-          <span className="absolute -top-2 -left-2 flex size-6 items-center justify-center rounded-full bg-sky-600 text-xs font-bold text-white">
+          <span className="absolute -top-2 -left-2 flex size-6 items-center justify-center rounded-full bg-action-primary text-xs font-bold text-ink-inverted">
             {String(index + 1).padStart(2, "0")}
           </span>
           <input
@@ -202,7 +202,7 @@ export function StampFrameOverlay({
                 frames.filter((candidate) => candidate.id !== frame.id),
               )
             }
-            className="absolute top-0.5 right-0.5 flex size-5 items-center justify-center rounded-full bg-red-600 text-xs leading-none text-white hover:bg-red-700"
+            className="absolute top-0.5 right-0.5 flex size-5 items-center justify-center rounded-full bg-action-destructive text-xs leading-none text-ink-inverted hover:bg-action-destructive-hover"
           >
             ×
           </button>
@@ -211,7 +211,7 @@ export function StampFrameOverlay({
               key={corner}
               onPointerDown={(event) => beginResize(frame, corner, event)}
               style={cornerHandlePosition(corner)}
-              className={`absolute size-3 rounded-full border border-white bg-sky-600 ${resizeCursor(corner)}`}
+              className={`absolute size-3 rounded-full border border-white bg-action-primary ${resizeCursor(corner)}`}
             />
           ))}
         </div>
@@ -224,7 +224,7 @@ export function StampFrameOverlay({
             width: createPreview.width * scale,
             height: createPreview.height * scale,
           }}
-          className="pointer-events-none absolute border-2 border-dashed border-emerald-600 bg-emerald-500/10"
+          className="pointer-events-none absolute border-2 border-dashed border-action-confirm bg-selection-active/10"
         />
       )}
     </div>

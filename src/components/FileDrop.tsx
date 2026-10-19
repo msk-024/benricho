@@ -63,14 +63,14 @@ export function FileDrop({
         onDrop={handleDrop}
         className={`w-full rounded-xl border-2 border-dashed p-8 text-center transition-colors ${
           isDragOver
-            ? "border-sky-500 bg-sky-50"
-            : "border-slate-300 bg-white hover:border-sky-400 hover:bg-slate-50"
+            ? "border-info-border bg-info-bg"
+            : "border-line-strong bg-surface hover:border-info-border-soft hover:bg-surface-muted"
         } ${disabled ? "cursor-not-allowed opacity-50" : "cursor-pointer"}`}
       >
-        <p className="text-sm font-medium text-slate-700">
+        <p className="text-sm font-medium text-ink">
           ファイルをドラッグ&ドロップ、またはクリックして選択
         </p>
-        <p className="mt-1 text-xs text-slate-500">{description}</p>
+        <p className="mt-1 text-xs text-muted">{description}</p>
       </button>
       <input
         ref={inputRef}

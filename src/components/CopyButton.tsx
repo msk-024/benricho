@@ -40,7 +40,7 @@ export function CopyButton({
       type="button"
       onClick={handleCopy}
       disabled={disabled || text === ""}
-      className="rounded-lg border border-slate-300 bg-white px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-50"
+      className="rounded-lg border border-line-strong bg-surface px-3 py-1.5 text-sm font-medium text-ink hover:bg-surface-muted disabled:cursor-not-allowed disabled:opacity-50"
     >
       {feedback === "copied"
         ? "✓ コピーしました"
