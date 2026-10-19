@@ -30,6 +30,12 @@ export type MotionDemoKey =
   | "shake"
   | "xfade"
   | "wipe"
+  | "cut"
+  | "jumpcut"
+  | "matchcut"
+  | "jlcut"
+  | "speedramp"
+  | "freeze"
   | "parallax"
   | "skeleton"
   | "micro"
@@ -95,6 +101,18 @@ export function getMotionDemoStageClass(demoKey: MotionDemoKey): string {
       return "mg-xfade";
     case "wipe":
       return "mg-wipe";
+    case "cut":
+      return "mg-cut";
+    case "jumpcut":
+      return "mg-jumpcut";
+    case "matchcut":
+      return "mg-matchcut";
+    case "jlcut":
+      return "mg-jlcut";
+    case "speedramp":
+      return "mg-speedramp";
+    case "freeze":
+      return "mg-freeze";
     case "parallax":
       return "mg-parallax";
     case "skeleton":

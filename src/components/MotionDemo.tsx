@@ -146,6 +146,50 @@ export function MotionDemo({
           <div className="mg-edge" />
         </>
       );
+    case "cut":
+      return (
+        <>
+          <div className="mg-panel mg-pa">A</div>
+          <div className="mg-panel mg-pb">B</div>
+        </>
+      );
+    case "jumpcut":
+      return (
+        <>
+          <div className="mg-panel mg-pa">A</div>
+          <div className="mg-panel mg-pb mg-jumpcut-b">A</div>
+        </>
+      );
+    case "matchcut":
+      return (
+        <>
+          <div className="mg-matchcut-shape mg-mc-a" />
+          <div className="mg-matchcut-shape mg-mc-b" />
+        </>
+      );
+    case "jlcut":
+      return (
+        <>
+          <div className="mg-panel mg-pa">A</div>
+          <div className="mg-panel mg-pb">B</div>
+          <div className="mg-jlcut-audio" />
+        </>
+      );
+    case "speedramp":
+      return (
+        <>
+          <span className="mg-lbl mg-l1">0.3x</span>
+          <span className="mg-lbl mg-l2">1.0x</span>
+          <div className="mg-dot" />
+        </>
+      );
+    case "freeze":
+      return (
+        <>
+          <div className="mg-freeze-ring" />
+          <div className="mg-dot mg-freeze-dot" />
+        </>
+      );
     case "parallax":
       return (
         <>

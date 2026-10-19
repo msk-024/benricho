@@ -1110,6 +1110,158 @@
   }
 }
 
+/* カット */
+.mg-cut .mg-pb {
+  animation: mg-cut 2.4s steps(1) infinite;
+}
+@keyframes mg-cut {
+  0%,
+  49% {
+    opacity: 0;
+  }
+  50%,
+  100% {
+    opacity: 1;
+  }
+}
+
+/* ジャンプカット */
+.mg-jumpcut .mg-pb {
+  background: var(--mg-b);
+  animation: mg-cut 2.4s steps(1) infinite;
+}
+.mg-jumpcut .mg-jumpcut-b {
+  transform: translateX(14px) scale(1.06);
+}
+
+/* マッチカット */
+.mg-matchcut .mg-matchcut-shape {
+  position: absolute;
+  left: calc(50% - 35px);
+  top: calc(50% - 35px);
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  animation: mg-mcSpin 2s linear infinite;
+}
+.mg-matchcut .mg-mc-a {
+  background: var(--mg-b);
+}
+.mg-matchcut .mg-mc-b {
+  background: var(--mg-key);
+  animation:
+    mg-mcSpin 2s linear infinite,
+    mg-cut 2.4s steps(1) infinite;
+}
+@keyframes mg-mcSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* J/Lカット */
+.mg-jlcut .mg-pb {
+  animation: mg-cut 2.4s steps(1) infinite;
+}
+.mg-jlcut .mg-jlcut-audio {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  width: 34px;
+  height: 18px;
+  border-radius: 4px;
+  background: var(--mg-paper);
+  animation: mg-jlAudio 2.4s steps(1) infinite;
+}
+.mg-jlcut .mg-jlcut-audio::before {
+  content: "♪";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 11px;
+  color: var(--mg-ink);
+}
+@keyframes mg-jlAudio {
+  0%,
+  29% {
+    opacity: 0;
+  }
+  30%,
+  100% {
+    opacity: 0.9;
+  }
+}
+
+/* スピードランプ */
+.mg-speedramp .mg-lbl.mg-l1 {
+  left: 10%;
+  top: 14%;
+}
+.mg-speedramp .mg-lbl.mg-l2 {
+  left: auto;
+  right: 10%;
+  top: 14%;
+}
+.mg-speedramp .mg-dot {
+  top: calc(50% - 9px);
+  animation: mg-speedramprun 2.2s ease-in infinite;
+}
+@keyframes mg-speedramprun {
+  from {
+    left: 10%;
+  }
+  to {
+    left: calc(86% - 18px);
+  }
+}
+
+/* フリーズフレーム */
+.mg-freeze .mg-freeze-dot {
+  top: calc(50% - 9px);
+  animation: mg-freezeMove 3s infinite;
+}
+@keyframes mg-freezeMove {
+  0%,
+  15% {
+    left: 10%;
+  }
+  40%,
+  75% {
+    left: calc(50% - 9px);
+  }
+  100% {
+    left: calc(86% - 18px);
+  }
+}
+.mg-freeze .mg-freeze-ring {
+  position: absolute;
+  left: calc(50% - 16px);
+  top: calc(50% - 16px);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid var(--mg-key);
+  animation: mg-freezeRing 3s steps(1) infinite;
+}
+@keyframes mg-freezeRing {
+  0%,
+  39% {
+    opacity: 0;
+  }
+  40%,
+  75% {
+    opacity: 1;
+  }
+  76%,
+  100% {
+    opacity: 0;
+  }
+}
+
 /* パララックス */
 .mg-parallax .mg-layer {
   position: absolute;

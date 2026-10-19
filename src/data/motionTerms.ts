@@ -383,6 +383,83 @@ export const MOTION_TERMS: readonly MotionTerm[] = [
     demo: "wipe",
   },
   {
+    id: "cut",
+    jp: "カット",
+    en: "cut (hard cut)",
+    category: "edit",
+    onomatopoeia: ["パッ"],
+    description:
+      "場面を瞬時に切り替える、最も基本的なつなぎ。ジャンプカット・マッチカットはこの応用。",
+    promptForCode:
+      "ギャラリーの画像切り替えはフェードを使わず、0秒で次の画像に瞬時に切り替えて",
+    promptForVideo: "hard cut to the next shot, no transition, instant change",
+    demo: "cut",
+  },
+  {
+    id: "jump-cut",
+    jp: "ジャンプカット",
+    en: "jump cut",
+    category: "edit",
+    onomatopoeia: ["パッ", "ガクッ"],
+    description:
+      "同じアングル・同じ被写体のまま時間を飛ばしてカットするため、映像が不連続にガクッと飛んで見える編集技法。あえて違和感を演出したいVlogやSNS動画でよく使われる。",
+    promptForVideo:
+      "jump cut, same subject and angle, abrupt time skip, no transition",
+    demo: "jumpcut",
+  },
+  {
+    id: "match-cut",
+    jp: "マッチカット",
+    en: "match cut",
+    category: "edit",
+    onomatopoeia: [],
+    description:
+      "形・動き・構図が似た2つの場面をつなぐことで、違和感なく(あるいは意図的な意外性を持って)場面転換する編集技法。例: 回転する車輪→回転する太陽。",
+    promptForVideo:
+      "match cut from the spinning wheel to the sun, matching shape and motion",
+    demo: "matchcut",
+  },
+  {
+    id: "jl-cut",
+    jp: "J/Lカット",
+    en: "J-cut / L-cut",
+    category: "edit",
+    onomatopoeia: [],
+    description:
+      "次の場面の音声を映像より先に始める(Jカット)、または前の場面の音声を映像の切り替え後も残す(Lカット)編集技法。音と映像の切り替えをずらすことで、自然な会話のつなぎや場面転換を作れる。",
+    promptForVideo:
+      "J-cut transition, next scene's audio begins before its video appears",
+    demo: "jlcut",
+  },
+  {
+    id: "speed-ramp",
+    jp: "スピードランプ",
+    en: "speed ramp",
+    category: "edit",
+    onomatopoeia: ["キュイーン"],
+    description:
+      "1つのカットの中で再生速度を滑らかに変化させる技法。スローモーションから通常速度へ、あるいはその逆へ加減速しながら切り替わる。",
+    promptForCode:
+      "動画のplaybackRateを、requestAnimationFrameで0.3秒かけて0.3から1.0まで少しずつ上げて、スピードランプのように加速させて",
+    promptForVideo:
+      "speed ramp from slow motion to normal speed, smooth acceleration",
+    demo: "speedramp",
+  },
+  {
+    id: "freeze-frame",
+    jp: "フリーズフレーム",
+    en: "freeze frame",
+    category: "edit",
+    onomatopoeia: ["ピタッ"],
+    description:
+      "動いている映像の1コマで時間を止め、静止画として一定時間止めて見せる技法。決めのポーズを印象づけたいときや、ナレーションを入れたいときに使う。",
+    promptForCode:
+      "動画は3秒経過した瞬間でフリーズフレームにして1.5秒間静止させ、その後また再生を続けて",
+    promptForVideo:
+      "freeze frame on the character's pose, hold for 1.5 seconds, then resume",
+    demo: "freeze",
+  },
+  {
     id: "parallax",
     jp: "パララックス",
     en: "parallax",
