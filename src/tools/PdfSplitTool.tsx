@@ -76,11 +76,11 @@ export function PdfSplitTool(): ReactElement {
         onFiles={handleFiles}
       />
       {selectedFile !== null && pageCount !== null && (
-        <p className="rounded-lg bg-slate-50 px-4 py-2.5 text-sm text-slate-700">
+        <p className="rounded-lg bg-surface-muted px-4 py-2.5 text-sm text-ink">
           {selectedFile.name}(全{pageCount}ページ)
         </p>
       )}
-      <fieldset className="space-y-2 text-sm text-slate-700">
+      <fieldset className="space-y-2 text-sm text-ink">
         <legend className="mb-1 text-sm font-medium">処理内容</legend>
         <label className="flex items-center gap-2">
           <input
@@ -88,7 +88,7 @@ export function PdfSplitTool(): ReactElement {
             name="split-mode"
             checked={splitMode === "range"}
             onChange={() => setSplitMode("range")}
-            className="accent-sky-600"
+            className="accent-action-primary"
           />
           ページ範囲を抽出して1つのPDFにする
         </label>
@@ -98,7 +98,7 @@ export function PdfSplitTool(): ReactElement {
             value={rangeText}
             onChange={(event) => setRangeText(event.target.value)}
             placeholder="例: 1-3,5,8-10"
-            className="ml-6 w-64 rounded-lg border border-slate-300 px-3 py-1.5 font-mono"
+            className="ml-6 w-64 rounded-lg border border-line-strong px-3 py-1.5 font-mono"
           />
         )}
         <label className="flex items-center gap-2">
@@ -107,7 +107,7 @@ export function PdfSplitTool(): ReactElement {
             name="split-mode"
             checked={splitMode === "all"}
             onChange={() => setSplitMode("all")}
-            className="accent-sky-600"
+            className="accent-action-primary"
           />
           全ページを1ページずつのPDFに分割する
         </label>
@@ -120,7 +120,7 @@ export function PdfSplitTool(): ReactElement {
           (splitMode === "range" && rangeText.trim() === "")
         }
         onClick={handleExecute}
-        className="rounded-lg bg-sky-600 px-4 py-2 text-sm font-medium text-white hover:bg-sky-700 disabled:opacity-50"
+        className="rounded-lg bg-action-primary px-4 py-2 text-sm font-medium text-ink-inverted hover:bg-action-primary-hover disabled:opacity-50"
       >
         実行
       </button>

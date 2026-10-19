@@ -41,9 +41,7 @@ export function CsvToMarkdownTool(): ReactElement {
         onFiles={handleFiles}
       />
       <label className="block">
-        <span className="mb-1 block text-sm font-medium text-slate-700">
-          CSV
-        </span>
+        <span className="mb-1 block text-sm font-medium text-ink">CSV</span>
         <textarea
           value={csvText}
           onChange={(event) => {
@@ -52,16 +50,16 @@ export function CsvToMarkdownTool(): ReactElement {
           }}
           placeholder={"名前,年齢\n太郎,30"}
           spellCheck={false}
-          className="h-40 w-full resize-y rounded-lg border border-slate-300 bg-white p-3 font-mono text-sm"
+          className="h-40 w-full resize-y rounded-lg border border-line-strong bg-surface p-3 font-mono text-sm"
         />
       </label>
       <div className="flex flex-wrap items-center gap-4">
-        <label className="flex items-center gap-2 text-sm text-slate-700">
+        <label className="flex items-center gap-2 text-sm text-ink">
           <input
             type="checkbox"
             checked={hasHeaderRow}
             onChange={(event) => setHasHeaderRow(event.target.checked)}
-            className="accent-sky-600"
+            className="accent-action-primary"
           />
           1行目をヘッダーとして扱う
         </label>
@@ -69,7 +67,7 @@ export function CsvToMarkdownTool(): ReactElement {
           type="button"
           disabled={isProcessing || csvText.trim() === ""}
           onClick={handleConvert}
-          className="rounded-lg bg-sky-600 px-4 py-2 text-sm font-medium text-white hover:bg-sky-700 disabled:opacity-50"
+          className="rounded-lg bg-action-primary px-4 py-2 text-sm font-medium text-ink-inverted hover:bg-action-primary-hover disabled:opacity-50"
         >
           Markdown表に変換
         </button>
@@ -78,7 +76,7 @@ export function CsvToMarkdownTool(): ReactElement {
       {markdownResult !== "" && (
         <div className="space-y-2">
           <div className="flex items-center justify-between">
-            <span className="text-sm font-medium text-slate-700">変換結果</span>
+            <span className="text-sm font-medium text-ink">変換結果</span>
             <div className="flex gap-2">
               <CopyButton text={markdownResult} />
               <button
@@ -89,7 +87,7 @@ export function CsvToMarkdownTool(): ReactElement {
                     `${outputBaseName}.md`,
                   )
                 }
-                className="rounded-lg bg-sky-600 px-3 py-1.5 text-sm font-medium text-white hover:bg-sky-700"
+                className="rounded-lg bg-action-primary px-3 py-1.5 text-sm font-medium text-ink-inverted hover:bg-action-primary-hover"
               >
                 .mdでダウンロード
               </button>
@@ -99,7 +97,7 @@ export function CsvToMarkdownTool(): ReactElement {
             value={markdownResult}
             readOnly
             spellCheck={false}
-            className="h-48 w-full resize-y rounded-lg border border-slate-200 bg-slate-50 p-3 font-mono text-sm"
+            className="h-48 w-full resize-y rounded-lg border border-line bg-surface-muted p-3 font-mono text-sm"
           />
         </div>
       )}

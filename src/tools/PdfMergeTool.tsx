@@ -72,7 +72,7 @@ export function PdfMergeTool(): ReactElement {
         type="button"
         disabled={isProcessing || selectedFiles.length < 2}
         onClick={handleMerge}
-        className="rounded-lg bg-sky-600 px-4 py-2 text-sm font-medium text-white hover:bg-sky-700 disabled:opacity-50"
+        className="rounded-lg bg-action-primary px-4 py-2 text-sm font-medium text-ink-inverted hover:bg-action-primary-hover disabled:opacity-50"
       >
         この順番で結合する
       </button>

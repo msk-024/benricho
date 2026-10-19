@@ -74,7 +74,7 @@ export function AspectRatioTool(): ReactElement {
   return (
     <div className="space-y-4">
       <div
-        className="flex gap-1 rounded-lg bg-slate-100 p-1"
+        className="flex gap-1 rounded-lg bg-line-subtle p-1"
         role="tablist"
         aria-label="計算モード"
       >
@@ -85,8 +85,8 @@ export function AspectRatioTool(): ReactElement {
           onClick={() => setMode("fromRatio")}
           className={`flex-1 rounded-lg px-3 py-1.5 text-sm font-medium ${
             mode === "fromRatio"
-              ? "bg-white text-slate-800 shadow-sm"
-              : "text-slate-500"
+              ? "bg-surface text-ink-strong shadow-sm"
+              : "text-muted"
           }`}
         >
           幅から高さを計算
@@ -98,8 +98,8 @@ export function AspectRatioTool(): ReactElement {
           onClick={() => setMode("fromDimensions")}
           className={`flex-1 rounded-lg px-3 py-1.5 text-sm font-medium ${
             mode === "fromDimensions"
-              ? "bg-white text-slate-800 shadow-sm"
-              : "text-slate-500"
+              ? "bg-surface text-ink-strong shadow-sm"
+              : "text-muted"
           }`}
         >
           幅と高さから比率を出す
@@ -110,7 +110,7 @@ export function AspectRatioTool(): ReactElement {
         <div className="space-y-3">
           <div className="flex flex-wrap items-end gap-3">
             <label className="block">
-              <span className="mb-1 block text-sm font-medium text-slate-700">
+              <span className="mb-1 block text-sm font-medium text-ink">
                 横幅(px)
               </span>
               <input
@@ -118,11 +118,11 @@ export function AspectRatioTool(): ReactElement {
                 min={0}
                 value={widthInput}
                 onChange={(event) => setWidthInput(event.target.value)}
-                className="w-32 rounded-lg border border-slate-300 bg-white px-3 py-2"
+                className="w-32 rounded-lg border border-line-strong bg-surface px-3 py-2"
               />
             </label>
             <label className="block">
-              <span className="mb-1 block text-sm font-medium text-slate-700">
+              <span className="mb-1 block text-sm font-medium text-ink">
                 比率
               </span>
               <select
@@ -130,7 +130,7 @@ export function AspectRatioTool(): ReactElement {
                 onChange={(event) =>
                   setPresetId(event.target.value as RatioPresetId)
                 }
-                className="rounded-lg border border-slate-300 bg-white px-3 py-2"
+                className="rounded-lg border border-line-strong bg-surface px-3 py-2"
               >
                 {RATIO_PRESETS.map((option) => (
                   <option key={option.id} value={option.id}>
@@ -140,13 +140,13 @@ export function AspectRatioTool(): ReactElement {
               </select>
             </label>
             {presetId === "custom" && (
-              <div className="flex items-center gap-2 text-sm text-slate-700">
+              <div className="flex items-center gap-2 text-sm text-ink">
                 <input
                   type="number"
                   min={1}
                   value={customRatioW}
                   onChange={(event) => setCustomRatioW(event.target.value)}
-                  className="w-16 rounded-lg border border-slate-300 px-2 py-1.5"
+                  className="w-16 rounded-lg border border-line-strong px-2 py-1.5"
                 />
                 :
                 <input
@@ -154,33 +154,33 @@ export function AspectRatioTool(): ReactElement {
                   min={1}
                   value={customRatioH}
                   onChange={(event) => setCustomRatioH(event.target.value)}
-                  className="w-16 rounded-lg border border-slate-300 px-2 py-1.5"
+                  className="w-16 rounded-lg border border-line-strong px-2 py-1.5"
                 />
               </div>
             )}
           </div>
 
           {heightResult === null ? (
-            <p className="text-sm text-red-600">
+            <p className="text-sm text-danger-ink-soft">
               ⚠ 横幅と比率は正の数値で入力してください
             </p>
           ) : (
             <>
               {heightHasFraction && (
-                <p className="rounded-lg bg-amber-50 px-4 py-3 text-sm text-amber-800">
+                <p className="rounded-lg bg-warn-bg px-4 py-3 text-sm text-warn-ink">
                   ⚠
                   高さが割り切れず小数になっています(表示上は丸められる場合があります)
                 </p>
               )}
-              <ul className="divide-y divide-slate-100 rounded-lg border border-slate-200 bg-white">
+              <ul className="divide-y divide-line-subtle rounded-lg border border-line bg-surface">
                 <li className="flex items-center justify-between gap-3 px-4 py-2.5">
-                  <code className="text-sm text-slate-800">
+                  <code className="text-sm text-ink-strong">
                     aspect-ratio: {ratio.w} / {ratio.h};
                   </code>
                   <CopyButton text={`aspect-ratio: ${ratio.w} / ${ratio.h};`} />
                 </li>
                 <li className="flex items-center justify-between gap-3 px-4 py-2.5">
-                  <code className="text-sm text-slate-800">
+                  <code className="text-sm text-ink-strong">
                     height: {formatRatioValue(heightResult)}px;
                   </code>
                   <CopyButton
@@ -197,7 +197,7 @@ export function AspectRatioTool(): ReactElement {
         <div className="space-y-3">
           <div className="flex flex-wrap items-end gap-3">
             <label className="block">
-              <span className="mb-1 block text-sm font-medium text-slate-700">
+              <span className="mb-1 block text-sm font-medium text-ink">
                 横幅(px)
               </span>
               <input
@@ -205,11 +205,11 @@ export function AspectRatioTool(): ReactElement {
                 min={0}
                 value={dimWidthInput}
                 onChange={(event) => setDimWidthInput(event.target.value)}
-                className="w-32 rounded-lg border border-slate-300 bg-white px-3 py-2"
+                className="w-32 rounded-lg border border-line-strong bg-surface px-3 py-2"
               />
             </label>
             <label className="block">
-              <span className="mb-1 block text-sm font-medium text-slate-700">
+              <span className="mb-1 block text-sm font-medium text-ink">
                 高さ(px)
               </span>
               <input
@@ -217,19 +217,19 @@ export function AspectRatioTool(): ReactElement {
                 min={0}
                 value={dimHeightInput}
                 onChange={(event) => setDimHeightInput(event.target.value)}
-                className="w-32 rounded-lg border border-slate-300 bg-white px-3 py-2"
+                className="w-32 rounded-lg border border-line-strong bg-surface px-3 py-2"
               />
             </label>
           </div>
 
           {simplifiedResult === null ? (
-            <p className="text-sm text-red-600">
+            <p className="text-sm text-danger-ink-soft">
               ⚠ 横幅と高さは正の数値で入力してください
             </p>
           ) : (
-            <ul className="divide-y divide-slate-100 rounded-lg border border-slate-200 bg-white">
+            <ul className="divide-y divide-line-subtle rounded-lg border border-line bg-surface">
               <li className="flex items-center justify-between gap-3 px-4 py-2.5">
-                <p className="text-sm text-slate-800">
+                <p className="text-sm text-ink-strong">
                   比率:{" "}
                   <span className="font-mono font-semibold">
                     {simplifiedResult.w}:{simplifiedResult.h}
@@ -240,7 +240,7 @@ export function AspectRatioTool(): ReactElement {
                 />
               </li>
               <li className="flex items-center justify-between gap-3 px-4 py-2.5">
-                <code className="text-sm text-slate-800">
+                <code className="text-sm text-ink-strong">
                   aspect-ratio: {simplifiedResult.w} / {simplifiedResult.h};
                 </code>
                 <CopyButton

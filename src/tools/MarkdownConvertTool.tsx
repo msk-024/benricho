@@ -94,21 +94,23 @@ export function MarkdownConvertTool(): ReactElement {
       />
       <div className="grid gap-4 lg:grid-cols-2">
         <label className="block">
-          <span className="mb-1 block text-sm font-medium text-slate-700">
+          <span className="mb-1 block text-sm font-medium text-ink">
             Markdown
           </span>
           <textarea
             value={markdown}
             onChange={(event) => setMarkdown(event.target.value)}
             spellCheck={false}
-            className="h-80 w-full resize-y rounded-lg border border-slate-300 bg-white p-3 font-mono text-sm"
+            className="h-80 w-full resize-y rounded-lg border border-line-strong bg-surface p-3 font-mono text-sm"
           />
         </label>
         <div>
-          <span className="mb-1 block text-sm font-medium text-slate-700">
+          <span className="mb-1 block text-sm font-medium text-ink">
             プレビュー
           </span>
           <style>{MARKDOWN_DOCUMENT_CSS}</style>
+          {/* 書き出し(Word/PDF/HTML)と同じ見た目を保証するプレビューのため、
+              アプリのテーマに関わらず常にライト固定(リテラル)のまま */}
           <div
             className="h-80 overflow-y-auto rounded-lg border border-slate-200 bg-white"
             // DOMPurify で無害化済みのHTMLのみを流し込む
@@ -118,22 +120,22 @@ export function MarkdownConvertTool(): ReactElement {
           />
         </div>
       </div>
-      <label className="flex items-center gap-2 text-sm text-slate-700">
+      <label className="flex items-center gap-2 text-sm text-ink">
         出力ファイル名
         <input
           type="text"
           value={outputBaseName}
           onChange={(event) => setOutputBaseName(event.target.value)}
-          className="w-56 rounded-lg border border-slate-300 px-3 py-1.5"
+          className="w-56 rounded-lg border border-line-strong px-3 py-1.5"
         />
-        <span className="text-slate-400">.docx / .pdf / .html</span>
+        <span className="text-subtle">.docx / .pdf / .html</span>
       </label>
       <div className="flex flex-wrap gap-3">
         <button
           type="button"
           disabled={isProcessing}
           onClick={handleDownloadDocx}
-          className="rounded-lg bg-sky-600 px-4 py-2 text-sm font-medium text-white hover:bg-sky-700 disabled:opacity-50"
+          className="rounded-lg bg-action-primary px-4 py-2 text-sm font-medium text-ink-inverted hover:bg-action-primary-hover disabled:opacity-50"
         >
           Word(.docx)でダウンロード
         </button>
@@ -141,7 +143,7 @@ export function MarkdownConvertTool(): ReactElement {
           type="button"
           disabled={isProcessing}
           onClick={handleDownloadPdf}
-          className="rounded-lg bg-sky-600 px-4 py-2 text-sm font-medium text-white hover:bg-sky-700 disabled:opacity-50"
+          className="rounded-lg bg-action-primary px-4 py-2 text-sm font-medium text-ink-inverted hover:bg-action-primary-hover disabled:opacity-50"
         >
           PDFでダウンロード
         </button>
@@ -149,12 +151,12 @@ export function MarkdownConvertTool(): ReactElement {
           type="button"
           disabled={isProcessing}
           onClick={handleDownloadHtml}
-          className="rounded-lg bg-sky-600 px-4 py-2 text-sm font-medium text-white hover:bg-sky-700 disabled:opacity-50"
+          className="rounded-lg bg-action-primary px-4 py-2 text-sm font-medium text-ink-inverted hover:bg-action-primary-hover disabled:opacity-50"
         >
           HTMLでダウンロード
         </button>
       </div>
-      <p className="text-xs text-slate-500">
+      <p className="text-xs text-muted">
         ※
         PDFはブラウザ描画を画像化する方式のため、PDF内のテキスト選択はできません(日本語対応のためのトレードオフ)
       </p>

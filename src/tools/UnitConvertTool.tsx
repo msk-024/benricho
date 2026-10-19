@@ -55,24 +55,20 @@ export function UnitConvertTool(): ReactElement {
     <div className="space-y-4">
       <div className="flex flex-wrap items-end gap-3">
         <label className="block">
-          <span className="mb-1 block text-sm font-medium text-slate-700">
-            値
-          </span>
+          <span className="mb-1 block text-sm font-medium text-ink">値</span>
           <input
             type="number"
             value={inputValue}
             onChange={(event) => setInputValue(event.target.value)}
-            className="w-32 rounded-lg border border-slate-300 bg-white px-3 py-2"
+            className="w-32 rounded-lg border border-line-strong bg-surface px-3 py-2"
           />
         </label>
         <label className="block">
-          <span className="mb-1 block text-sm font-medium text-slate-700">
-            単位
-          </span>
+          <span className="mb-1 block text-sm font-medium text-ink">単位</span>
           <select
             value={fromUnit}
             onChange={(event) => setFromUnit(event.target.value as SizeUnit)}
-            className="rounded-lg border border-slate-300 bg-white px-3 py-2"
+            className="rounded-lg border border-line-strong bg-surface px-3 py-2"
           >
             {UNIT_OPTIONS.map((option) => (
               <option key={option.value} value={option.value}>
@@ -82,7 +78,7 @@ export function UnitConvertTool(): ReactElement {
           </select>
         </label>
         <label className="block">
-          <span className="mb-1 block text-sm font-medium text-slate-700">
+          <span className="mb-1 block text-sm font-medium text-ink">
             基準フォントサイズ(px)
           </span>
           <input
@@ -90,30 +86,32 @@ export function UnitConvertTool(): ReactElement {
             min={1}
             value={baseFontSizeInput}
             onChange={(event) => setBaseFontSizeInput(event.target.value)}
-            className="w-32 rounded-lg border border-slate-300 bg-white px-3 py-2"
+            className="w-32 rounded-lg border border-line-strong bg-surface px-3 py-2"
           />
         </label>
       </div>
 
       {!isValueValid && (
-        <p className="text-sm text-red-600">⚠ 値を数値で入力してください</p>
+        <p className="text-sm text-danger-ink-soft">
+          ⚠ 値を数値で入力してください
+        </p>
       )}
       {!isBaseValid && (
-        <p className="text-sm text-red-600">
+        <p className="text-sm text-danger-ink-soft">
           ⚠ 基準フォントサイズは正の数値で入力してください
         </p>
       )}
 
       {rows !== null && (
-        <ul className="divide-y divide-slate-100 rounded-lg border border-slate-200 bg-white">
+        <ul className="divide-y divide-line-subtle rounded-lg border border-line bg-surface">
           {rows.map((row) => (
             <li
               key={row.unit}
               className="flex items-center justify-between gap-3 px-4 py-2.5"
             >
               <div className="min-w-0">
-                <p className="text-xs text-slate-500">{row.unit}</p>
-                <code className="text-sm text-slate-800">{row.css}</code>
+                <p className="text-xs text-muted">{row.unit}</p>
+                <code className="text-sm text-ink-strong">{row.css}</code>
               </div>
               <CopyButton text={row.css} />
             </li>
@@ -122,7 +120,7 @@ export function UnitConvertTool(): ReactElement {
       )}
 
       <div>
-        <h3 className="mb-2 text-sm font-semibold text-slate-700">
+        <h3 className="mb-2 text-sm font-semibold text-ink">
           よく使う値の早見表(基準フォントサイズ {baseFontSizeInput}px)
         </h3>
         <ul className="grid grid-cols-2 gap-2 sm:grid-cols-3">
@@ -133,9 +131,9 @@ export function UnitConvertTool(): ReactElement {
             return (
               <li
                 key={px}
-                className="flex items-center justify-between gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2"
+                className="flex items-center justify-between gap-2 rounded-lg border border-line bg-surface px-3 py-2"
               >
-                <code className="text-xs text-slate-700">{css}</code>
+                <code className="text-xs text-ink">{css}</code>
                 <CopyButton text={css} />
               </li>
             );
