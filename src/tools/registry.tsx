@@ -17,6 +17,7 @@ import {
   PdfSplitTool,
   ScreenshotTrimTool,
   StampSheetTool,
+  StyleIndexTool,
   SvgTraceTool,
   TextCountTool,
   UnitConvertTool,
@@ -195,6 +196,15 @@ export const TOOL_DEFINITIONS: readonly ToolDefinition[] = [
       "見たことある動きの名前をデモ・オノマトペから探し、AIへの頼み方をコピーできます",
     category: "リファレンス",
     component: MotionGlossaryTool,
+    wide: true,
+  },
+  {
+    id: "style-index",
+    name: "AI画像生成 スタイル辞典",
+    description:
+      "画風・撮影技法・構図・質感などのスタイル名156種を検索し、英語名をコピーできます",
+    category: "リファレンス",
+    component: StyleIndexTool,
     wide: true,
   },
 ];

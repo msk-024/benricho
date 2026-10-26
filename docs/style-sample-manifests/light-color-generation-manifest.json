@@ -1,0 +1,158 @@
+{
+  "generator": "OpenAI built-in image_gen",
+  "date": "2026-10-26",
+  "category": "light-color",
+  "size": [
+    512,
+    512
+  ],
+  "format": "WebP",
+  "quality": 80,
+  "cost": "Not reported by the built-in tool.",
+  "entries": [
+    {
+      "id": "golden-hour-lighting",
+      "jp": "ゴールデンアワー",
+      "en": "Golden hour lighting",
+      "category": "light-color",
+      "description": "日の出・日没前後の暖かな光",
+      "prompt": "Golden hour lighting, 日の出・日没前後の暖かな光.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-d431debb-d48c-4b91-8d17-aeba7e337e98.png",
+      "file": "golden-hour-lighting.webp",
+      "status": "saved",
+      "bytes": 64044
+    },
+    {
+      "id": "blue-hour-lighting",
+      "jp": "ブルーアワー",
+      "en": "Blue hour lighting",
+      "category": "light-color",
+      "description": "日没前後の青い薄明",
+      "prompt": "Blue hour lighting, 日没前後の青い薄明.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-e34fd7e0-cacd-48c5-9ab5-2a8c2c157ebf.png",
+      "file": "blue-hour-lighting.webp",
+      "status": "saved",
+      "bytes": 55136
+    },
+    {
+      "id": "backlighting",
+      "jp": "逆光",
+      "en": "Backlighting",
+      "category": "light-color",
+      "description": "背後からの光で輪郭が輝く",
+      "prompt": "Backlighting, 背後からの光で輪郭が輝く.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-fd6c0ba7-b7ed-4cfd-8b7f-95d45c7c417f.png",
+      "file": "backlighting.webp",
+      "status": "saved",
+      "bytes": 66388
+    },
+    {
+      "id": "rim-lighting",
+      "jp": "リムライト",
+      "en": "Rim lighting",
+      "category": "light-color",
+      "description": "輪郭を縁取る光",
+      "prompt": "Rim lighting, 輪郭を縁取る光.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-43f05648-6ee8-4646-8bd5-e8497a3909a5.png",
+      "file": "rim-lighting.webp",
+      "status": "saved",
+      "bytes": 70510
+    },
+    {
+      "id": "chiaroscuro",
+      "jp": "キアロスクーロ",
+      "en": "Chiaroscuro",
+      "category": "light-color",
+      "description": "明暗の強い対比",
+      "prompt": "Chiaroscuro, 明暗の強い対比.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-99e0377e-a79c-48c7-8997-b12a833e93b6.png",
+      "file": "chiaroscuro.webp",
+      "status": "saved",
+      "bytes": 54960
+    },
+    {
+      "id": "low-key-lighting",
+      "jp": "ローキー",
+      "en": "Low-key lighting",
+      "category": "light-color",
+      "description": "暗部を多く残す照明",
+      "prompt": "Low-key lighting, 暗部を多く残す照明.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-9f173873-4a96-4a09-ab01-3edd021347d2.png",
+      "file": "low-key-lighting.webp",
+      "status": "saved",
+      "bytes": 40320
+    },
+    {
+      "id": "high-key-lighting",
+      "jp": "ハイキー",
+      "en": "High-key lighting",
+      "category": "light-color",
+      "description": "明るく影の少ない照明",
+      "prompt": "High-key lighting, 明るく影の少ない照明.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-461aa0f8-dc5b-4941-beff-c37a28a1fc65.png",
+      "file": "high-key-lighting.webp",
+      "status": "saved",
+      "bytes": 72270
+    },
+    {
+      "id": "volumetric-lighting",
+      "jp": "ボリューメトリックライト",
+      "en": "Volumetric lighting",
+      "category": "light-color",
+      "description": "霧に光の筋が見える",
+      "prompt": "Volumetric lighting, 霧に光の筋が見える.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-645e7d5d-350e-43df-b670-ff1250a490d0.png",
+      "file": "volumetric-lighting.webp",
+      "status": "saved",
+      "bytes": 54924
+    },
+    {
+      "id": "neon-glow",
+      "jp": "ネオングロー",
+      "en": "Neon glow",
+      "category": "light-color",
+      "description": "ネオンが周囲ににじむ",
+      "prompt": "Neon glow, ネオンが周囲ににじむ.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-0bd4cc47-db3f-4ad0-9601-72f3f45b864d.png",
+      "file": "neon-glow.webp",
+      "status": "saved",
+      "bytes": 83528
+    },
+    {
+      "id": "soft-diffused-light",
+      "jp": "拡散光",
+      "en": "Soft diffused light",
+      "category": "light-color",
+      "description": "柔らかく均一な光",
+      "prompt": "Soft diffused light, 柔らかく均一な光.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-801bce22-f890-4385-a2ec-b3e08dcf327a.png",
+      "file": "soft-diffused-light.webp",
+      "status": "saved",
+      "bytes": 78948
+    },
+    {
+      "id": "pastel-color-palette",
+      "jp": "パステルカラー",
+      "en": "Pastel color palette",
+      "category": "light-color",
+      "description": "淡く優しい色の組み合わせ",
+      "prompt": "Pastel color palette, 淡く優しい色の組み合わせ.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-1012d903-3ac1-4af7-a9dd-84c4b39995a7.png",
+      "file": "pastel-color-palette.webp",
+      "status": "saved",
+      "bytes": 68778
+    },
+    {
+      "id": "vibrant-color-palette",
+      "jp": "高彩度カラー",
+      "en": "Vibrant color palette",
+      "category": "light-color",
+      "description": "鮮やかで目を引く配色",
+      "prompt": "Vibrant color palette, 鮮やかで目を引く配色.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-effc30b3-017d-4973-9f7d-0a9ced85e9c4.png",
+      "file": "vibrant-color-palette.webp",
+      "status": "saved",
+      "bytes": 100032
+    }
+  ]
+}

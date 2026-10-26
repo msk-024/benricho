@@ -1,0 +1,109 @@
+{
+  "generator": "OpenAI built-in image_gen",
+  "date": "2026-10-26",
+  "category": "photo",
+  "size": [
+    512,
+    512
+  ],
+  "cost": "Not reported by the built-in tool; no price or usage estimate available.",
+  "entries": [
+    {
+      "id": "tilt-shift-photography",
+      "en": "Tilt-shift photography",
+      "description": "一部だけピントが合う模型のような写真",
+      "prompt": "Create one square image for a visual dictionary thumbnail. Simple photographic subject, readable at small size, no text, labels, borders or watermark. Shared theme across the series: a single red cosmos flower with yellow pollen center, green foliage, water droplets, in a small circular garden beside a curved shallow stream and one wooden footbridge. Adapt camera distance to the requested technique, retain the red flower / garden theme wherever visible. Prioritize a clear recognizable demonstration of the named photographic style over extra detail. Square 1:1. Style: Tilt-shift photography, 一部だけピントが合う模型のような写真. Elevated oblique view of the small garden, tiny red flower bed, curved stream and wooden bridge. Strong narrow horizontal plane of sharp focus in middle, foreground and background visibly defocused, convincing miniature optical illusion.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-142f68d8-635f-46d6-b9b4-76967c2b9d8d.png",
+      "file": "tilt-shift-photography.webp"
+    },
+    {
+      "id": "macro-photography",
+      "en": "Macro photography",
+      "description": "小さな対象を大きく精密に写す",
+      "prompt": "Create one square image for a visual dictionary thumbnail. Simple photographic subject, readable at small size, no text, labels, borders or watermark. Shared theme across the series: a single red cosmos flower with yellow pollen center, green foliage, water droplets, in a small circular garden beside a curved shallow stream and one wooden footbridge. Adapt camera distance to the requested technique, retain the red flower / garden theme wherever visible. Prioritize a clear recognizable demonstration of the named photographic style over extra detail. Square 1:1.\nStyle: Macro photography, 小さな対象を大きく精密に写す.\nClose macro of the red cosmos flower, yellow stamens and one water droplet sharply detailed, green garden blurred behind.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-cdcac9a5-7cd2-4366-b7eb-16ca93505688.png",
+      "file": "macro-photography.webp"
+    },
+    {
+      "id": "micro-photography",
+      "en": "Micro photography",
+      "description": "微細な世界を拡大して見せる",
+      "prompt": "Create one square image for a visual dictionary thumbnail. Simple photographic subject, readable at small size, no text, labels, borders or watermark. Shared theme across the series: a single red cosmos flower with yellow pollen center, green foliage, water droplets, in a small circular garden beside a curved shallow stream and one wooden footbridge. Adapt camera distance to the requested technique, retain the red flower / garden theme wherever visible. Prioritize a clear recognizable demonstration of the named photographic style over extra detail. Square 1:1.\nStyle: Micro photography, 微細な世界を拡大して見せる.\nOptical microscope image of a red cosmos petal thin section: translucent red polygonal plant cells, clear cell walls, tiny yellow pollen grains. Microscopic biological texture, not an ordinary close-up flower.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-64a69c4b-cca5-4ca3-9720-6255c3e11cad.png",
+      "file": "micro-photography.webp"
+    },
+    {
+      "id": "aerial-photography",
+      "en": "Aerial photography",
+      "description": "上空から地形や街を俯瞰する",
+      "prompt": "Create one square image for a visual dictionary thumbnail. Simple photographic subject, readable at small size, no text, labels, borders or watermark. Shared theme across the series: a single red cosmos flower with yellow pollen center, green foliage, water droplets, in a small circular garden beside a curved shallow stream and one wooden footbridge. Adapt camera distance to the requested technique, retain the red flower / garden theme wherever visible. Prioritize a clear recognizable demonstration of the named photographic style over extra detail. Square 1:1.\nStyle: Aerial photography, 上空から地形や街を俯瞰する.\nDrone view from high altitude of the small circular red flower garden beside a curved stream and wooden footbridge, surrounding green landscape visible, deep focus, actual large outdoor landscape.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-c51f01d5-aa8a-4a0e-abe7-54198c7266b5.png",
+      "file": "aerial-photography.webp"
+    },
+    {
+      "id": "birds-eye-view",
+      "en": "Bird's-eye view",
+      "description": "真上または高所から見下ろす視点",
+      "prompt": "Create one square image for a visual dictionary thumbnail. Simple photographic subject, readable at small size, no text, labels, borders or watermark. Shared theme across the series: a single red cosmos flower with yellow pollen center, green foliage, water droplets, in a small circular garden beside a curved shallow stream and one wooden footbridge. Adapt camera distance to the requested technique, retain the red flower / garden theme wherever visible. Prioritize a clear recognizable demonstration of the named photographic style over extra detail. Square 1:1.\nStyle: Bird's-eye view, 真上または高所から見下ろす視点.\nDirectly overhead looking straight down at a single red cosmos flower and leaves growing beside water in the garden. Tight overhead composition, recognizable top-down spatial view.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-2235da71-0648-406d-a28f-be576a89f757.png",
+      "file": "birds-eye-view.webp"
+    },
+    {
+      "id": "worms-eye-view",
+      "en": "Worm's-eye view",
+      "description": "地面近くから上を見上げる",
+      "prompt": "Create one square image for a visual dictionary thumbnail. Simple photographic subject, readable at small size, no text, labels, borders or watermark. Shared theme across the series: a single red cosmos flower with yellow pollen center, green foliage, water droplets, in a small circular garden beside a curved shallow stream and one wooden footbridge. Adapt camera distance to the requested technique, retain the red flower / garden theme wherever visible. Prioritize a clear recognizable demonstration of the named photographic style over extra detail. Square 1:1.\nStyle: Worm's-eye view, 地面近くから上を見上げる.\nCamera touching soil looking sharply upward along the green stem to the red cosmos flower towering against blue sky. Dramatically low viewpoint.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-be3279a9-f3da-470f-8a2c-94c573bbc957.png",
+      "file": "worms-eye-view.webp"
+    },
+    {
+      "id": "long-exposure-photography",
+      "en": "Long-exposure photography",
+      "description": "光跡や水の流れを滑らかにする",
+      "prompt": "Create one square image for a visual dictionary thumbnail. Simple photographic subject, readable at small size, no text, labels, borders or watermark. Shared theme across the series: a single red cosmos flower with yellow pollen center, green foliage, water droplets, in a small circular garden beside a curved shallow stream and one wooden footbridge. Adapt camera distance to the requested technique, retain the red flower / garden theme wherever visible. Prioritize a clear recognizable demonstration of the named photographic style over extra detail. Square 1:1.\nStyle: Long-exposure photography, 光跡や水の流れを滑らかにする.\nRed cosmos flower on bank in foreground with curved shallow stream and wooden footbridge behind. Long exposure turns stream into conspicuously silky flowing white water, still flower and bridge remain sharp.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-10ecfd86-1999-4301-bfc6-55ab3d0f47a1.png",
+      "file": "long-exposure-photography.webp"
+    },
+    {
+      "id": "high-speed-photography",
+      "en": "High-speed photography",
+      "description": "水滴や動きを瞬間で止める",
+      "prompt": "Create one square image for a visual dictionary thumbnail. Simple photographic subject, readable at small size, no text, labels, borders or watermark. Shared theme across the series: a single red cosmos flower with yellow pollen center, green foliage, water droplets, in a small circular garden beside a curved shallow stream and one wooden footbridge. Adapt camera distance to the requested technique, retain the red flower / garden theme wherever visible. Prioritize a clear recognizable demonstration of the named photographic style over extra detail. Square 1:1.\nStyle: High-speed photography, 水滴や動きを瞬間で止める.\nClose-up red cosmos flower as a splash hits it, individual transparent water droplets suspended crisply in midair, fast shutter freezes every droplet, green garden background.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-872b42d9-a06a-421b-b254-2bab75a59060.png",
+      "file": "high-speed-photography.webp"
+    },
+    {
+      "id": "double-exposure",
+      "en": "Double exposure",
+      "description": "複数の像を重ねる",
+      "prompt": "Create one square image for a visual dictionary thumbnail. Simple photographic subject, readable at small size, no text, labels, borders or watermark. Shared theme across the series: a single red cosmos flower with yellow pollen center, green foliage, water droplets, in a small circular garden beside a curved shallow stream and one wooden footbridge. Adapt camera distance to the requested technique, retain the red flower / garden theme wherever visible. Prioritize a clear recognizable demonstration of the named photographic style over extra detail. Square 1:1.\nStyle: Double exposure, 複数の像を重ねる.\nClearly intentional double exposure: large translucent silhouette and petals of a red cosmos flower superimposed with a second photographic exposure of the curved stream and wooden bridge with green garden foliage. Two visibly overlapping images, poetic photographic blending.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-742649bb-db15-4bfc-97ac-b1c4d47447d3.png",
+      "file": "double-exposure.webp"
+    },
+    {
+      "id": "infrared-photography",
+      "en": "Infrared photography",
+      "description": "植物などが非現実的な色調になる",
+      "prompt": "Create one square image for a visual dictionary thumbnail. Simple photographic subject, readable at small size, no text, labels, borders or watermark. Shared theme across the series: a single red cosmos flower with yellow pollen center, green foliage, water droplets, in a small circular garden beside a curved shallow stream and one wooden footbridge. Adapt camera distance to the requested technique, retain the red flower / garden theme wherever visible. Prioritize a clear recognizable demonstration of the named photographic style over extra detail. Square 1:1.\nStyle: Infrared photography, 植物などが非現実的な色調になる.\nFalse-color infrared photograph of the same cosmos garden, curved stream and wooden bridge. Chlorophyll foliage becomes luminous white and pale pink, dark cyan sky, distinctive dreamlike infrared tonal separation; flower remains recognizable.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-49ac0ef7-4455-4aca-8045-7c781c50845b.png",
+      "file": "infrared-photography.webp"
+    },
+    {
+      "id": "fisheye-lens",
+      "en": "Fisheye lens",
+      "description": "画面周辺が大きく湾曲する",
+      "prompt": "Create one square image for a visual dictionary thumbnail. Simple photographic subject, readable at small size, no text, labels, borders or watermark. Shared theme across the series: a single red cosmos flower with yellow pollen center, green foliage, water droplets, in a small circular garden beside a curved shallow stream and one wooden footbridge. Adapt camera distance to the requested technique, retain the red flower / garden theme wherever visible. Prioritize a clear recognizable demonstration of the named photographic style over extra detail. Square 1:1.\nStyle: Fisheye lens, 画面周辺が大きく湾曲する.\nExtreme fisheye wide-angle lens very close to red cosmos flower in garden. Flower large near center, curved stream and wooden bridge bend strongly around it, pronounced barrel distortion and curved horizon, full square image without black circular border.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-7ecfdd58-8e47-4232-ba72-6901984faf2d.png",
+      "file": "fisheye-lens.webp"
+    },
+    {
+      "id": "bokeh-photography",
+      "en": "Bokeh photography",
+      "description": "背景の点光源を柔らかくぼかす",
+      "prompt": "Create one square image for a visual dictionary thumbnail. Simple photographic subject, readable at small size, no text, labels, borders or watermark. Shared theme across the series: a single red cosmos flower with yellow pollen center, green foliage, water droplets, in a small circular garden beside a curved shallow stream and one wooden footbridge. Adapt camera distance to the requested technique, retain the red flower / garden theme wherever visible. Prioritize a clear recognizable demonstration of the named photographic style over extra detail. Square 1:1.\nStyle: Bokeh photography, 背景の点光源を柔らかくぼかす.\nRed cosmos flower sharp in foreground beside stream, background completely soft with conspicuous large round luminous bokeh discs from sunlight reflected on water. Shallow depth of field, simple composition.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-5f01832d-7b5d-42d0-86e8-65d13484a1a3.png",
+      "file": "bokeh-photography.webp"
+    }
+  ],
+  "format": "webp (converted from original PNG output, quality 0.82)"
+}

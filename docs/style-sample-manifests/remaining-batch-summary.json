@@ -1,0 +1,87 @@
+{
+  "requested": 132,
+  "saved": 132,
+  "skipped": [],
+  "new_images_bytes": 9907288,
+  "all_images_count": 156,
+  "all_images_bytes": 11537412,
+  "quality_retries": [
+    "whiteboard-illustration",
+    "extreme-close-up"
+  ],
+  "categories": [
+    {
+      "category": "3d",
+      "saved": 12,
+      "bytes": 708008,
+      "skipped": []
+    },
+    {
+      "category": "painting",
+      "saved": 12,
+      "bytes": 1020138,
+      "skipped": []
+    },
+    {
+      "category": "print",
+      "saved": 12,
+      "bytes": 1108680,
+      "skipped": []
+    },
+    {
+      "category": "illustration",
+      "saved": 12,
+      "bytes": 811814,
+      "skipped": []
+    },
+    {
+      "category": "art-history",
+      "saved": 12,
+      "bytes": 772832,
+      "skipped": []
+    },
+    {
+      "category": "japan-asia",
+      "saved": 12,
+      "bytes": 973762,
+      "skipped": []
+    },
+    {
+      "category": "craft",
+      "saved": 12,
+      "bytes": 1063970,
+      "skipped": []
+    },
+    {
+      "category": "design-era",
+      "saved": 12,
+      "bytes": 781756,
+      "skipped": []
+    },
+    {
+      "category": "light-color",
+      "saved": 12,
+      "bytes": 809838,
+      "skipped": []
+    },
+    {
+      "category": "composition",
+      "saved": 12,
+      "bytes": 843572,
+      "skipped": []
+    },
+    {
+      "category": "surface-fx",
+      "saved": 12,
+      "bytes": 1012918,
+      "skipped": []
+    }
+  ],
+  "checks": {
+    "typecheck": "passed",
+    "lint": "passed",
+    "test_files": 25,
+    "tests_passed": 178,
+    "image_decode_dimensions_and_format": "passed"
+  }
+}

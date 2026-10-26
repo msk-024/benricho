@@ -1,0 +1,158 @@
+{
+  "generator": "OpenAI built-in image_gen",
+  "date": "2026-10-26",
+  "category": "art-history",
+  "size": [
+    512,
+    512
+  ],
+  "format": "WebP",
+  "quality": 80,
+  "cost": "Not reported by the built-in tool.",
+  "entries": [
+    {
+      "id": "impressionism",
+      "jp": "印象派",
+      "en": "Impressionism",
+      "category": "art-history",
+      "description": "光と色の移ろいを筆触で捉える",
+      "prompt": "Impressionism, 光と色の移ろいを筆触で捉える.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-5ad84987-bdc8-4d6c-b458-528e84f9c76e.png",
+      "file": "impressionism.webp",
+      "status": "saved",
+      "bytes": 99280
+    },
+    {
+      "id": "post-impressionism",
+      "jp": "ポスト印象派",
+      "en": "Post-Impressionism",
+      "category": "art-history",
+      "description": "構成や感情表現を強める",
+      "prompt": "Post-Impressionism, 構成や感情表現を強める.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-be25c330-5004-410f-91cd-a603899d330a.png",
+      "file": "post-impressionism.webp",
+      "status": "saved",
+      "bytes": 111080
+    },
+    {
+      "id": "expressionism",
+      "jp": "表現主義",
+      "en": "Expressionism",
+      "category": "art-history",
+      "description": "感情を強調した形と色",
+      "prompt": "Expressionism, 感情を強調した形と色.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-d77edda3-73e1-4749-91c3-e1fe564c52e5.png",
+      "file": "expressionism.webp",
+      "status": "saved",
+      "bytes": 97378
+    },
+    {
+      "id": "cubism",
+      "jp": "キュビスム",
+      "en": "Cubism",
+      "category": "art-history",
+      "description": "対象を幾何学的な面に分解",
+      "prompt": "Cubism, 対象を幾何学的な面に分解.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-35fa9f36-7422-47d9-ace7-21df9d10de5b.png",
+      "file": "cubism.webp",
+      "status": "saved",
+      "bytes": 54660
+    },
+    {
+      "id": "surrealism",
+      "jp": "シュルレアリスム",
+      "en": "Surrealism",
+      "category": "art-history",
+      "description": "夢のような非現実的組み合わせ",
+      "prompt": "Surrealism, 夢のような非現実的組み合わせ.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.\nSpecific direction: Red cosmos floats over a stream that loops impossibly through the wooden bridge, dreamlike but simple.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-8d3ad0cb-7088-4b69-86d0-f48aca702875.png",
+      "file": "surrealism.webp",
+      "status": "saved",
+      "bytes": 65280
+    },
+    {
+      "id": "art-nouveau",
+      "jp": "アール・ヌーヴォー",
+      "en": "Art Nouveau",
+      "category": "art-history",
+      "description": "植物的な曲線と装飾",
+      "prompt": "Art Nouveau, 植物的な曲線と装飾.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-c447ad89-ce95-49f9-aeed-89fe65127ea6.png",
+      "file": "art-nouveau.webp",
+      "status": "saved",
+      "bytes": 82908
+    },
+    {
+      "id": "art-deco",
+      "jp": "アール・デコ",
+      "en": "Art Deco",
+      "category": "art-history",
+      "description": "幾何学と洗練された装飾",
+      "prompt": "Art Deco, 幾何学と洗練された装飾.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-3b9333c8-838f-4bef-9a6e-0896aa9103ee.png",
+      "file": "art-deco.webp",
+      "status": "saved",
+      "bytes": 55886
+    },
+    {
+      "id": "bauhaus",
+      "jp": "バウハウス",
+      "en": "Bauhaus",
+      "category": "art-history",
+      "description": "機能性と幾何学的な造形",
+      "prompt": "Bauhaus, 機能性と幾何学的な造形.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-73821ed8-497e-4eae-a058-0fc97542b08e.png",
+      "file": "bauhaus.webp",
+      "status": "saved",
+      "bytes": 21640
+    },
+    {
+      "id": "constructivism",
+      "jp": "構成主義",
+      "en": "Constructivism",
+      "category": "art-history",
+      "description": "大胆な幾何学と構成",
+      "prompt": "Constructivism, 大胆な幾何学と構成.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-4c8e4b01-0e3a-4ba8-b463-22e6cccbb862.png",
+      "file": "constructivism.webp",
+      "status": "saved",
+      "bytes": 42440
+    },
+    {
+      "id": "de-stijl",
+      "jp": "デ・ステイル",
+      "en": "De Stijl",
+      "category": "art-history",
+      "description": "直線と基本色の抽象構成",
+      "prompt": "De Stijl, 直線と基本色の抽象構成.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.\nSpecific direction: Abstract flower, stream and bridge into strict red blue yellow rectangles, black orthogonal lines and white space; no curves.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-6471f0f6-4a0c-442a-a268-9c3ea14d06d1.png",
+      "file": "de-stijl.webp",
+      "status": "saved",
+      "bytes": 9424
+    },
+    {
+      "id": "pop-art",
+      "jp": "ポップアート",
+      "en": "Pop Art",
+      "category": "art-history",
+      "description": "大衆文化を引用した鮮やかな表現",
+      "prompt": "Pop Art, 大衆文化を引用した鮮やかな表現.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-044a9ee7-a060-44ca-9d86-367100d1ff34.png",
+      "file": "pop-art.webp",
+      "status": "saved",
+      "bytes": 119708
+    },
+    {
+      "id": "minimalism",
+      "jp": "ミニマリズム",
+      "en": "Minimalism",
+      "category": "art-history",
+      "description": "要素を極限まで減らす",
+      "prompt": "Minimalism, 要素を極限まで減らす.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.\nSpecific direction: Only three simple motifs: one red flower circle, one blue curved stream line, one tiny brown bridge arc, ample white space.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-f57072f5-2471-437e-8bb8-73c99d12d421.png",
+      "file": "minimalism.webp",
+      "status": "saved",
+      "bytes": 13148
+    }
+  ]
+}

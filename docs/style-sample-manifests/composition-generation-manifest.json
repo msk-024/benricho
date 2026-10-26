@@ -1,0 +1,163 @@
+{
+  "generator": "OpenAI built-in image_gen",
+  "date": "2026-10-26",
+  "category": "composition",
+  "size": [
+    512,
+    512
+  ],
+  "format": "WebP",
+  "quality": 80,
+  "cost": "Not reported by the built-in tool.",
+  "entries": [
+    {
+      "id": "symmetrical-composition",
+      "jp": "左右対称構図",
+      "en": "Symmetrical composition",
+      "category": "composition",
+      "description": "中央軸で均整を取る",
+      "prompt": "Symmetrical composition, 中央軸で均整を取る.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.\nSpecific direction: Perfect bilateral balance: front-on centered bridge, central flower below it, mirrored garden banks.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-9a240d79-be49-49c6-8f3d-f5c337f6d6fc.png",
+      "file": "symmetrical-composition.webp",
+      "status": "saved",
+      "bytes": 98738
+    },
+    {
+      "id": "rule-of-thirds",
+      "jp": "三分割構図",
+      "en": "Rule of thirds",
+      "category": "composition",
+      "description": "画面を三分割して配置する",
+      "prompt": "Rule of thirds, 画面を三分割して配置する.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.\nSpecific direction: Place red flower at lower-left thirds intersection, bridge near upper-right intersection. No drawn grid.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-fca3e2db-14a3-48ed-b664-2b8656602596.png",
+      "file": "rule-of-thirds.webp",
+      "status": "saved",
+      "bytes": 95878
+    },
+    {
+      "id": "leading-lines",
+      "jp": "リーディングライン",
+      "en": "Leading lines",
+      "category": "composition",
+      "description": "線で視線を誘導する",
+      "prompt": "Leading lines, 線で視線を誘導する.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.\nSpecific direction: Stream curves and bridge rails lead the eye from foreground to the flower focal point.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-f6cdb566-bad8-41e5-8936-62716c352887.png",
+      "file": "leading-lines.webp",
+      "status": "saved",
+      "bytes": 74696
+    },
+    {
+      "id": "negative-space",
+      "jp": "余白重視",
+      "en": "Negative space",
+      "category": "composition",
+      "description": "空白を意図的に大きく取る",
+      "prompt": "Negative space, 空白を意図的に大きく取る.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.\nSpecific direction: Tiny red flower, stream and bridge grouped in lower quarter, upper three quarters clean pale empty space.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-7ac6acf4-5cbf-4b9b-bdd6-05886ffc26d2.png",
+      "file": "negative-space.webp",
+      "status": "saved",
+      "bytes": 24304
+    },
+    {
+      "id": "flat-lay-photography",
+      "jp": "フラットレイ",
+      "en": "Flat lay photography",
+      "category": "composition",
+      "description": "真上から物を整列して撮る",
+      "prompt": "Flat lay photography, 真上から物を整列して撮る.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.\nSpecific direction: Direct overhead arrangement on plain surface of a red cosmos flower, a small wooden bridge model, green leaves and a curved blue ribbon representing stream.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-9ff71549-4d0e-4580-ae46-c9c4f14c24b6.png",
+      "file": "flat-lay-photography.webp",
+      "status": "saved",
+      "bytes": 51110
+    },
+    {
+      "id": "knolling",
+      "jp": "ノーリング",
+      "en": "Knolling",
+      "category": "composition",
+      "description": "物を直角に整理して並べる",
+      "prompt": "Knolling, 物を直角に整理して並べる.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.\nSpecific direction: Direct overhead orderly arrangement of cosmos flower, green leaves, wood bridge model parts and blue stream pieces at right angles, equal spacing.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-2e96da10-f983-4d05-a215-7ef9fc42a3c7.png",
+      "file": "knolling.webp",
+      "status": "saved",
+      "bytes": 60110
+    },
+    {
+      "id": "exploded-view",
+      "jp": "分解図",
+      "en": "Exploded view",
+      "category": "composition",
+      "description": "部品を離して構造を見せる",
+      "prompt": "Exploded view, 部品を離して構造を見せる.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.\nSpecific direction: Exploded axonometric garden model: bridge deck, railings, supports and stream base separated vertically, red flower beside. No labels.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-f017b79f-9ba5-4288-a2f8-04f4dae49176.png",
+      "file": "exploded-view.webp",
+      "status": "saved",
+      "bytes": 60572
+    },
+    {
+      "id": "cross-section-illustration",
+      "jp": "断面図",
+      "en": "Cross-section illustration",
+      "category": "composition",
+      "description": "内部を切って見せる",
+      "prompt": "Cross-section illustration, 内部を切って見せる.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.\nSpecific direction: Clear vertical slice through garden bank and stream bed showing soil, roots of red cosmos and bridge foundations below ground.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-6347d445-7e2a-4dff-aa22-69dd9c33c005.png",
+      "file": "cross-section-illustration.webp",
+      "status": "saved",
+      "bytes": 98874
+    },
+    {
+      "id": "cutaway-illustration",
+      "jp": "カットアウェイ",
+      "en": "Cutaway illustration",
+      "category": "composition",
+      "description": "外側の一部を除き内部を見せる",
+      "prompt": "Cutaway illustration, 外側の一部を除き内部を見せる.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.\nSpecific direction: Garden diorama with a quarter of outer bank removed to reveal red cosmos roots, bridge foundation and stream bed, remaining exterior intact.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-2cfdaccf-7543-490b-9144-a38df4ffdad2.png",
+      "file": "cutaway-illustration.webp",
+      "status": "saved",
+      "bytes": 86238
+    },
+    {
+      "id": "panoramic-composition",
+      "jp": "パノラマ構図",
+      "en": "Panoramic composition",
+      "category": "composition",
+      "description": "広い景色を横方向に捉える",
+      "prompt": "Panoramic composition, 広い景色を横方向に捉える.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.\nSpecific direction: Wide expansive garden stretching horizontally across square canvas, low horizon, stream traverses the frame, distant bridge and flower foreground. No bars.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-7e20bfe8-b904-4e2c-a9ce-35e5782843db.png",
+      "file": "panoramic-composition.webp",
+      "status": "saved",
+      "bytes": 86934
+    },
+    {
+      "id": "extreme-close-up",
+      "jp": "超クローズアップ",
+      "en": "Extreme close-up",
+      "category": "composition",
+      "description": "細部を大きく切り取る",
+      "prompt": "Extreme close-up, 細部を大きく切り取る. Single square 1:1 realistic photograph of a RED COSMOS FLOWER extremely close to the camera: its yellow pollen center and bases of red petals fill almost the entire frame, several petals deliberately cropped by all four edges. Individual yellow pollen grains and fine petal veins highly visible. Very shallow focus. In a tiny sliver of blurred background near an upper corner, a garden stream and small wooden bridge are barely identifiable. Prioritize extreme tight cropping and magnification over showing the whole scene. Natural photography, simple composition. NO glass, NO mosaic, NO painting, NO illustration, NO border or text.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-05e2b7f4-6e03-410d-83ec-9d06c40de96d.png",
+      "file": "extreme-close-up.webp",
+      "status": "saved",
+      "bytes": 41460,
+      "previous_attempt": {
+        "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-a315711c-ee21-4375-93bc-d761bcc0358b.png",
+        "prompt": "Extreme close-up, 細部を大きく切り取る.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+        "reason": "Style characteristic was weak during visual review"
+      }
+    },
+    {
+      "id": "forced-perspective",
+      "jp": "強制遠近法",
+      "en": "Forced perspective",
+      "category": "composition",
+      "description": "距離の錯覚で大きさを変えて見せる",
+      "prompt": "Forced perspective, 距離の錯覚で大きさを変えて見せる.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.\nSpecific direction: Tiny red cosmos very close to lens appears as tall as a distant real wooden bridge, convincing forced scale illusion.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-2b0b992a-c999-4dc8-913c-cf313347ae81.png",
+      "file": "forced-perspective.webp",
+      "status": "saved",
+      "bytes": 64658
+    }
+  ]
+}

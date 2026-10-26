@@ -1,0 +1,122 @@
+{
+  "generator": "OpenAI built-in image_gen",
+  "date": "2026-10-26",
+  "category": "film",
+  "size": [
+    512,
+    512
+  ],
+  "format": "WebP",
+  "quality": 80,
+  "cost": "Not reported by the built-in tool.",
+  "entries": [
+    {
+      "id": "cinematic-still",
+      "jp": "映画のワンシーン",
+      "en": "Cinematic still",
+      "description": "物語を感じる映画的な一枚",
+      "prompt": "Cinematic still, 物語を感じる映画的な一枚.\nCreate ONE square 1:1 image, a simple visual dictionary thumbnail with the named film technique clearly recognizable at small display size. Shared scene: one red cosmos flower with yellow center prominent in the foreground of a small green garden; a curved shallow stream and a small wooden footbridge behind. Keep this scene and simple near-eye-level composition consistent; adapt lighting and materials only as needed to demonstrate the film style. No people, text, captions, logos, watermark, collage, film strips, or black letterbox bars. Full-bleed square. Moderate detail suitable for a 512px thumbnail.\nTechnique-specific direction: A movie scene with emotional visual storytelling, red cosmos prominent beside the stream, small wooden bridge framed behind, soft morning mist and a single cinematic shaft of light, subtle warm highlights and cool shadows, believable photographic depth.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-a96e3c40-03d3-48de-9c5e-fd602875582d.png",
+      "file": "cinematic-still.webp"
+    },
+    {
+      "id": "film-noir",
+      "jp": "フィルムノワール",
+      "en": "Film noir",
+      "description": "強い陰影と暗い犯罪映画的雰囲気",
+      "prompt": "Film noir, 強い陰影と暗い犯罪映画的雰囲気.\nCreate ONE square 1:1 image, a simple visual dictionary thumbnail with the named film technique clearly recognizable at small display size. Shared scene: one red cosmos flower with yellow center prominent in the foreground of a small green garden; a curved shallow stream and a small wooden footbridge behind. Keep this scene and simple near-eye-level composition consistent; adapt lighting and materials only as needed to demonstrate the film style. No people, text, captions, logos, watermark, collage, film strips, or black letterbox bars. Full-bleed square. Moderate detail suitable for a 512px thumbnail.\nTechnique-specific direction: Classic black and white film noir. Translate the red cosmos into grayscale. Hard slatted shadows across the wooden bridge, stark pool of light on flower, deep blacks, chiaroscuro, night mist, suspenseful 1940s crime-film atmosphere. No color.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-6aad69fd-496a-4d0e-b0e4-63165bad67c2.png",
+      "file": "film-noir.webp"
+    },
+    {
+      "id": "neo-noir",
+      "jp": "ネオノワール",
+      "en": "Neo-noir",
+      "description": "現代的な暗さとネオンの演出",
+      "prompt": "Neo-noir, 現代的な暗さとネオンの演出.\nCreate ONE square 1:1 image, a simple visual dictionary thumbnail with the named film technique clearly recognizable at small display size. Shared scene: one red cosmos flower with yellow center prominent in the foreground of a small green garden; a curved shallow stream and a small wooden footbridge behind. Keep this scene and simple near-eye-level composition consistent; adapt lighting and materials only as needed to demonstrate the film style. No people, text, captions, logos, watermark, collage, film strips, or black letterbox bars. Full-bleed square. Moderate detail suitable for a 512px thumbnail.\nTechnique-specific direction: Contemporary neo-noir night scene. Red cosmos prominent, cyan and magenta neon illumination reflected in the dark stream, wet wooden bridge, deep shadows, moody dramatic contrast, restrained vivid neon highlights.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-e855e155-d83a-4ae1-8c4b-b71722da8b6d.png",
+      "file": "neo-noir.webp"
+    },
+    {
+      "id": "technicolor-inspired",
+      "jp": "テクニカラー風",
+      "en": "Technicolor-inspired",
+      "description": "鮮烈な古典映画風の色彩",
+      "prompt": "Technicolor-inspired, 鮮烈な古典映画風の色彩.\nCreate ONE square 1:1 image, a simple visual dictionary thumbnail with the named film technique clearly recognizable at small display size. Shared scene: one red cosmos flower with yellow center prominent in the foreground of a small green garden; a curved shallow stream and a small wooden footbridge behind. Keep this scene and simple near-eye-level composition consistent; adapt lighting and materials only as needed to demonstrate the film style. No people, text, captions, logos, watermark, collage, film strips, or black letterbox bars. Full-bleed square. Moderate detail suitable for a 512px thumbnail.\nTechnique-specific direction: Classic three-strip Technicolor color separation: rich crimson cosmos, lush emerald foliage, vivid cyan sky reflected in stream, warm honey-colored wooden bridge, crisp bright classic 1950s cinema lighting, saturated yet coherent color.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-6b7d35eb-dcd7-4608-83eb-9e6711a67ab5.png",
+      "file": "technicolor-inspired.webp"
+    },
+    {
+      "id": "vintage-film-photography",
+      "jp": "フィルム写真風",
+      "en": "Vintage film photography",
+      "description": "粒子や退色感を持つ写真",
+      "prompt": "Vintage film photography, 粒子や退色感を持つ写真.\nCreate ONE square 1:1 image, a simple visual dictionary thumbnail with the named film technique clearly recognizable at small display size. Shared scene: one red cosmos flower with yellow center prominent in the foreground of a small green garden; a curved shallow stream and a small wooden footbridge behind. Keep this scene and simple near-eye-level composition consistent; adapt lighting and materials only as needed to demonstrate the film style. No people, text, captions, logos, watermark, collage, film strips, or black letterbox bars. Full-bleed square. Moderate detail suitable for a 512px thumbnail.\nTechnique-specific direction: Faded vintage color photograph: red cosmos softly faded toward coral, muted sage greenery, warm yellowed highlights, slightly lifted blacks, clearly visible organic grain and slight age softness, subtle light leak along one edge. Keep flower recognizable.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-cfc40dc7-8486-45fe-b7ad-1a9e88ed3304.png",
+      "file": "vintage-film-photography.webp"
+    },
+    {
+      "id": "35mm-film-look",
+      "jp": "35mmフィルム風",
+      "en": "35mm film look",
+      "description": "自然な粒状感と映画的質感",
+      "prompt": "35mm film look, 自然な粒状感と映画的質感.\nCreate ONE square 1:1 image, a simple visual dictionary thumbnail with the named film technique clearly recognizable at small display size. Shared scene: one red cosmos flower with yellow center prominent in the foreground of a small green garden; a curved shallow stream and a small wooden footbridge behind. Keep this scene and simple near-eye-level composition consistent; adapt lighting and materials only as needed to demonstrate the film style. No people, text, captions, logos, watermark, collage, film strips, or black letterbox bars. Full-bleed square. Moderate detail suitable for a 512px thumbnail.\nTechnique-specific direction: Fresh 35mm motion picture negative look, natural red cosmos and green garden, fine organic grain visible in midtones, gentle highlight halation, rich but realistic color, soft highlight rolloff and deep nuanced shadows. No retro fading or heavy scratches.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-1d8a021d-ecd4-4cfe-9755-c2ff55a72410.png",
+      "file": "35mm-film-look.webp"
+    },
+    {
+      "id": "anamorphic-lens-look",
+      "jp": "アナモルフィック風",
+      "en": "Anamorphic lens look",
+      "description": "横長の光芒や映画的ボケ",
+      "prompt": "Anamorphic lens look, 横長の光芒や映画的ボケ.\nCreate ONE square 1:1 image, a simple visual dictionary thumbnail with the named film technique clearly recognizable at small display size. Shared scene: one red cosmos flower with yellow center prominent in the foreground of a small green garden; a curved shallow stream and a small wooden footbridge behind. Keep this scene and simple near-eye-level composition consistent; adapt lighting and materials only as needed to demonstrate the film style. No people, text, captions, logos, watermark, collage, film strips, or black letterbox bars. Full-bleed square. Moderate detail suitable for a 512px thumbnail.\nTechnique-specific direction: Anamorphic cinema lens characteristics in square crop: sharp red cosmos foreground, clearly vertical oval defocused highlights behind, long narrow horizontal blue optical flare across a bright reflection on the stream, gentle edge softness, wooden bridge behind.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-0332d5c4-926b-4e21-b2e3-bec74e55ae12.png",
+      "file": "anamorphic-lens-look.webp"
+    },
+    {
+      "id": "motion-blur",
+      "jp": "モーションブラー",
+      "en": "Motion blur",
+      "description": "動きを流して速度感を出す",
+      "prompt": "Motion blur, 動きを流して速度感を出す.\nCreate ONE square 1:1 image, a simple visual dictionary thumbnail with the named film technique clearly recognizable at small display size. Shared scene: one red cosmos flower with yellow center prominent in the foreground of a small green garden; a curved shallow stream and a small wooden footbridge behind. Keep this scene and simple near-eye-level composition consistent; adapt lighting and materials only as needed to demonstrate the film style. No people, text, captions, logos, watermark, collage, film strips, or black letterbox bars. Full-bleed square. Moderate detail suitable for a 512px thumbnail.\nTechnique-specific direction: Obvious directional motion blur: red cosmos petals and green stem sway sideways in wind, flowing silky streaks of stream water; stationary wooden bridge remains recognizable and relatively sharp. Capture elongated lateral motion trails, not generic defocus.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-be5de61a-0fe6-460a-a467-ec14575433a7.png",
+      "file": "motion-blur.webp"
+    },
+    {
+      "id": "freeze-frame",
+      "jp": "フリーズフレーム",
+      "en": "Freeze frame",
+      "description": "動きの一瞬を静止した表現",
+      "prompt": "Freeze frame, 動きの一瞬を静止した表現.\nCreate ONE square 1:1 image, a simple visual dictionary thumbnail with the named film technique clearly recognizable at small display size. Shared scene: one red cosmos flower with yellow center prominent in the foreground of a small green garden; a curved shallow stream and a small wooden footbridge behind. Keep this scene and simple near-eye-level composition consistent; adapt lighting and materials only as needed to demonstrate the film style. No people, text, captions, logos, watermark, collage, film strips, or black letterbox bars. Full-bleed square. Moderate detail suitable for a 512px thumbnail.\nTechnique-specific direction: Freeze a dynamic instant: red cosmos bent by gust, a few red petals and sparkling water droplets suspended perfectly sharp in midair, crisp frozen splash from stream with wooden bridge behind. Absolutely no motion blur; readable frozen action in a single cinematic frame.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-8f161502-7a63-464f-b60a-a06d503907b4.png",
+      "file": "freeze-frame.webp"
+    },
+    {
+      "id": "stop-motion-look",
+      "jp": "ストップモーション風",
+      "en": "Stop-motion look",
+      "description": "手作業アニメのコマ撮り感",
+      "prompt": "Stop-motion look, 手作業アニメのコマ撮り感.\nCreate ONE square 1:1 image, a simple visual dictionary thumbnail with the named film technique clearly recognizable at small display size. Shared scene: one red cosmos flower with yellow center prominent in the foreground of a small green garden; a curved shallow stream and a small wooden footbridge behind. Keep this scene and simple near-eye-level composition consistent; adapt lighting and materials only as needed to demonstrate the film style. No people, text, captions, logos, watermark, collage, film strips, or black letterbox bars. Full-bleed square. Moderate detail suitable for a 512px thumbnail.\nTechnique-specific direction: A still from a handcrafted stop-motion puppet set made of cut paper petals, fabric green leaves, rough painted wood bridge, translucent crinkled cellophane stream. Visible crafted seams and slightly irregular object placement, miniature practical set lighting. Distinct paper and fabric textures, not clay.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-9366a12a-ce83-4f29-8079-f89fbb36c3bd.png",
+      "file": "stop-motion-look.webp"
+    },
+    {
+      "id": "claymation-look",
+      "jp": "クレイアニメ風",
+      "en": "Claymation look",
+      "description": "粘土人形のコマ撮り表現",
+      "prompt": "Claymation look, 粘土人形のコマ撮り表現.\nCreate ONE square 1:1 image, a simple visual dictionary thumbnail with the named film technique clearly recognizable at small display size. Shared scene: one red cosmos flower with yellow center prominent in the foreground of a small green garden; a curved shallow stream and a small wooden footbridge behind. Keep this scene and simple near-eye-level composition consistent; adapt lighting and materials only as needed to demonstrate the film style. No people, text, captions, logos, watermark, collage, film strips, or black letterbox bars. Full-bleed square. Moderate detail suitable for a 512px thumbnail.\nTechnique-specific direction: A still from a handmade clay animation: red cosmos petals, green foliage, stream and small wooden-looking bridge ALL sculpted from colored plasticine. Visible thumbprints, soft rounded shapes, tiny tool marks, thick malleable clay petals, charming miniature set lighting.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-464dd15f-6f67-4f9d-a19b-e863d7633419.png",
+      "file": "claymation-look.webp"
+    },
+    {
+      "id": "found-footage-aesthetic",
+      "jp": "ファウンドフッテージ風",
+      "en": "Found-footage aesthetic",
+      "description": "偶然撮られた記録映像のような粗さ",
+      "prompt": "Found-footage aesthetic, 偶然撮られた記録映像のような粗さ.\nCreate ONE square 1:1 image, a simple visual dictionary thumbnail with the named film technique clearly recognizable at small display size. Shared scene: one red cosmos flower with yellow center prominent in the foreground of a small green garden; a curved shallow stream and a small wooden footbridge behind. Keep this scene and simple near-eye-level composition consistent; adapt lighting and materials only as needed to demonstrate the film style. No people, text, captions, logos, watermark, collage, film strips, or black letterbox bars. Full-bleed square. Moderate detail suitable for a 512px thumbnail.\nTechnique-specific direction: An unpolished recovered handheld consumer camcorder frame: red cosmos and stream with wooden bridge shot casually, slightly canted framing, rough low-light sensor noise, mild interlacing and compression artifacts, uneven autoexposure, muted camcorder colors. No timestamps or text; scene still legible.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-73735e5b-1892-4df7-9274-d0785abbe02b.png",
+      "file": "found-footage-aesthetic.webp"
+    }
+  ]
+}

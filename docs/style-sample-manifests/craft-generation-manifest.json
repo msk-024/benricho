@@ -1,0 +1,158 @@
+{
+  "generator": "OpenAI built-in image_gen",
+  "date": "2026-10-26",
+  "category": "craft",
+  "size": [
+    512,
+    512
+  ],
+  "format": "WebP",
+  "quality": 80,
+  "cost": "Not reported by the built-in tool.",
+  "entries": [
+    {
+      "id": "embroidery-art",
+      "jp": "刺繍",
+      "en": "Embroidery art",
+      "category": "craft",
+      "description": "糸のステッチで絵を描く",
+      "prompt": "Embroidery art, 糸のステッチで絵を描く.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-d50b4ab6-529e-4a3d-921f-ea9107960dab.png",
+      "file": "embroidery-art.webp",
+      "status": "saved",
+      "bytes": 117282
+    },
+    {
+      "id": "needle-felting",
+      "jp": "羊毛フェルト",
+      "en": "Needle felting",
+      "category": "craft",
+      "description": "毛羽立つ立体の手芸",
+      "prompt": "Needle felting, 毛羽立つ立体の手芸.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-286709e9-3106-4767-9ba2-32a0c771a1d6.png",
+      "file": "needle-felting.webp",
+      "status": "saved",
+      "bytes": 63440
+    },
+    {
+      "id": "crochet-art",
+      "jp": "かぎ針編み",
+      "en": "Crochet art",
+      "category": "craft",
+      "description": "編み目のある毛糸造形",
+      "prompt": "Crochet art, 編み目のある毛糸造形.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-8f896137-bf20-4f2e-a00d-316c02f3c33a.png",
+      "file": "crochet-art.webp",
+      "status": "saved",
+      "bytes": 88904
+    },
+    {
+      "id": "knitted-texture",
+      "jp": "ニット質感",
+      "en": "Knitted texture",
+      "category": "craft",
+      "description": "編み目が目立つ布地",
+      "prompt": "Knitted texture, 編み目が目立つ布地.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-a87d2c2a-3b0c-4289-8890-789e4347f0e9.png",
+      "file": "knitted-texture.webp",
+      "status": "saved",
+      "bytes": 97196
+    },
+    {
+      "id": "quilted-fabric-art",
+      "jp": "キルト",
+      "en": "Quilted fabric art",
+      "category": "craft",
+      "description": "布を重ねた縫製の凹凸",
+      "prompt": "Quilted fabric art, 布を重ねた縫製の凹凸.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-19586bd0-e02d-48bb-8254-e4241425c17a.png",
+      "file": "quilted-fabric-art.webp",
+      "status": "saved",
+      "bytes": 99026
+    },
+    {
+      "id": "stained-glass",
+      "jp": "ステンドグラス",
+      "en": "Stained glass",
+      "category": "craft",
+      "description": "色ガラスと区切り線",
+      "prompt": "Stained glass, 色ガラスと区切り線.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-30e5ecd7-9966-40cf-9479-17004f7a8eb3.png",
+      "file": "stained-glass.webp",
+      "status": "saved",
+      "bytes": 92718
+    },
+    {
+      "id": "mosaic-art",
+      "jp": "モザイク",
+      "en": "Mosaic art",
+      "category": "craft",
+      "description": "小片を並べて図柄を作る",
+      "prompt": "Mosaic art, 小片を並べて図柄を作る.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-7f804572-39ed-4d43-b6b0-ff27163a9497.png",
+      "file": "mosaic-art.webp",
+      "status": "saved",
+      "bytes": 119054
+    },
+    {
+      "id": "ceramic-glaze",
+      "jp": "陶器の釉薬",
+      "en": "Ceramic glaze",
+      "category": "craft",
+      "description": "焼き物の光沢と色むら",
+      "prompt": "Ceramic glaze, 焼き物の光沢と色むら.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.\nSpecific direction: Entire garden scene formed in glazed ceramic relief, thick glossy pooled colored glaze, kiln color variations.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-11b6090d-1879-4250-9ef8-cb60b5720f50.png",
+      "file": "ceramic-glaze.webp",
+      "status": "saved",
+      "bytes": 102502
+    },
+    {
+      "id": "porcelain-figurine",
+      "jp": "磁器人形",
+      "en": "Porcelain figurine",
+      "category": "craft",
+      "description": "滑らかな白磁の立体",
+      "prompt": "Porcelain figurine, 滑らかな白磁の立体.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.\nSpecific direction: Glazed white porcelain miniature garden sculpture, elegant molded flower, stream and bridge with subtle painted red accents.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-63cbf8ca-24b9-4bf9-9cfe-23ac3eee649f.png",
+      "file": "porcelain-figurine.webp",
+      "status": "saved",
+      "bytes": 44402
+    },
+    {
+      "id": "paper-quilling",
+      "jp": "ペーパークイリング",
+      "en": "Paper quilling",
+      "category": "craft",
+      "description": "細い紙を巻いた装飾",
+      "prompt": "Paper quilling, 細い紙を巻いた装飾.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-42dde1b8-8417-4050-b548-59f39967f6a7.png",
+      "file": "paper-quilling.webp",
+      "status": "saved",
+      "bytes": 66346
+    },
+    {
+      "id": "origami-art",
+      "jp": "折り紙",
+      "en": "Origami art",
+      "category": "craft",
+      "description": "折り目と紙面の幾何学",
+      "prompt": "Origami art, 折り目と紙面の幾何学.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-389695d4-6fa4-41a6-8f8c-78431198e461.png",
+      "file": "origami-art.webp",
+      "status": "saved",
+      "bytes": 53756
+    },
+    {
+      "id": "woven-tapestry",
+      "jp": "織物タペストリー",
+      "en": "Woven tapestry",
+      "category": "craft",
+      "description": "糸の織りによる図柄",
+      "prompt": "Woven tapestry, 糸の織りによる図柄.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-2242c29d-91e4-4d0c-af02-8e68c62213d9.png",
+      "file": "woven-tapestry.webp",
+      "status": "saved",
+      "bytes": 119344
+    }
+  ]
+}

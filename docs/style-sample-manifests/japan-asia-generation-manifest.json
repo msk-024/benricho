@@ -1,0 +1,158 @@
+{
+  "generator": "OpenAI built-in image_gen",
+  "date": "2026-10-26",
+  "category": "japan-asia",
+  "size": [
+    512,
+    512
+  ],
+  "format": "WebP",
+  "quality": 80,
+  "cost": "Not reported by the built-in tool.",
+  "entries": [
+    {
+      "id": "ukiyo-e",
+      "jp": "浮世絵",
+      "en": "Ukiyo-e",
+      "category": "japan-asia",
+      "description": "輪郭線と平面的な色面の木版画",
+      "prompt": "Ukiyo-e, 輪郭線と平面的な色面の木版画.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-e7e9b6d4-64cc-49b7-afc5-9662e4a2c7d6.png",
+      "file": "ukiyo-e.webp",
+      "status": "saved",
+      "bytes": 89168
+    },
+    {
+      "id": "shin-hanga",
+      "jp": "新版画",
+      "en": "Shin-hanga",
+      "category": "japan-asia",
+      "description": "近代的な光と風景の木版画",
+      "prompt": "Shin-hanga, 近代的な光と風景の木版画.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-bdffc177-209b-41e6-82b9-275993e118aa.png",
+      "file": "shin-hanga.webp",
+      "status": "saved",
+      "bytes": 71864
+    },
+    {
+      "id": "nihonga",
+      "jp": "日本画",
+      "en": "Nihonga",
+      "category": "japan-asia",
+      "description": "岩絵具などの質感を活かす日本絵画",
+      "prompt": "Nihonga, 岩絵具などの質感を活かす日本絵画.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-37d7f77d-05d3-4bd1-b3ca-f54fe13a93d2.png",
+      "file": "nihonga.webp",
+      "status": "saved",
+      "bytes": 88328
+    },
+    {
+      "id": "rinpa-inspired",
+      "jp": "琳派風",
+      "en": "Rinpa-inspired",
+      "category": "japan-asia",
+      "description": "装飾性と大胆な余白・金地",
+      "prompt": "Rinpa-inspired, 装飾性と大胆な余白・金地.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-ed36b08c-233e-4944-aacb-17eaf6c97079.png",
+      "file": "rinpa-inspired.webp",
+      "status": "saved",
+      "bytes": 80670
+    },
+    {
+      "id": "kirie",
+      "jp": "切り絵",
+      "en": "Kirie",
+      "category": "japan-asia",
+      "description": "紙の切り抜きによる形と陰影",
+      "prompt": "Kirie, 紙の切り抜きによる形と陰影.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-994bda6b-4210-4524-91e7-35660755fbde.png",
+      "file": "kirie.webp",
+      "status": "saved",
+      "bytes": 61840
+    },
+    {
+      "id": "kintsugi-inspired",
+      "jp": "金継ぎ風",
+      "en": "Kintsugi-inspired",
+      "category": "japan-asia",
+      "description": "割れ目を金色の線で強調",
+      "prompt": "Kintsugi-inspired, 割れ目を金色の線で強調.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.\nSpecific direction: Garden and red cosmos painted on a visibly cracked ceramic relief repaired with conspicuous gold seams.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-fc2c6390-8818-4b77-9d90-be477e7d3423.png",
+      "file": "kintsugi-inspired.webp",
+      "status": "saved",
+      "bytes": 91098
+    },
+    {
+      "id": "sashiko-pattern",
+      "jp": "刺し子模様",
+      "en": "Sashiko pattern",
+      "category": "japan-asia",
+      "description": "規則的な縫い目の幾何学",
+      "prompt": "Sashiko pattern, 規則的な縫い目の幾何学.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.\nSpecific direction: Garden motifs depicted through regular white running stitches on indigo cloth, red stitched cosmos accent.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-e4d3e423-f7b3-4260-98f5-045fcfca0b9a.png",
+      "file": "sashiko-pattern.webp",
+      "status": "saved",
+      "bytes": 101836
+    },
+    {
+      "id": "sumi-ink-calligraphy",
+      "jp": "書道風",
+      "en": "Sumi ink calligraphy",
+      "category": "japan-asia",
+      "description": "墨の筆勢と余白",
+      "prompt": "Sumi ink calligraphy, 墨の筆勢と余白.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.\nSpecific direction: Express flower, stream and bridge as gestural black sumi brush marks, expressive ink strokes, not readable characters.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-afe9b4c3-995f-4ed4-8c11-233580441c86.png",
+      "file": "sumi-ink-calligraphy.webp",
+      "status": "saved",
+      "bytes": 70370
+    },
+    {
+      "id": "chinese-gongbi-painting",
+      "jp": "工筆画",
+      "en": "Chinese gongbi painting",
+      "category": "japan-asia",
+      "description": "精密な線と彩色の中国画",
+      "prompt": "Chinese gongbi painting, 精密な線と彩色の中国画.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-6155b0f7-ab35-46ca-ba01-77fce85fab72.png",
+      "file": "chinese-gongbi-painting.webp",
+      "status": "saved",
+      "bytes": 66408
+    },
+    {
+      "id": "chinese-xieyi-painting",
+      "jp": "写意画",
+      "en": "Chinese xieyi painting",
+      "category": "japan-asia",
+      "description": "自由な筆致の中国画",
+      "prompt": "Chinese xieyi painting, 自由な筆致の中国画.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-00ffa32f-2e75-48da-9dfb-af9a7d4da91d.png",
+      "file": "chinese-xieyi-painting.webp",
+      "status": "saved",
+      "bytes": 83826
+    },
+    {
+      "id": "korean-minhwa",
+      "jp": "韓国民画",
+      "en": "Korean minhwa",
+      "category": "japan-asia",
+      "description": "民俗的で鮮やかな象徴表現",
+      "prompt": "Korean minhwa, 民俗的で鮮やかな象徴表現.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-85ad03e5-adc6-4a4a-820a-cfa94f5a3699.png",
+      "file": "korean-minhwa.webp",
+      "status": "saved",
+      "bytes": 81254
+    },
+    {
+      "id": "japanese-woodblock-print",
+      "jp": "日本木版画",
+      "en": "Japanese woodblock print",
+      "category": "japan-asia",
+      "description": "版木と摺りによる色面表現",
+      "prompt": "Japanese woodblock print, 版木と摺りによる色面表現.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-a6763b03-ea08-4dc8-8551-bc89736f7343.png",
+      "file": "japanese-woodblock-print.webp",
+      "status": "saved",
+      "bytes": 87100
+    }
+  ]
+}

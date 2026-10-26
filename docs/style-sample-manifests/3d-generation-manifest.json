@@ -1,0 +1,158 @@
+{
+  "generator": "OpenAI built-in image_gen",
+  "date": "2026-10-26",
+  "category": "3d",
+  "size": [
+    512,
+    512
+  ],
+  "format": "WebP",
+  "quality": 80,
+  "cost": "Not reported by the built-in tool.",
+  "entries": [
+    {
+      "id": "miniature-diorama",
+      "jp": "ミニチュアジオラマ",
+      "en": "Miniature diorama",
+      "category": "3d",
+      "description": "小さな世界を模型として構成",
+      "prompt": "Miniature diorama, 小さな世界を模型として構成.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-c7cbf0c4-5f3c-4fec-8091-2b7980bfe860.png",
+      "file": "miniature-diorama.webp",
+      "status": "saved",
+      "bytes": 71698
+    },
+    {
+      "id": "isometric-illustration",
+      "jp": "アイソメトリック",
+      "en": "Isometric illustration",
+      "category": "3d",
+      "description": "斜め上からの立体図",
+      "prompt": "Isometric illustration, 斜め上からの立体図.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.\nSpecific direction: True orthographic isometric projection, parallel axes and no perspective convergence.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-04879362-40c3-4192-87cd-7a125462f9f4.png",
+      "file": "isometric-illustration.webp",
+      "status": "saved",
+      "bytes": 47346
+    },
+    {
+      "id": "low-poly-3d",
+      "jp": "ローポリ3D",
+      "en": "Low-poly 3D",
+      "category": "3d",
+      "description": "少ない多角形の面で形を表現",
+      "prompt": "Low-poly 3D, 少ない多角形の面で形を表現.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-cb7bfeb4-0d43-4f99-b149-ca96b39cdbbf.png",
+      "file": "low-poly-3d.webp",
+      "status": "saved",
+      "bytes": 40030
+    },
+    {
+      "id": "voxel-art",
+      "jp": "ボクセルアート",
+      "en": "Voxel art",
+      "category": "3d",
+      "description": "立方体の粒で作る立体表現",
+      "prompt": "Voxel art, 立方体の粒で作る立体表現.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-dbc45417-879a-49ed-905b-c85cea64f273.png",
+      "file": "voxel-art.webp",
+      "status": "saved",
+      "bytes": 55440
+    },
+    {
+      "id": "photorealistic-cgi",
+      "jp": "フォトリアルCG",
+      "en": "Photorealistic CGI",
+      "category": "3d",
+      "description": "実写に近いCG表現",
+      "prompt": "Photorealistic CGI, 実写に近いCG表現.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-0600da24-6db1-4ded-bce7-afb607be2170.png",
+      "file": "photorealistic-cgi.webp",
+      "status": "saved",
+      "bytes": 100556
+    },
+    {
+      "id": "stylized-3d-render",
+      "jp": "デフォルメ3D",
+      "en": "Stylized 3D render",
+      "category": "3d",
+      "description": "形を誇張した立体CG",
+      "prompt": "Stylized 3D render, 形を誇張した立体CG.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-998e8736-c2d3-4f19-aa11-49870ece91f1.png",
+      "file": "stylized-3d-render.webp",
+      "status": "saved",
+      "bytes": 67334
+    },
+    {
+      "id": "clay-render",
+      "jp": "クレイレンダー",
+      "en": "Clay render",
+      "category": "3d",
+      "description": "単色粘土模型のようなCG",
+      "prompt": "Clay render, 単色粘土模型のようなCG.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.\nSpecific direction: Monochrome matte off-white clay CGI; all forms single material, no colored paint.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-a2aa8e99-5cac-4713-b587-2c96a44ec771.png",
+      "file": "clay-render.webp",
+      "status": "saved",
+      "bytes": 33762
+    },
+    {
+      "id": "papercraft-diorama",
+      "jp": "ペーパークラフト",
+      "en": "Papercraft diorama",
+      "category": "3d",
+      "description": "紙の折りや切り貼りによる模型",
+      "prompt": "Papercraft diorama, 紙の折りや切り貼りによる模型.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-90884d44-b8c0-4b4e-8889-ea941b44eac9.png",
+      "file": "papercraft-diorama.webp",
+      "status": "saved",
+      "bytes": 51450
+    },
+    {
+      "id": "cardboard-sculpture",
+      "jp": "段ボール造形",
+      "en": "Cardboard sculpture",
+      "category": "3d",
+      "description": "段ボールの断面や素材感",
+      "prompt": "Cardboard sculpture, 段ボールの断面や素材感.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-0108f34d-cabf-41aa-9aa8-1a6c05527d4a.png",
+      "file": "cardboard-sculpture.webp",
+      "status": "saved",
+      "bytes": 67642
+    },
+    {
+      "id": "toy-photography",
+      "jp": "トイフォト",
+      "en": "Toy photography",
+      "category": "3d",
+      "description": "おもちゃを実物のように撮影",
+      "prompt": "Toy photography, おもちゃを実物のように撮影.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-d1d11901-43cc-478c-a69b-7adb57f629f8.png",
+      "file": "toy-photography.webp",
+      "status": "saved",
+      "bytes": 72722
+    },
+    {
+      "id": "plasticine-sculpture",
+      "jp": "油粘土造形",
+      "en": "Plasticine sculpture",
+      "category": "3d",
+      "description": "指跡や柔らかい造形が残る",
+      "prompt": "Plasticine sculpture, 指跡や柔らかい造形が残る.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-fcd6534a-c8f9-4454-8277-da31e0c59073.png",
+      "file": "plasticine-sculpture.webp",
+      "status": "saved",
+      "bytes": 54900
+    },
+    {
+      "id": "inflatable-3d",
+      "jp": "インフレータブル3D",
+      "en": "Inflatable 3D",
+      "category": "3d",
+      "description": "空気を入れたように膨らむ立体",
+      "prompt": "Inflatable 3D, 空気を入れたように膨らむ立体.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-4bda453f-774d-44aa-bba1-da09bbb2491e.png",
+      "file": "inflatable-3d.webp",
+      "status": "saved",
+      "bytes": 45128
+    }
+  ]
+}

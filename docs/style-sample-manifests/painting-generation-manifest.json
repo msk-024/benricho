@@ -1,0 +1,158 @@
+{
+  "generator": "OpenAI built-in image_gen",
+  "date": "2026-10-26",
+  "category": "painting",
+  "size": [
+    512,
+    512
+  ],
+  "format": "WebP",
+  "quality": 80,
+  "cost": "Not reported by the built-in tool.",
+  "entries": [
+    {
+      "id": "watercolor-painting",
+      "jp": "水彩画",
+      "en": "Watercolor painting",
+      "category": "painting",
+      "description": "透明なにじみと淡い重なり",
+      "prompt": "Watercolor painting, 透明なにじみと淡い重なり.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-63669698-8bfd-4d0f-8d4a-d8fd58b36186.png",
+      "file": "watercolor-painting.webp",
+      "status": "saved",
+      "bytes": 79440
+    },
+    {
+      "id": "gouache-painting",
+      "jp": "ガッシュ",
+      "en": "Gouache painting",
+      "category": "painting",
+      "description": "不透明でマットな絵具の色面",
+      "prompt": "Gouache painting, 不透明でマットな絵具の色面.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-bf78f6b6-182a-4758-aab7-87a8d6ea2294.png",
+      "file": "gouache-painting.webp",
+      "status": "saved",
+      "bytes": 62642
+    },
+    {
+      "id": "oil-painting",
+      "jp": "油彩画",
+      "en": "Oil painting",
+      "category": "painting",
+      "description": "厚みと混色のある絵具表現",
+      "prompt": "Oil painting, 厚みと混色のある絵具表現.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-d4dc5297-3044-421a-8d66-897a2335616d.png",
+      "file": "oil-painting.webp",
+      "status": "saved",
+      "bytes": 104640
+    },
+    {
+      "id": "acrylic-painting",
+      "jp": "アクリル画",
+      "en": "Acrylic painting",
+      "category": "painting",
+      "description": "鮮やかな色と幅広い筆致",
+      "prompt": "Acrylic painting, 鮮やかな色と幅広い筆致.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-c4da3e59-8620-4a75-95a2-0faa346bf93c.png",
+      "file": "acrylic-painting.webp",
+      "status": "saved",
+      "bytes": 101982
+    },
+    {
+      "id": "pastel-drawing",
+      "jp": "パステル画",
+      "en": "Pastel drawing",
+      "category": "painting",
+      "description": "粉っぽく柔らかな色調",
+      "prompt": "Pastel drawing, 粉っぽく柔らかな色調.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-bb9830d8-8d08-4159-abb6-269ac7847182.png",
+      "file": "pastel-drawing.webp",
+      "status": "saved",
+      "bytes": 78458
+    },
+    {
+      "id": "colored-pencil-drawing",
+      "jp": "色鉛筆画",
+      "en": "Colored pencil drawing",
+      "category": "painting",
+      "description": "細い線の重なりで描く",
+      "prompt": "Colored pencil drawing, 細い線の重なりで描く.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-57be67f6-4891-4c32-95d7-d46c05e56ac9.png",
+      "file": "colored-pencil-drawing.webp",
+      "status": "saved",
+      "bytes": 113338
+    },
+    {
+      "id": "charcoal-drawing",
+      "jp": "木炭画",
+      "en": "Charcoal drawing",
+      "category": "painting",
+      "description": "黒の濃淡と擦れた陰影",
+      "prompt": "Charcoal drawing, 黒の濃淡と擦れた陰影.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-64579210-c924-46ea-951d-710fb3923575.png",
+      "file": "charcoal-drawing.webp",
+      "status": "saved",
+      "bytes": 87708
+    },
+    {
+      "id": "graphite-pencil-sketch",
+      "jp": "鉛筆デッサン",
+      "en": "Graphite pencil sketch",
+      "category": "painting",
+      "description": "鉛筆の線とハッチング",
+      "prompt": "Graphite pencil sketch, 鉛筆の線とハッチング.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-35dd387f-4703-4d88-8875-caf756ff3147.png",
+      "file": "graphite-pencil-sketch.webp",
+      "status": "saved",
+      "bytes": 98980
+    },
+    {
+      "id": "ink-wash-painting",
+      "jp": "水墨画",
+      "en": "Ink wash painting",
+      "category": "painting",
+      "description": "墨の濃淡と余白を活かす",
+      "prompt": "Ink wash painting, 墨の濃淡と余白を活かす.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-15fb947a-6591-4deb-8405-26068c144e75.png",
+      "file": "ink-wash-painting.webp",
+      "status": "saved",
+      "bytes": 65908
+    },
+    {
+      "id": "sumi-e",
+      "jp": "墨絵",
+      "en": "Sumi-e",
+      "category": "painting",
+      "description": "少ない筆致で対象を表す日本画技法",
+      "prompt": "Sumi-e, 少ない筆致で対象を表す日本画技法.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-fd2d970e-a612-4bd5-87aa-23a42fb43c34.png",
+      "file": "sumi-e.webp",
+      "status": "saved",
+      "bytes": 65596
+    },
+    {
+      "id": "tempera-painting",
+      "jp": "テンペラ画",
+      "en": "Tempera painting",
+      "category": "painting",
+      "description": "顔料と乳剤による古典的絵画",
+      "prompt": "Tempera painting, 顔料と乳剤による古典的絵画.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-a277dc5c-ce94-431f-a5f8-de723de964c8.png",
+      "file": "tempera-painting.webp",
+      "status": "saved",
+      "bytes": 77682
+    },
+    {
+      "id": "fresco-painting",
+      "jp": "フレスコ画",
+      "en": "Fresco painting",
+      "category": "painting",
+      "description": "壁面に描いたような絵肌",
+      "prompt": "Fresco painting, 壁面に描いたような絵肌.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-5aebd645-9ce3-4be8-ab04-397ecaa9afb8.png",
+      "file": "fresco-painting.webp",
+      "status": "saved",
+      "bytes": 83764
+    }
+  ]
+}

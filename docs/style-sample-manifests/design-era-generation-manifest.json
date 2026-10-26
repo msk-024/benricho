@@ -1,0 +1,158 @@
+{
+  "generator": "OpenAI built-in image_gen",
+  "date": "2026-10-26",
+  "category": "design-era",
+  "size": [
+    512,
+    512
+  ],
+  "format": "WebP",
+  "quality": 80,
+  "cost": "Not reported by the built-in tool.",
+  "entries": [
+    {
+      "id": "swiss-graphic-design",
+      "jp": "スイススタイル",
+      "en": "Swiss graphic design",
+      "category": "design-era",
+      "description": "グリッドとタイポグラフィ中心",
+      "prompt": "Swiss graphic design, グリッドとタイポグラフィ中心.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.\nSpecific direction: Strict asymmetric Swiss grid, simplified red flower, blue stream and black bridge symbols; use typographic-like geometric bars without readable lettering.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-c08b60ae-d56e-49bd-9e53-94affc780103.png",
+      "file": "swiss-graphic-design.webp",
+      "status": "saved",
+      "bytes": 16890
+    },
+    {
+      "id": "brutalist-graphic-design",
+      "jp": "ブルータリストデザイン",
+      "en": "Brutalist graphic design",
+      "category": "design-era",
+      "description": "荒々しく無骨なレイアウト",
+      "prompt": "Brutalist graphic design, 荒々しく無骨なレイアウト.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-ad734e88-3695-41ec-b5f6-af51c9868ed9.png",
+      "file": "brutalist-graphic-design.webp",
+      "status": "saved",
+      "bytes": 61774
+    },
+    {
+      "id": "neo-brutalism",
+      "jp": "ネオブルータリズム",
+      "en": "Neo-brutalism",
+      "category": "design-era",
+      "description": "太い枠と強い色の現代デザイン",
+      "prompt": "Neo-brutalism, 太い枠と強い色の現代デザイン.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-f6dc7ad8-8c5a-4691-b59a-ce84b487d24b.png",
+      "file": "neo-brutalism.webp",
+      "status": "saved",
+      "bytes": 39280
+    },
+    {
+      "id": "mid-century-modern",
+      "jp": "ミッドセンチュリー",
+      "en": "Mid-century modern",
+      "category": "design-era",
+      "description": "20世紀中期の簡潔な造形",
+      "prompt": "Mid-century modern, 20世紀中期の簡潔な造形.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-0476d801-793f-456a-9c4f-8903cb36b199.png",
+      "file": "mid-century-modern.webp",
+      "status": "saved",
+      "bytes": 42058
+    },
+    {
+      "id": "memphis-design",
+      "jp": "メンフィス",
+      "en": "Memphis design",
+      "category": "design-era",
+      "description": "派手な色と遊び心ある幾何学",
+      "prompt": "Memphis design, 派手な色と遊び心ある幾何学.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-85c82e8c-85c9-4df2-8018-f654c3e35197.png",
+      "file": "memphis-design.webp",
+      "status": "saved",
+      "bytes": 38392
+    },
+    {
+      "id": "y2k-aesthetic",
+      "jp": "Y2K",
+      "en": "Y2K aesthetic",
+      "category": "design-era",
+      "description": "2000年前後のメタリック・デジタル感",
+      "prompt": "Y2K aesthetic, 2000年前後のメタリック・デジタル感.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-843fa5cb-3ce8-48e6-b775-34cb43d80024.png",
+      "file": "y2k-aesthetic.webp",
+      "status": "saved",
+      "bytes": 80108
+    },
+    {
+      "id": "vaporwave",
+      "jp": "ヴェイパーウェーブ",
+      "en": "Vaporwave",
+      "category": "design-era",
+      "description": "レトロ電子文化とパステルネオン",
+      "prompt": "Vaporwave, レトロ電子文化とパステルネオン.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-13d86436-4345-44bf-bb8b-0c760a7ed6f8.png",
+      "file": "vaporwave.webp",
+      "status": "saved",
+      "bytes": 72666
+    },
+    {
+      "id": "synthwave",
+      "jp": "シンセウェーブ",
+      "en": "Synthwave",
+      "category": "design-era",
+      "description": "80年代風ネオンと夜景",
+      "prompt": "Synthwave, 80年代風ネオンと夜景.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-29cffe9f-e67c-4ec0-8342-53a2c602f672.png",
+      "file": "synthwave.webp",
+      "status": "saved",
+      "bytes": 66556
+    },
+    {
+      "id": "cyberpunk",
+      "jp": "サイバーパンク",
+      "en": "Cyberpunk",
+      "category": "design-era",
+      "description": "高密度都市とハイテク・退廃",
+      "prompt": "Cyberpunk, 高密度都市とハイテク・退廃.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-659cc2c7-0c03-450d-93a4-0ff6c928b89b.png",
+      "file": "cyberpunk.webp",
+      "status": "saved",
+      "bytes": 83622
+    },
+    {
+      "id": "steampunk",
+      "jp": "スチームパンク",
+      "en": "Steampunk",
+      "category": "design-era",
+      "description": "蒸気機関と歯車の架空世界",
+      "prompt": "Steampunk, 蒸気機関と歯車の架空世界.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-f5518c8c-643d-4c79-b97f-2286ebd6ba8a.png",
+      "file": "steampunk.webp",
+      "status": "saved",
+      "bytes": 89378
+    },
+    {
+      "id": "solarpunk",
+      "jp": "ソーラーパンク",
+      "en": "Solarpunk",
+      "category": "design-era",
+      "description": "緑と再生可能技術の未来像",
+      "prompt": "Solarpunk, 緑と再生可能技術の未来像.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-0a345fd7-bd15-4789-bfec-fcac41e0fb42.png",
+      "file": "solarpunk.webp",
+      "status": "saved",
+      "bytes": 96818
+    },
+    {
+      "id": "cottagecore",
+      "jp": "コテージコア",
+      "en": "Cottagecore",
+      "category": "design-era",
+      "description": "田園生活の素朴で温かな美学",
+      "prompt": "Cottagecore, 田園生活の素朴で温かな美学.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-30646911-9004-4600-86a2-67c5bc90b761.png",
+      "file": "cottagecore.webp",
+      "status": "saved",
+      "bytes": 94214
+    }
+  ]
+}

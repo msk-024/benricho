@@ -1,0 +1,163 @@
+{
+  "generator": "OpenAI built-in image_gen",
+  "date": "2026-10-26",
+  "category": "illustration",
+  "size": [
+    512,
+    512
+  ],
+  "format": "WebP",
+  "quality": 80,
+  "cost": "Not reported by the built-in tool.",
+  "entries": [
+    {
+      "id": "flat-illustration",
+      "jp": "フラットイラスト",
+      "en": "Flat illustration",
+      "category": "illustration",
+      "description": "陰影を抑えた平面的な色面",
+      "prompt": "Flat illustration, 陰影を抑えた平面的な色面.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-b03727e6-5493-4429-93e1-92ad845f6329.png",
+      "file": "flat-illustration.webp",
+      "status": "saved",
+      "bytes": 41358
+    },
+    {
+      "id": "vector-illustration",
+      "jp": "ベクターイラスト",
+      "en": "Vector illustration",
+      "category": "illustration",
+      "description": "滑らかな輪郭と均一な塗り",
+      "prompt": "Vector illustration, 滑らかな輪郭と均一な塗り.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-56449c76-386b-41c8-992f-b1368147d9ce.png",
+      "file": "vector-illustration.webp",
+      "status": "saved",
+      "bytes": 41670
+    },
+    {
+      "id": "line-art",
+      "jp": "線画",
+      "en": "Line art",
+      "category": "illustration",
+      "description": "輪郭線を主役にする",
+      "prompt": "Line art, 輪郭線を主役にする.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-2c6ccfbb-a9aa-438a-bfb3-1a4eaa2eccc7.png",
+      "file": "line-art.webp",
+      "status": "saved",
+      "bytes": 88686
+    },
+    {
+      "id": "one-line-drawing",
+      "jp": "一筆書き",
+      "en": "One-line drawing",
+      "category": "illustration",
+      "description": "つながった線で描く",
+      "prompt": "One-line drawing, つながった線で描く.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.\nSpecific direction: One continuous unbroken black contour line outlines the flower, curved stream and bridge on white paper; sparse red flower accent.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-942a36be-bbac-430e-950a-e846cbc95eff.png",
+      "file": "one-line-drawing.webp",
+      "status": "saved",
+      "bytes": 30726
+    },
+    {
+      "id": "pixel-art",
+      "jp": "ドット絵",
+      "en": "Pixel art",
+      "category": "illustration",
+      "description": "ピクセルを見せるレトロ表現",
+      "prompt": "Pixel art, ピクセルを見せるレトロ表現.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.\nSpecific direction: Chunky clearly visible pixels, limited palette, crisp nearest-neighbor pixel edges, no smoothing.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-1bde5c44-a7f8-4f73-b983-524d47f376ae.png",
+      "file": "pixel-art.webp",
+      "status": "saved",
+      "bytes": 48798
+    },
+    {
+      "id": "comic-book-art",
+      "jp": "アメコミ風",
+      "en": "Comic book art",
+      "category": "illustration",
+      "description": "強い輪郭と大胆な陰影",
+      "prompt": "Comic book art, 強い輪郭と大胆な陰影.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-a73dc0bb-9bc1-4b4e-889d-de24a26e568d.png",
+      "file": "comic-book-art.webp",
+      "status": "saved",
+      "bytes": 99354
+    },
+    {
+      "id": "manga-ink-art",
+      "jp": "漫画ペン画",
+      "en": "Manga ink art",
+      "category": "illustration",
+      "description": "ペン線とトーンで描く",
+      "prompt": "Manga ink art, ペン線とトーンで描く.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-b64da2da-5748-440e-b4ae-f0e1469bc452.png",
+      "file": "manga-ink-art.webp",
+      "status": "saved",
+      "bytes": 113474
+    },
+    {
+      "id": "anime-cel-shading",
+      "jp": "アニメ調セル塗り",
+      "en": "Anime cel shading",
+      "category": "illustration",
+      "description": "影を明確な色面に分ける",
+      "prompt": "Anime cel shading, 影を明確な色面に分ける.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-4d88fb7f-ca70-4b7b-9c3b-0f8d268dfb43.png",
+      "file": "anime-cel-shading.webp",
+      "status": "saved",
+      "bytes": 63494
+    },
+    {
+      "id": "chibi-illustration",
+      "jp": "ちびキャラ",
+      "en": "Chibi illustration",
+      "category": "illustration",
+      "description": "頭身を縮めたかわいい造形",
+      "prompt": "Chibi illustration, 頭身を縮めたかわいい造形.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.\nSpecific direction: A tiny cute anthropomorphic cosmos flower with a huge flower head and very short stem, no human characters.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-cf78c8fd-b69a-419f-a8c2-0dba9dd98812.png",
+      "file": "chibi-illustration.webp",
+      "status": "saved",
+      "bytes": 61374
+    },
+    {
+      "id": "editorial-illustration",
+      "jp": "エディトリアルイラスト",
+      "en": "Editorial illustration",
+      "category": "illustration",
+      "description": "記事や雑誌向けの概念的な絵",
+      "prompt": "Editorial illustration, 記事や雑誌向けの概念的な絵.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-32b3898c-f5fa-47c5-9a0f-50ff7295fe4b.png",
+      "file": "editorial-illustration.webp",
+      "status": "saved",
+      "bytes": 80906
+    },
+    {
+      "id": "doodle-art",
+      "jp": "落書きアート",
+      "en": "Doodle art",
+      "category": "illustration",
+      "description": "気軽で自由な手描き線",
+      "prompt": "Doodle art, 気軽で自由な手描き線.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-6175c135-918b-4d4b-8e6a-c15ea4f1a97f.png",
+      "file": "doodle-art.webp",
+      "status": "saved",
+      "bytes": 123510
+    },
+    {
+      "id": "whiteboard-illustration",
+      "jp": "ホワイトボード風",
+      "en": "Whiteboard illustration",
+      "category": "illustration",
+      "description": "白地に説明図を描く",
+      "prompt": "Whiteboard illustration, 白地に説明図を描く. Create a simple WHITEBOARD MARKER DIAGRAM on a completely clean PURE WHITE background, square 1:1 thumbnail. Draw only a red cosmos flower with eight red outlined petals and a yellow dot center, a few green marker leaf outlines, TWO curving blue marker lines for a stream, and one small brown outlined wooden bridge crossing it. Loose dry erase marker strokes, simple sparse 2D schematic line drawing, large white empty areas, only 10-20 simple shapes. Absolutely NO shading, NO texture, NO realistic scenery, NO paint, NO watercolor, NO photograph, NO filling the background with plants, NO text, NO labels, NO arrows. The whole image should unmistakably look like a quick colorful diagram drawn by hand on a whiteboard.",
+      "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-a20e9a72-daa1-4662-af77-0865e73ada29.png",
+      "file": "whiteboard-illustration.webp",
+      "status": "saved",
+      "bytes": 18464,
+      "previous_attempt": {
+        "source": "C:\\Users\\onishi\\.codex\\generated_images\\01a177f2-7967-72b3-986c-a9c4a93d7a0c\\exec-fe231bfb-1b0c-4ffc-a562-17058b018075.png",
+        "prompt": "Whiteboard illustration, 白地に説明図を描く.\nCreate ONE full-bleed square 1:1 image for a visual style dictionary thumbnail. Shared theme: a red cosmos flower with yellow pollen center in a small green garden, a curved shallow stream and a small wooden footbridge. Simple composition, clear shapes readable at 512px. Render the WHOLE image in the specified style, making its characteristic texture, technique, color, lighting or composition instantly apparent. Preserve the flower, stream and bridge motifs where compatible; reinterpret them as geometric or decorative motifs for abstract styles. Adapt materials, palette and viewpoint to the named technique, not a generic photograph. No people, logos, watermarks, captions, written labels, collage grids, borders or letterboxing. Moderate detail, thumbnail use.",
+        "reason": "Style characteristic was weak during visual review"
+      }
+    }
+  ]
+}

@@ -76,3 +76,6 @@ export const MotionGlossaryTool = lazy(() =>
     default: m.MotionGlossaryTool,
   })),
 );
+export const StyleIndexTool = lazy(() =>
+  import("./StyleIndexTool").then((m) => ({ default: m.StyleIndexTool })),
+);
