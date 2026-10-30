@@ -145,7 +145,7 @@ export function PixelArtTool(): ReactElement {
   const [customGridWidth, setCustomGridWidth] = useState(24);
   const [customGridHeight, setCustomGridHeight] = useState(24);
   const [colorCount, setColorCount] = useState(16);
-  const [sampling, setSampling] = useState<PixelArtSampling>("average");
+  const [sampling, setSampling] = useState<PixelArtSampling>("dominant");
   const [contrastPercent, setContrastPercent] = useState(0);
   const [saturationPercent, setSaturationPercent] = useState(0);
   const [paletteModeId, setPaletteModeId] = useState<PaletteModeId>("auto");
