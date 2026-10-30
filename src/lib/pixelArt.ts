@@ -14,6 +14,10 @@ export interface PixelArtOptions {
   gridHeight: number;
   colorCount: number;
   sampling: PixelArtSampling;
+  /** -100〜100。0が無調整(省略時も0) */
+  contrastPercent?: number;
+  /** -100〜100。0が無調整、省略時も0 */
+  saturationPercent?: number;
 }
 
 export interface PixelArtResult {
@@ -242,6 +246,32 @@ export function quantizeImageColors(
       ? colors.map(({ r, g, b }) => ({ r, g, b }))
       : buildMedianCutPalette(colors, maxColors);
 
+  return { image: mapImageToPalette(image, palette), palette };
+}
+
+/**
+ * 画像の不透明画素を、指定した固定パレットの中で最も近い色にマッピングする(量子化計算はしない)。
+ * 定番レトロパレットのワンクリック適用など、パレット自体を自動計算せず固定したい場合に使う。
+ *
+ * @precondition image は正当なRGBA画像、palette は1色以上
+ * @postcondition 戻り値の palette は引数の palette と同じ(順序・色数とも)
+ * @postcondition 不透明画素(alpha>=16)のRGBは必ず palette 内のいずれかの色と一致する
+ * @throws {RangeError} 事前条件に違反した場合
+ */
+export function quantizeToFixedPalette(
+  image: RgbaImage,
+  palette: readonly RgbColor[],
+): PixelArtResult {
+  assertValidImage(image);
+  if (palette.length < 1) {
+    throw new RangeError("palette は1色以上必要です");
+  }
+  const paletteCopy = [...palette];
+  return { image: mapImageToPalette(image, paletteCopy), palette: paletteCopy };
+}
+
+/** 不透明画素をそれぞれ palette 内の最も近い色に置き換えた画像を作る(透明画素はそのまま) */
+function mapImageToPalette(image: RgbaImage, palette: RgbColor[]): RgbaImage {
   const nearestByKey = new Map<number, RgbColor>();
   const data = new Uint8ClampedArray(image.data.length);
   for (let i = 0; i < image.data.length; i += 4) {
@@ -262,11 +292,108 @@ export function quantizeImageColors(
     data[i + 2] = nearest.b;
     data[i + 3] = a;
   }
+  return { width: image.width, height: image.height, data };
+}
 
+/**
+ * パレット内の1色(paletteIndex)を新しい色に置き換え、その色を使っていた画素だけを塗り替える。
+ * ドット絵のパレットスウォッチをクリックして任意の色に差し替えるUI向け。
+ *
+ * @precondition image は正当なRGBA画像、paletteIndex は palette の範囲内の整数
+ * @postcondition 戻り値の palette は paletteIndex 番目だけ newColor に置き換わっている
+ * @postcondition 旧色(palette[paletteIndex])と完全一致していた不透明画素だけが newColor になる
+ * @throws {RangeError} 事前条件に違反した場合
+ */
+export function replacePaletteColor(
+  image: RgbaImage,
+  palette: readonly RgbColor[],
+  paletteIndex: number,
+  newColor: RgbColor,
+): PixelArtResult {
+  assertValidImage(image);
+  if (
+    !Number.isInteger(paletteIndex) ||
+    paletteIndex < 0 ||
+    paletteIndex >= palette.length
+  ) {
+    throw new RangeError(`paletteIndex が範囲外です: ${paletteIndex}`);
+  }
+  const oldColor = palette[paletteIndex];
+  const data = new Uint8ClampedArray(image.data);
+  for (let i = 0; i < data.length; i += 4) {
+    if (data[i + 3] === 0) continue;
+    if (
+      data[i] === oldColor.r &&
+      data[i + 1] === oldColor.g &&
+      data[i + 2] === oldColor.b
+    ) {
+      data[i] = newColor.r;
+      data[i + 1] = newColor.g;
+      data[i + 2] = newColor.b;
+    }
+  }
+  const nextPalette = palette.map((color, index) =>
+    index === paletteIndex ? newColor : color,
+  );
   return {
     image: { width: image.width, height: image.height, data },
-    palette,
+    palette: nextPalette,
   };
+}
+
+/**
+ * コントラスト・彩度を調整した画像を返す(RGBのみ変更、アルファはそのまま)。
+ * コントラストは128を基準に線形スケーリング、彩度は輝度とのブレンドで実装する簡易版。
+ *
+ * @precondition image は正当なRGBA画像、contrastPercent/saturationPercent は -100〜100
+ * @throws {RangeError} 事前条件に違反した場合
+ */
+export function applyColorAdjustments(
+  image: RgbaImage,
+  contrastPercent: number,
+  saturationPercent: number,
+): RgbaImage {
+  assertValidImage(image);
+  assertInPercentRange(contrastPercent, "contrastPercent");
+  assertInPercentRange(saturationPercent, "saturationPercent");
+  if (contrastPercent === 0 && saturationPercent === 0) {
+    return {
+      width: image.width,
+      height: image.height,
+      data: new Uint8ClampedArray(image.data),
+    };
+  }
+
+  const contrastFactor = (100 + contrastPercent) / 100;
+  const saturationFactor = (100 + saturationPercent) / 100;
+  const data = new Uint8ClampedArray(image.data);
+  for (let i = 0; i < data.length; i += 4) {
+    if (data[i + 3] === 0) continue;
+    let r = data[i];
+    let g = data[i + 1];
+    let b = data[i + 2];
+    if (saturationPercent !== 0) {
+      const luma = 0.299 * r + 0.587 * g + 0.114 * b;
+      r = luma + (r - luma) * saturationFactor;
+      g = luma + (g - luma) * saturationFactor;
+      b = luma + (b - luma) * saturationFactor;
+    }
+    if (contrastPercent !== 0) {
+      r = 128 + (r - 128) * contrastFactor;
+      g = 128 + (g - 128) * contrastFactor;
+      b = 128 + (b - 128) * contrastFactor;
+    }
+    data[i] = r;
+    data[i + 1] = g;
+    data[i + 2] = b;
+  }
+  return { width: image.width, height: image.height, data };
+}
+
+function assertInPercentRange(value: number, name: string): void {
+  if (!Number.isFinite(value) || value < -100 || value > 100) {
+    throw new RangeError(`${name} は -100〜100 が必要です: ${value}`);
+  }
 }
 
 function buildMedianCutPalette(
@@ -381,5 +508,10 @@ export function convertToPixelArt(
     options.gridHeight,
     options.sampling,
   );
-  return quantizeImageColors(grid, options.colorCount);
+  const adjusted = applyColorAdjustments(
+    grid,
+    options.contrastPercent ?? 0,
+    options.saturationPercent ?? 0,
+  );
+  return quantizeImageColors(adjusted, options.colorCount);
 }

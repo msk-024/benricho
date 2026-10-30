@@ -16,10 +16,16 @@ import {
   upscalePixelArtCanvas,
   withGridOverlay,
 } from "../lib/canvas/pixelArtExport";
+import { formatHex, parseHexColor } from "../lib/colorConvert";
 import { downloadBlob } from "../lib/download";
 import { replaceExtension } from "../lib/fileName";
+import type { RgbaImage } from "../lib/imageOps";
 import {
-  convertToPixelArt,
+  applyColorAdjustments,
+  downsampleToGrid,
+  quantizeImageColors,
+  quantizeToFixedPalette,
+  replacePaletteColor,
   type PixelArtSampling,
   type RgbColor,
 } from "../lib/pixelArt";
@@ -37,6 +43,69 @@ const MAX_GRID_SIZE = 128;
 
 const UPSCALE_FACTORS = [1, 4, 8, 16, 32] as const;
 
+/** 定番レトロパレット(ワンクリック適用用)。色数自動指定の代わりに固定色で量子化する */
+const RETRO_PALETTES = [
+  {
+    id: "mono",
+    label: "モノクロ(2色)",
+    colors: [
+      { r: 0, g: 0, b: 0 },
+      { r: 255, g: 255, b: 255 },
+    ],
+  },
+  {
+    id: "grayscale4",
+    label: "グレースケール(4色)",
+    colors: [
+      { r: 0, g: 0, b: 0 },
+      { r: 85, g: 85, b: 85 },
+      { r: 170, g: 170, b: 170 },
+      { r: 255, g: 255, b: 255 },
+    ],
+  },
+  {
+    id: "gameboy",
+    label: "ゲームボーイ風(4色)",
+    colors: [
+      { r: 15, g: 56, b: 15 },
+      { r: 48, g: 98, b: 48 },
+      { r: 139, g: 172, b: 15 },
+      { r: 155, g: 188, b: 15 },
+    ],
+  },
+  {
+    id: "sepia",
+    label: "セピア(4色)",
+    colors: [
+      { r: 43, g: 29, b: 14 },
+      { r: 111, g: 69, b: 24 },
+      { r: 185, g: 139, b: 74 },
+      { r: 237, g: 220, b: 192 },
+    ],
+  },
+  {
+    id: "vivid8",
+    label: "ビビッド8色",
+    colors: [
+      { r: 0, g: 0, b: 0 },
+      { r: 255, g: 255, b: 255 },
+      { r: 255, g: 0, b: 0 },
+      { r: 0, g: 255, b: 0 },
+      { r: 0, g: 0, b: 255 },
+      { r: 255, g: 255, b: 0 },
+      { r: 0, g: 255, b: 255 },
+      { r: 255, g: 0, b: 255 },
+    ],
+  },
+] as const satisfies readonly {
+  id: string;
+  label: string;
+  colors: RgbColor[];
+}[];
+
+type RetroPaletteId = (typeof RETRO_PALETTES)[number]["id"];
+type PaletteModeId = "auto" | RetroPaletteId;
+
 interface GridSize {
   gridWidth: number;
   gridHeight: number;
@@ -45,6 +114,9 @@ interface GridSize {
 interface PixelArtParams extends GridSize {
   colorCount: number;
   sampling: PixelArtSampling;
+  contrastPercent: number;
+  saturationPercent: number;
+  paletteModeId: PaletteModeId;
   showGrid: boolean;
   upscaleFactor: number;
 }
@@ -53,15 +125,19 @@ interface PixelArtResultState {
   fileName: string;
   gridWidth: number;
   gridHeight: number;
-  colorCount: number;
+  gridImage: RgbaImage;
   palette: RgbColor[];
   previewBlob: Blob;
   pngBlob: Blob;
 }
 
+function rgbToCss(color: RgbColor): string {
+  return `rgb(${color.r}, ${color.g}, ${color.b})`;
+}
+
 /**
  * 画像をドット絵(マス目+減色パレット)に変換するツール。
- * 量子化(median-cut)・ダウンサンプリングは自前実装(lib/pixelArt.ts)で、
+ * ダウンサンプリング・median-cut量子化・コントラスト/彩度調整は自前実装(lib/pixelArt.ts)で、
  * 外部ライブラリ・外部AIサービスは使用しない。
  */
 export function PixelArtTool(): ReactElement {
@@ -70,6 +146,9 @@ export function PixelArtTool(): ReactElement {
   const [customGridHeight, setCustomGridHeight] = useState(24);
   const [colorCount, setColorCount] = useState(16);
   const [sampling, setSampling] = useState<PixelArtSampling>("average");
+  const [contrastPercent, setContrastPercent] = useState(0);
+  const [saturationPercent, setSaturationPercent] = useState(0);
+  const [paletteModeId, setPaletteModeId] = useState<PaletteModeId>("auto");
   const [showGrid, setShowGrid] = useState(true);
   const [upscaleFactor, setUpscaleFactor] = useState(8);
   const [result, setResult] = useState<PixelArtResultState | null>(null);
@@ -91,6 +170,9 @@ export function PixelArtTool(): ReactElement {
     ...resolveGridSize(gridPresetId),
     colorCount,
     sampling,
+    contrastPercent,
+    saturationPercent,
+    paletteModeId,
     showGrid,
     upscaleFactor,
     ...overrides,
@@ -98,6 +180,20 @@ export function PixelArtTool(): ReactElement {
 
   const reprocessWith = (overrides: Partial<PixelArtParams>): void => {
     if (lastFile !== null) processFile(lastFile, buildParams(overrides));
+  };
+
+  const buildOutputs = async (
+    gridImage: RgbaImage,
+    scale: number,
+    withGridLines: boolean,
+  ): Promise<{ previewBlob: Blob; pngBlob: Blob }> => {
+    const upscaledCanvas = upscalePixelArtCanvas(gridImage, scale);
+    const pngBlob = await canvasToBlob(upscaledCanvas, "image/png");
+    const previewCanvas = withGridLines
+      ? withGridOverlay(upscaledCanvas, scale)
+      : upscaledCanvas;
+    const previewBlob = await canvasToBlob(previewCanvas, "image/png");
+    return { previewBlob, pngBlob };
   };
 
   const processFile = (file: File, params: PixelArtParams): void => {
@@ -117,31 +213,62 @@ export function PixelArtTool(): ReactElement {
       const image = await loadImageFromFile(file);
       const sourceCanvas = drawImageToCanvas(image);
       const sourceImageData = getCanvasImageData(sourceCanvas);
-      const { image: gridImage, palette } = convertToPixelArt(sourceImageData, {
-        gridWidth: params.gridWidth,
-        gridHeight: params.gridHeight,
-        colorCount: params.colorCount,
-        sampling: params.sampling,
-      });
-      const upscaledCanvas = upscalePixelArtCanvas(
+      const grid = downsampleToGrid(
+        sourceImageData,
+        params.gridWidth,
+        params.gridHeight,
+        params.sampling,
+      );
+      const adjusted = applyColorAdjustments(
+        grid,
+        params.contrastPercent,
+        params.saturationPercent,
+      );
+      const { image: gridImage, palette } =
+        params.paletteModeId === "auto"
+          ? quantizeImageColors(adjusted, params.colorCount)
+          : quantizeToFixedPalette(
+              adjusted,
+              RETRO_PALETTES.find((p) => p.id === params.paletteModeId)!.colors,
+            );
+      const outputs = await buildOutputs(
         gridImage,
         params.upscaleFactor,
+        params.showGrid,
       );
-      const pngBlob = await canvasToBlob(upscaledCanvas, "image/png");
-      const previewCanvas = params.showGrid
-        ? withGridOverlay(upscaledCanvas, params.upscaleFactor)
-        : upscaledCanvas;
-      const previewBlob = await canvasToBlob(previewCanvas, "image/png");
       setResult({
         fileName: replaceExtension(file.name, "png"),
         gridWidth: params.gridWidth,
         gridHeight: params.gridHeight,
-        colorCount: palette.length,
+        gridImage,
         palette,
-        previewBlob,
-        pngBlob,
+        ...outputs,
       });
       setLastFile(file);
+    });
+  };
+
+  const handleRecolor = (index: number, hex: string): void => {
+    if (result === null) return;
+    run(async () => {
+      const parsed = parseHexColor(hex);
+      const { image: nextGridImage, palette: nextPalette } =
+        replacePaletteColor(result.gridImage, result.palette, index, {
+          r: parsed.r,
+          g: parsed.g,
+          b: parsed.b,
+        });
+      const outputs = await buildOutputs(
+        nextGridImage,
+        upscaleFactor,
+        showGrid,
+      );
+      setResult({
+        ...result,
+        gridImage: nextGridImage,
+        palette: nextPalette,
+        ...outputs,
+      });
     });
   };
 
@@ -210,19 +337,6 @@ export function PixelArtTool(): ReactElement {
           マス
         </div>
       )}
-      <LabeledSlider
-        label="色数(パレット圧縮)"
-        min={2}
-        max={64}
-        step={1}
-        value={colorCount}
-        unit="色"
-        disabled={isProcessing}
-        onChange={(value) => {
-          setColorCount(value);
-          reprocessWith({ colorCount: value });
-        }}
-      />
       <fieldset className="flex flex-wrap items-center gap-4 text-sm text-ink">
         <legend className="mb-2 text-sm font-medium">サンプリング方式</legend>
         <label className="flex items-center gap-1.5">
@@ -254,6 +368,102 @@ export function PixelArtTool(): ReactElement {
           代表色(くっきり)
         </label>
       </fieldset>
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <LabeledSlider
+          label="コントラスト"
+          min={-100}
+          max={100}
+          step={5}
+          value={contrastPercent}
+          unit="%"
+          disabled={isProcessing}
+          onChange={(value) => {
+            setContrastPercent(value);
+            reprocessWith({ contrastPercent: value });
+          }}
+        />
+        <LabeledSlider
+          label="彩度"
+          min={-100}
+          max={100}
+          step={5}
+          value={saturationPercent}
+          unit="%"
+          disabled={isProcessing}
+          onChange={(value) => {
+            setSaturationPercent(value);
+            reprocessWith({ saturationPercent: value });
+          }}
+        />
+      </div>
+      <div>
+        <span className="mb-1.5 block text-sm font-medium text-ink">
+          パレット
+        </span>
+        <div
+          className="flex flex-wrap gap-1.5"
+          role="group"
+          aria-label="パレットを選ぶ"
+        >
+          <button
+            type="button"
+            aria-pressed={paletteModeId === "auto"}
+            disabled={isProcessing}
+            onClick={() => {
+              setPaletteModeId("auto");
+              reprocessWith({ paletteModeId: "auto" });
+            }}
+            className={`rounded-full border px-3 py-1.5 text-sm ${
+              paletteModeId === "auto"
+                ? "border-ink-strong bg-ink-strong text-ink-inverted"
+                : "border-line-strong bg-surface text-ink"
+            }`}
+          >
+            自動(色数指定)
+          </button>
+          {RETRO_PALETTES.map((preset) => (
+            <button
+              key={preset.id}
+              type="button"
+              aria-pressed={paletteModeId === preset.id}
+              disabled={isProcessing}
+              onClick={() => {
+                setPaletteModeId(preset.id);
+                reprocessWith({ paletteModeId: preset.id });
+              }}
+              className={`flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-sm ${
+                paletteModeId === preset.id
+                  ? "border-ink-strong bg-ink-strong text-ink-inverted"
+                  : "border-line-strong bg-surface text-ink"
+              }`}
+            >
+              <span className="flex gap-0.5">
+                {preset.colors.map((color, index) => (
+                  <span
+                    key={index}
+                    className="size-2.5 rounded-full border border-line-subtle"
+                    style={{ backgroundColor: rgbToCss(color) }}
+                  />
+                ))}
+              </span>
+              {preset.label}
+            </button>
+          ))}
+        </div>
+      </div>
+      <LabeledSlider
+        label="色数(パレット圧縮、「自動」選択時のみ有効)"
+        min={2}
+        max={64}
+        step={1}
+        value={colorCount}
+        unit="色"
+        disabled={isProcessing || paletteModeId !== "auto"}
+        onChange={(value) => {
+          setColorCount(value);
+          reprocessWith({ colorCount: value });
+        }}
+      />
       <div className="flex flex-wrap items-center gap-4">
         <label className="flex items-center gap-2 text-sm text-ink">
           <input
@@ -307,7 +517,7 @@ export function PixelArtTool(): ReactElement {
         <div className="space-y-3 rounded-lg border border-line bg-surface p-4">
           <p className="text-sm text-ink-soft">
             {result.gridWidth}×{result.gridHeight}マス・使用色数{" "}
-            {result.colorCount}色
+            {result.palette.length}色
           </p>
           <div
             className={`inline-block rounded border border-line-subtle p-2 ${CHECKER_PATTERN_CLASS}`}
@@ -322,16 +532,24 @@ export function PixelArtTool(): ReactElement {
             )}
           </div>
           {result.palette.length > 0 && (
-            <div className="flex flex-wrap gap-1">
+            <div className="flex flex-wrap gap-1.5">
               {result.palette.map((color, index) => (
-                <span
+                <label
                   key={index}
-                  title={`rgb(${color.r}, ${color.g}, ${color.b})`}
-                  className="size-5 rounded border border-line-subtle"
-                  style={{
-                    backgroundColor: `rgb(${color.r}, ${color.g}, ${color.b})`,
-                  }}
-                />
+                  title={`クリックで色を変更(現在: ${rgbToCss(color)})`}
+                  className="relative block size-6 cursor-pointer overflow-hidden rounded border border-line-subtle"
+                  style={{ backgroundColor: rgbToCss(color) }}
+                >
+                  <input
+                    type="color"
+                    value={formatHex({ ...color, a: 1 })}
+                    disabled={isProcessing}
+                    onChange={(event) =>
+                      handleRecolor(index, event.target.value)
+                    }
+                    className="absolute inset-0 size-full cursor-pointer opacity-0"
+                  />
+                </label>
               ))}
             </div>
           )}

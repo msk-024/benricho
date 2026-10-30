@@ -1,9 +1,12 @@
 import { describe, expect, it } from "vitest";
 import type { RgbaImage } from "./imageOps";
 import {
+  applyColorAdjustments,
   convertToPixelArt,
   downsampleToGrid,
   quantizeImageColors,
+  quantizeToFixedPalette,
+  replacePaletteColor,
 } from "./pixelArt";
 
 /** テスト用の単色画像を生成する */
@@ -173,5 +176,138 @@ describe("convertToPixelArt", () => {
     expect(result.width).toBe(8);
     expect(result.height).toBe(8);
     expect(palette.length).toBeLessThanOrEqual(6);
+  });
+
+  it("コントラスト/彩度の調整つきでも指定サイズ・色数以下の結果を返す", () => {
+    const image = makeImage(20, 20, [0, 0, 0, 255]);
+    for (let y = 0; y < 20; y++) {
+      for (let x = 0; x < 20; x++) {
+        setPixel(image, x, y, [(x * 10) % 256, (y * 10) % 256, 100, 255]);
+      }
+    }
+    const { image: result, palette } = convertToPixelArt(image, {
+      gridWidth: 4,
+      gridHeight: 4,
+      colorCount: 4,
+      sampling: "average",
+      contrastPercent: 40,
+      saturationPercent: -30,
+    });
+    expect(result.width).toBe(4);
+    expect(result.height).toBe(4);
+    expect(palette.length).toBeLessThanOrEqual(4);
+  });
+});
+
+describe("quantizeToFixedPalette", () => {
+  it("各不透明画素を固定パレット内の最も近い色にマッピングする", () => {
+    const image = makeImage(2, 1, [0, 0, 0, 255]);
+    setPixel(image, 0, 0, [10, 10, 10, 255]); // 黒に近い
+    setPixel(image, 1, 0, [240, 240, 240, 255]); // 白に近い
+    const fixedPalette = [
+      { r: 0, g: 0, b: 0 },
+      { r: 255, g: 255, b: 255 },
+    ];
+    const { image: result, palette } = quantizeToFixedPalette(
+      image,
+      fixedPalette,
+    );
+    expect(palette).toEqual(fixedPalette);
+    expect(getPixel(result, 0, 0)).toEqual([0, 0, 0, 255]);
+    expect(getPixel(result, 1, 0)).toEqual([255, 255, 255, 255]);
+  });
+
+  it("透明画素はそのまま透明を維持する", () => {
+    const image = makeImage(1, 1, [255, 0, 0, 0]);
+    const { image: result } = quantizeToFixedPalette(image, [
+      { r: 0, g: 0, b: 0 },
+    ]);
+    expect(getPixel(result, 0, 0)[3]).toBe(0);
+  });
+
+  it("空パレットはRangeErrorを投げる", () => {
+    const image = makeImage(1, 1, [0, 0, 0, 255]);
+    expect(() => quantizeToFixedPalette(image, [])).toThrow(RangeError);
+  });
+});
+
+describe("replacePaletteColor", () => {
+  it("指定インデックスの色だけが新しい色に置き換わる", () => {
+    const image = makeImage(2, 1, [0, 0, 0, 255]);
+    setPixel(image, 0, 0, [255, 0, 0, 255]);
+    setPixel(image, 1, 0, [0, 255, 0, 255]);
+    const palette = [
+      { r: 255, g: 0, b: 0 },
+      { r: 0, g: 255, b: 0 },
+    ];
+    const { image: result, palette: nextPalette } = replacePaletteColor(
+      image,
+      palette,
+      0,
+      { r: 0, g: 0, b: 255 },
+    );
+    expect(nextPalette).toEqual([
+      { r: 0, g: 0, b: 255 },
+      { r: 0, g: 255, b: 0 },
+    ]);
+    expect(getPixel(result, 0, 0)).toEqual([0, 0, 255, 255]);
+    expect(getPixel(result, 1, 0)).toEqual([0, 255, 0, 255]); // 無関係の色は不変
+  });
+
+  it("透明画素は置換対象にならない", () => {
+    const image = makeImage(1, 1, [255, 0, 0, 0]);
+    const { image: result } = replacePaletteColor(
+      image,
+      [{ r: 255, g: 0, b: 0 }],
+      0,
+      { r: 0, g: 0, b: 0 },
+    );
+    expect(getPixel(result, 0, 0)).toEqual([255, 0, 0, 0]);
+  });
+
+  it("範囲外のpaletteIndexはRangeErrorを投げる", () => {
+    const image = makeImage(1, 1, [0, 0, 0, 255]);
+    expect(() =>
+      replacePaletteColor(image, [{ r: 0, g: 0, b: 0 }], 1, {
+        r: 255,
+        g: 255,
+        b: 255,
+      }),
+    ).toThrow(RangeError);
+  });
+});
+
+describe("applyColorAdjustments", () => {
+  it("コントラスト0%・彩度0%は画像を変化させない", () => {
+    const image = makeImage(2, 1, [0, 0, 0, 255]);
+    setPixel(image, 0, 0, [10, 200, 50, 255]);
+    const result = applyColorAdjustments(image, 0, 0);
+    expect(getPixel(result, 0, 0)).toEqual([10, 200, 50, 255]);
+  });
+
+  it("彩度-100%はグレースケール(輝度ベース)になる", () => {
+    const image = makeImage(1, 1, [255, 0, 0, 255]);
+    const result = applyColorAdjustments(image, 0, -100);
+    const [r, g, b] = getPixel(result, 0, 0);
+    expect(r).toBe(g);
+    expect(g).toBe(b);
+  });
+
+  it("コントラスト+100%は128を基準に差を2倍に広げる", () => {
+    const image = makeImage(1, 1, [178, 78, 128, 255]); // 128から+50,-50,±0
+    const result = applyColorAdjustments(image, 100, 0);
+    expect(getPixel(result, 0, 0)).toEqual([228, 28, 128, 255]);
+  });
+
+  it("透明画素(alpha=0)は変化しない", () => {
+    const image = makeImage(1, 1, [10, 20, 30, 0]);
+    const result = applyColorAdjustments(image, 80, 80);
+    expect(getPixel(result, 0, 0)).toEqual([10, 20, 30, 0]);
+  });
+
+  it("事前条件違反でRangeErrorを投げる", () => {
+    const image = makeImage(1, 1, [0, 0, 0, 255]);
+    expect(() => applyColorAdjustments(image, 101, 0)).toThrow(RangeError);
+    expect(() => applyColorAdjustments(image, 0, -101)).toThrow(RangeError);
   });
 });
