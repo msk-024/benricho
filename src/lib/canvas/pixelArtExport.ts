@@ -31,6 +31,35 @@ export function upscalePixelArtCanvas(
   return canvas;
 }
 
+/** SVGなどベクター画像を取り込む際、十分な解像度でラスタライズするための長辺目標サイズ(px) */
+const VECTOR_RASTER_TARGET_PX = 1024;
+
+/**
+ * SVGなどベクター画像(HTMLImageElement)を、小さいviewBoxのままでも細部が潰れないよう
+ * 長辺が VECTOR_RASTER_TARGET_PX になる解像度で再ラスタライズする。
+ * ラスター画像(PNG/JPG等)はこの関数を使わず drawImageToCanvas で等倍のまま扱う。
+ *
+ * @precondition image は decode 済みで naturalWidth/naturalHeight が1以上
+ * @throws {RangeError} 事前条件に違反した場合
+ */
+export function rasterizeVectorImage(
+  image: HTMLImageElement,
+): HTMLCanvasElement {
+  const naturalWidth = image.naturalWidth;
+  const naturalHeight = image.naturalHeight;
+  if (naturalWidth < 1 || naturalHeight < 1) {
+    throw new RangeError(
+      `ベクター画像のサイズを取得できませんでした(width/heightまたはviewBoxの指定を確認してください): ${naturalWidth}×${naturalHeight}`,
+    );
+  }
+  const scale = VECTOR_RASTER_TARGET_PX / Math.max(naturalWidth, naturalHeight);
+  const width = Math.max(1, Math.round(naturalWidth * scale));
+  const height = Math.max(1, Math.round(naturalHeight * scale));
+  const { canvas, context } = createCanvas(width, height);
+  context.drawImage(image, 0, 0, width, height);
+  return canvas;
+}
+
 /**
  * 拡大済みCanvasの上にマス目の境界線を描き足したコピーを返す(プレビュー専用)。
  * 書き出しファイルにはこの線を含めない(元のCanvasは変更しない)。

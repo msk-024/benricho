@@ -13,6 +13,7 @@ import {
   loadImageFromFile,
 } from "../lib/canvas/canvasUtils";
 import {
+  rasterizeVectorImage,
   upscalePixelArtCanvas,
   withGridOverlay,
 } from "../lib/canvas/pixelArtExport";
@@ -29,6 +30,7 @@ import {
   type PixelArtSampling,
   type RgbColor,
 } from "../lib/pixelArt";
+import { pixelArtToSvg } from "../lib/pixelArtSvg";
 
 const GRID_PRESETS = [
   { id: "8", label: "8 × 8(超ミニ、ロゴ・単純な形向け)", size: 8 },
@@ -231,7 +233,12 @@ export function PixelArtTool(): ReactElement {
         );
       }
       const image = await loadImageFromFile(file);
-      const sourceCanvas = drawImageToCanvas(image);
+      const isVector =
+        file.type === "image/svg+xml" ||
+        file.name.toLowerCase().endsWith(".svg");
+      const sourceCanvas = isVector
+        ? rasterizeVectorImage(image)
+        : drawImageToCanvas(image);
       const sourceImageData = getCanvasImageData(sourceCanvas);
       const grid = downsampleToGrid(
         sourceImageData,
@@ -523,9 +530,9 @@ export function PixelArtTool(): ReactElement {
         </label>
       </div>
       <FileDrop
-        accept="image/png,image/jpeg,image/webp"
+        accept="image/png,image/jpeg,image/webp,image/svg+xml"
         disabled={isProcessing}
-        description="PNG / JPG / WebP(1ファイル)"
+        description="PNG / JPG / WebP / SVG(1ファイル)"
         onFiles={(files) => processFile(files[0], buildParams())}
       />
       <ToolStatus
@@ -573,13 +580,27 @@ export function PixelArtTool(): ReactElement {
               ))}
             </div>
           )}
-          <button
-            type="button"
-            onClick={() => downloadBlob(result.pngBlob, result.fileName)}
-            className="rounded-lg bg-action-primary px-4 py-2 text-sm font-medium text-ink-inverted hover:bg-action-primary-hover"
-          >
-            PNGをダウンロード
-          </button>
+          <div className="flex flex-wrap gap-2">
+            <button
+              type="button"
+              onClick={() => downloadBlob(result.pngBlob, result.fileName)}
+              className="rounded-lg bg-action-primary px-4 py-2 text-sm font-medium text-ink-inverted hover:bg-action-primary-hover"
+            >
+              PNGをダウンロード
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                const svgBlob = new Blob([pixelArtToSvg(result.gridImage)], {
+                  type: "image/svg+xml",
+                });
+                downloadBlob(svgBlob, replaceExtension(result.fileName, "svg"));
+              }}
+              className="rounded-lg border border-line-strong bg-surface px-4 py-2 text-sm font-medium text-ink hover:bg-surface-muted"
+            >
+              SVGをダウンロード(拡大しても劣化なし)
+            </button>
+          </div>
         </div>
       )}
     </div>
