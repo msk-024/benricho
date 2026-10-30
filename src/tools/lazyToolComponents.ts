@@ -23,6 +23,9 @@ export const FaviconTool = lazy(() =>
 export const IcoConvertTool = lazy(() =>
   import("./IcoConvertTool").then((m) => ({ default: m.IcoConvertTool })),
 );
+export const PixelArtTool = lazy(() =>
+  import("./PixelArtTool").then((m) => ({ default: m.PixelArtTool })),
+);
 export const ExifRemoveTool = lazy(() =>
   import("./ExifRemoveTool").then((m) => ({ default: m.ExifRemoveTool })),
 );

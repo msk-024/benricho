@@ -15,6 +15,7 @@ import {
   PdfCompressTool,
   PdfMergeTool,
   PdfSplitTool,
+  PixelArtTool,
   ScreenshotTrimTool,
   StampSheetTool,
   StyleIndexTool,
@@ -87,6 +88,14 @@ export const TOOL_DEFINITIONS: readonly ToolDefinition[] = [
     description: "画像を複数サイズ内包のICOファイルに変換します",
     category: "画像",
     component: IcoConvertTool,
+  },
+  {
+    id: "pixel-art",
+    name: "ドット絵変換",
+    description:
+      "画像をマス目+減色パレットのドット絵に変換します(拡大書き出し対応)",
+    category: "画像",
+    component: PixelArtTool,
   },
   {
     id: "exif-remove",
