@@ -41,6 +41,21 @@ const GRID_PRESETS = [
 type GridPresetId = (typeof GRID_PRESETS)[number]["id"];
 const MAX_GRID_SIZE = 128;
 
+/**
+ * プレビュー表示の目標サイズ(px、CSSのmax-h-80=320pxに合わせる)。
+ * ブラウザは拡大表示では image-rendering:pixelated をクッキリ描画できるが、
+ * 縮小表示では効かずぼやけることがあるため、プレビューはこのサイズを超えないよう
+ * マス目数から逆算した倍率で生成し、縮小が発生しないようにする(書き出し倍率とは独立)。
+ */
+const PREVIEW_TARGET_PX = 320;
+
+function computePreviewScale(gridWidth: number, gridHeight: number): number {
+  return Math.max(
+    1,
+    Math.floor(PREVIEW_TARGET_PX / Math.max(gridWidth, gridHeight)),
+  );
+}
+
 const UPSCALE_FACTORS = [1, 4, 8, 16, 32] as const;
 
 /** 定番レトロパレット(ワンクリック適用用)。色数自動指定の代わりに固定色で量子化する */
@@ -184,15 +199,20 @@ export function PixelArtTool(): ReactElement {
 
   const buildOutputs = async (
     gridImage: RgbaImage,
-    scale: number,
+    downloadScale: number,
     withGridLines: boolean,
   ): Promise<{ previewBlob: Blob; pngBlob: Blob }> => {
-    const upscaledCanvas = upscalePixelArtCanvas(gridImage, scale);
-    const pngBlob = await canvasToBlob(upscaledCanvas, "image/png");
+    const downloadCanvas = upscalePixelArtCanvas(gridImage, downloadScale);
+    const pngBlob = await canvasToBlob(downloadCanvas, "image/png");
+
+    // プレビューは書き出し倍率と無関係に、縮小表示が発生しないスケールで別途生成する
+    const previewScale = computePreviewScale(gridImage.width, gridImage.height);
+    const previewBaseCanvas = upscalePixelArtCanvas(gridImage, previewScale);
     const previewCanvas = withGridLines
-      ? withGridOverlay(upscaledCanvas, scale)
-      : upscaledCanvas;
+      ? withGridOverlay(previewBaseCanvas, previewScale)
+      : previewBaseCanvas;
     const previewBlob = await canvasToBlob(previewCanvas, "image/png");
+
     return { previewBlob, pngBlob };
   };
 
