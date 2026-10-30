@@ -31,10 +31,10 @@ import {
 } from "../lib/pixelArt";
 
 const GRID_PRESETS = [
-  { id: "8", label: "8 × 8(超ミニ)", size: 8 },
-  { id: "16", label: "16 × 16(レトロ標準)", size: 16 },
-  { id: "32", label: "32 × 32", size: 32 },
-  { id: "64", label: "64 × 64", size: 64 },
+  { id: "8", label: "8 × 8(超ミニ、ロゴ・単純な形向け)", size: 8 },
+  { id: "16", label: "16 × 16(シンプルな画像向け)", size: 16 },
+  { id: "32", label: "32 × 32(標準、人物・キャラクター向け)", size: 32 },
+  { id: "64", label: "64 × 64(高精細)", size: 64 },
   { id: "custom", label: "カスタム", size: 0 },
 ] as const;
 
@@ -156,11 +156,11 @@ function rgbToCss(color: RgbColor): string {
  * 外部ライブラリ・外部AIサービスは使用しない。
  */
 export function PixelArtTool(): ReactElement {
-  const [gridPresetId, setGridPresetId] = useState<GridPresetId>("16");
+  const [gridPresetId, setGridPresetId] = useState<GridPresetId>("32");
   const [customGridWidth, setCustomGridWidth] = useState(24);
   const [customGridHeight, setCustomGridHeight] = useState(24);
   const [colorCount, setColorCount] = useState(16);
-  const [sampling, setSampling] = useState<PixelArtSampling>("dominant");
+  const [sampling, setSampling] = useState<PixelArtSampling>("average");
   const [contrastPercent, setContrastPercent] = useState(0);
   const [saturationPercent, setSaturationPercent] = useState(0);
   const [paletteModeId, setPaletteModeId] = useState<PaletteModeId>("auto");
