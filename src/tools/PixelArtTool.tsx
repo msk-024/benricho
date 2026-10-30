@@ -330,13 +330,15 @@ export function PixelArtTool(): ReactElement {
               max={MAX_GRID_SIZE}
               value={customGridWidth}
               disabled={isProcessing}
-              onChange={(event) => {
-                const value = Number(event.target.value);
-                setCustomGridWidth(value);
-                reprocessWith({
-                  gridWidth: value,
-                  gridHeight: customGridHeight,
-                });
+              onChange={(event) =>
+                setCustomGridWidth(Number(event.target.value))
+              }
+              onKeyDown={(event) => {
+                if (event.key === "Enter")
+                  reprocessWith({
+                    gridWidth: customGridWidth,
+                    gridHeight: customGridHeight,
+                  });
               }}
               className="w-20 rounded-lg border border-line-strong px-2 py-1.5"
             />
@@ -350,18 +352,33 @@ export function PixelArtTool(): ReactElement {
               max={MAX_GRID_SIZE}
               value={customGridHeight}
               disabled={isProcessing}
-              onChange={(event) => {
-                const value = Number(event.target.value);
-                setCustomGridHeight(value);
-                reprocessWith({
-                  gridWidth: customGridWidth,
-                  gridHeight: value,
-                });
+              onChange={(event) =>
+                setCustomGridHeight(Number(event.target.value))
+              }
+              onKeyDown={(event) => {
+                if (event.key === "Enter")
+                  reprocessWith({
+                    gridWidth: customGridWidth,
+                    gridHeight: customGridHeight,
+                  });
               }}
               className="w-20 rounded-lg border border-line-strong px-2 py-1.5"
             />
           </label>
           マス
+          <button
+            type="button"
+            disabled={isProcessing}
+            onClick={() =>
+              reprocessWith({
+                gridWidth: customGridWidth,
+                gridHeight: customGridHeight,
+              })
+            }
+            className="rounded-lg border border-line-strong bg-surface px-3 py-1.5 text-sm font-medium text-ink hover:bg-surface-muted disabled:cursor-not-allowed disabled:opacity-50"
+          >
+            適用
+          </button>
         </div>
       )}
       <fieldset className="flex flex-wrap items-center gap-4 text-sm text-ink">
