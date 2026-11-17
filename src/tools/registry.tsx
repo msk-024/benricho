@@ -4,6 +4,7 @@ import {
   BgRemoveTool,
   ColorConvertTool,
   CsvToMarkdownTool,
+  ExcelToMarkdownTool,
   ExifRemoveTool,
   FaviconTool,
   IcoConvertTool,
@@ -15,6 +16,7 @@ import {
   PdfCompressTool,
   PdfMergeTool,
   PdfSplitTool,
+  PdfToMarkdownTool,
   PixelArtTool,
   ScreenshotTrimTool,
   StampSheetTool,
@@ -23,6 +25,7 @@ import {
   TextCountTool,
   UnitConvertTool,
   WebpConvertTool,
+  WordToMarkdownTool,
 } from "./lazyToolComponents";
 
 export type ToolCategory =
@@ -140,6 +143,29 @@ export const TOOL_DEFINITIONS: readonly ToolDefinition[] = [
     description: "CSV を Markdown のテーブル記法に変換します",
     category: "ドキュメント",
     component: CsvToMarkdownTool,
+  },
+  {
+    id: "pdf-to-markdown",
+    name: "PDF→Markdown変換",
+    description:
+      "PDFのテキストを抽出しMarkdown化します(AIに読み込ませやすくする用途)",
+    category: "ドキュメント",
+    component: PdfToMarkdownTool,
+  },
+  {
+    id: "word-to-markdown",
+    name: "Word→Markdown変換",
+    description:
+      "Word(.docx)を見出し・リスト・表を保持してMarkdownに変換します",
+    category: "ドキュメント",
+    component: WordToMarkdownTool,
+  },
+  {
+    id: "excel-to-markdown",
+    name: "Excel→Markdown変換",
+    description: "Excel(.xlsx)の各シートをMarkdownの表に変換します",
+    category: "ドキュメント",
+    component: ExcelToMarkdownTool,
   },
   {
     id: "text-count",

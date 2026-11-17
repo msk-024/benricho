@@ -12,7 +12,7 @@ WebP変換 / SVG変換(トレース) / 背景透過 / 画像リサイズ(SNS・O
 本体(370×320) / メイン(240×240) / タブ(96×74)の3サイズを一括書き出し+規則的ファイル名採番 / シート画像からの自動切り分け
 
 **ドキュメント系**
-Markdown→Word/PDF/HTML変換 / CSV→Markdown表変換 / 文字数カウント・全角半角統一 / PDF結合・分割・ページ抽出・圧縮 / 画像→PDF一括変換
+Markdown→Word/PDF/HTML変換 / CSV→Markdown表変換 / PDF→Markdown変換 / Word→Markdown変換 / Excel→Markdown変換(AIに読み込ませやすくする用途) / 文字数カウント・全角半角統一 / PDF結合・分割・ページ抽出・圧縮 / 画像→PDF一括変換
 
 **Web制作**
 px⇔rem/em/pt変換 / 縦横比・高さ計算 / カラーコード変換(HEX⇔RGB⇔HSL)

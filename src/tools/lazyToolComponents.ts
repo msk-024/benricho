@@ -50,6 +50,21 @@ export const CsvToMarkdownTool = lazy(() =>
     default: m.CsvToMarkdownTool,
   })),
 );
+export const PdfToMarkdownTool = lazy(() =>
+  import("./PdfToMarkdownTool").then((m) => ({
+    default: m.PdfToMarkdownTool,
+  })),
+);
+export const WordToMarkdownTool = lazy(() =>
+  import("./WordToMarkdownTool").then((m) => ({
+    default: m.WordToMarkdownTool,
+  })),
+);
+export const ExcelToMarkdownTool = lazy(() =>
+  import("./ExcelToMarkdownTool").then((m) => ({
+    default: m.ExcelToMarkdownTool,
+  })),
+);
 export const TextCountTool = lazy(() =>
   import("./TextCountTool").then((m) => ({ default: m.TextCountTool })),
 );

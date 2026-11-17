@@ -1,4 +1,5 @@
 import Papa from "papaparse";
+import { rowsToMarkdownTable } from "./markdownTable";
 
 export interface CsvToMarkdownOptions {
   /** 1 行目をヘッダー行として扱うか。false の場合は「列1, 列2, …」を自動生成する */
@@ -24,46 +25,5 @@ export function csvToMarkdownTable(
   if (fatalError !== undefined) {
     throw new Error(`CSVの解析に失敗しました: ${fatalError.message}`);
   }
-  const rows = parsed.data;
-  if (rows.length === 0) throw new Error("CSVにデータ行がありません");
-  if (options.hasHeaderRow && rows.length === 1) {
-    throw new Error("ヘッダー行のみでデータ行がありません");
-  }
-
-  // Math.max(...rows.map(...)) は行数が多いとスプレッド引数の上限で
-  // スタックオーバーフローしうるため、reduce で最大値を求める
-  const columnCount = rows.reduce((max, row) => Math.max(max, row.length), 0);
-  const headerCells = options.hasHeaderRow
-    ? (rows.at(0) ?? [])
-    : buildDefaultHeader(columnCount);
-  const bodyRows = options.hasHeaderRow ? rows.slice(1) : rows;
-  const separatorCells = Array.from({ length: columnCount }, () => "---");
-
-  return [
-    toMarkdownRow(headerCells, columnCount),
-    `| ${separatorCells.join(" | ")} |`,
-    ...bodyRows.map((row) => toMarkdownRow(row, columnCount)),
-  ].join("\n");
-}
-
-function buildDefaultHeader(columnCount: number): string[] {
-  return Array.from({ length: columnCount }, (_, index) => `列${index + 1}`);
-}
-
-/** 列数に満たない行は空セルで埋めて Markdown の行として整形する */
-function toMarkdownRow(cells: readonly string[], columnCount: number): string {
-  const padded = Array.from({ length: columnCount }, (_, index) =>
-    escapeMarkdownCell(cells[index] ?? ""),
-  );
-  return `| ${padded.join(" | ")} |`;
-}
-
-/** パイプ・バックスラッシュ・改行を Markdown 表セル内で安全な表現に変換する */
-function escapeMarkdownCell(cell: string): string {
-  return cell
-    .replaceAll("\\", "\\\\")
-    .replaceAll("|", "\\|")
-    .replaceAll("\r\n", "<br>")
-    .replaceAll("\n", "<br>")
-    .replaceAll("\r", "<br>");
+  return rowsToMarkdownTable(parsed.data, options);
 }
